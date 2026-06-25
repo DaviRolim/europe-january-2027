@@ -1,0 +1,29 @@
+name: Update flight prices
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 08:30 Recife time (UTC-3), daily
+    - cron: '30 11 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update-flights:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Update flight data
+        run: python scripts/update_flights.py
+      - name: Commit updated fares
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update flight prices'
+          file_pattern: data/flights.json
