@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-25T01:42:46+00:00",
+  "updated_at": "2026-06-25T01:43:29+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_date": "2027-01-10",
@@ -7,9 +7,9 @@
   "travelers": 2,
   "currency": "BRL",
   "source_note": "Best-effort automated Google Flights lookup via fast-flights. Always verify with the airline or booking site before buying.",
-  "best_destination": "CDG",
-  "best_destination_label": "Paris Charles de Gaulle",
-  "best_price_brl": 15520,
+  "best_destination": null,
+  "best_destination_label": null,
+  "best_price_brl": null,
   "routes": [
     {
       "origin": "REC",
@@ -35,119 +35,11 @@
       "depart_date": "2027-01-10",
       "return_date": "2027-01-25",
       "adults": 2,
-      "status": "ok",
-      "price_level": "typical",
-      "cheapest": {
-        "is_best": true,
-        "name": "Iberia",
-        "departure": "6:15 PM on Sun, Jan 10",
-        "arrival": "5:55 PM on Mon, Jan 11",
-        "arrival_time_ahead": "+1",
-        "duration": "19 hr 40 min",
-        "stops": 1,
-        "delay": null,
-        "price": "R$15520",
-        "price_brl": 15520
-      },
-      "flights": [
-        {
-          "is_best": true,
-          "name": "Iberia",
-          "departure": "6:15 PM on Sun, Jan 10",
-          "arrival": "5:55 PM on Mon, Jan 11",
-          "arrival_time_ahead": "+1",
-          "duration": "19 hr 40 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$15520",
-          "price_brl": 15520
-        },
-        {
-          "is_best": true,
-          "name": "Iberia",
-          "departure": "6:15 PM on Sun, Jan 10",
-          "arrival": "11:50 AM on Mon, Jan 11",
-          "arrival_time_ahead": "+1",
-          "duration": "13 hr 35 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$17103",
-          "price_brl": 17103
-        },
-        {
-          "is_best": false,
-          "name": "Iberia",
-          "departure": "6:15 PM on Sun, Jan 10",
-          "arrival": "11:50 PM on Mon, Jan 11",
-          "arrival_time_ahead": "+1",
-          "duration": "25 hr 35 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$17578",
-          "price_brl": 17578
-        },
-        {
-          "is_best": true,
-          "name": "Gol, Air France",
-          "departure": "3:15 PM on Sun, Jan 10",
-          "arrival": "11:45 AM on Mon, Jan 11",
-          "arrival_time_ahead": "+1",
-          "duration": "16 hr 30 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$17793",
-          "price_brl": 17793
-        },
-        {
-          "is_best": false,
-          "name": "Gol, Air France",
-          "departure": "5:30 AM on Sun, Jan 10",
-          "arrival": "11:45 AM on Mon, Jan 11",
-          "arrival_time_ahead": "+1",
-          "duration": "26 hr 15 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$17793",
-          "price_brl": 17793
-        },
-        {
-          "is_best": false,
-          "name": "Gol, Air France",
-          "departure": "10:50 AM on Sun, Jan 10",
-          "arrival": "11:45 AM on Mon, Jan 11",
-          "arrival_time_ahead": "+1",
-          "duration": "20 hr 55 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$17793",
-          "price_brl": 17793
-        },
-        {
-          "is_best": false,
-          "name": "Gol, Air France",
-          "departure": "3:40 AM on Sun, Jan 10",
-          "arrival": "6:05 AM on Mon, Jan 11",
-          "arrival_time_ahead": "+1",
-          "duration": "22 hr 25 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$17794",
-          "price_brl": 17794
-        },
-        {
-          "is_best": false,
-          "name": "Gol, Air France",
-          "departure": "12:55 PM on Sun, Jan 10",
-          "arrival": "11:50 AM on Mon, Jan 11",
-          "arrival_time_ahead": "+1",
-          "duration": "18 hr 55 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$17794",
-          "price_brl": 17794
-        }
-      ],
-      "error": null
+      "status": "error",
+      "price_level": null,
+      "cheapest": null,
+      "flights": [],
+      "error": "Temporarily unavailable — will retry automatically."
     },
     {
       "origin": "REC",
