@@ -118,10 +118,24 @@ def main() -> int:
 
     routes = [query_route(dest) for dest in ROUTES]
     ok_routes = [r for r in routes if (r.get("cheapest") or {}).get("price_brl")]
+
+    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    if not ok_routes and isinstance(previous, dict) and previous.get("best_price_brl"):
+        # Avoid replacing useful fare data with an all-failed anti-bot run.
+        previous["last_attempt_at"] = now
+        previous["last_attempt_note"] = "Latest automated lookup captured no fares; preserving last successful fare snapshot."
+        OUT.write_text(json.dumps(previous, indent=2, ensure_ascii=False) + "\n")
+        print(
+            f"No fares captured today; preserved last best fare R${previous['best_price_brl']:,} "
+            f"to {previous.get('best_destination_label')} ({previous.get('best_destination')}).".replace(",", ".")
+        )
+        print(f"Updated {OUT}")
+        return 0
+
     best = min(ok_routes, key=lambda r: (r["cheapest"] or {})["price_brl"]) if ok_routes else None
 
     payload = {
-        "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "updated_at": now,
         "origin": ORIGIN,
         "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
         "depart_date": DEPART_DATE,
