@@ -7,6 +7,7 @@
   <meta name="description" content="Plano da primeira viagem internacional de 15 dias pela França, Bélgica e Holanda." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://upload.wikimedia.org" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -32,20 +33,24 @@
         radial-gradient(circle at top left, rgba(37,99,235,.20), transparent 34rem),
         radial-gradient(circle at 85% 8%, rgba(249,115,22,.20), transparent 32rem),
         linear-gradient(180deg, #fffaf2 0%, var(--bg) 42%, #eef6ff 100%);
+      background-attachment: fixed;
     }
     a { color: inherit; }
     .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
     nav {
-      position: sticky; top: 0; z-index: 10;
+      position: sticky; top: 0; z-index: 30;
       backdrop-filter: blur(18px);
       background: rgba(248,245,239,.72);
       border-bottom: 1px solid var(--line);
     }
     nav .bar { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 16px; }
     .brand { font-weight: 800; letter-spacing: -.04em; }
-    .navlinks { display: flex; gap: 14px; flex-wrap: wrap; font-size: 14px; color: var(--muted); }
-    .navlinks a { text-decoration: none; }
-    .hero { padding: 76px 0 48px; }
+    .navlinks { display: flex; gap: 14px; flex-wrap: wrap; font-size: 14px; color: var(--muted); align-items: center; }
+    .navlinks a { text-decoration: none; transition: color .2s; }
+    .navlinks a:hover { color: var(--ink); }
+    .nav-count { font-weight: 800; color: var(--orange); font-variant-numeric: tabular-nums; }
+
+    .hero { padding: 76px 0 48px; position: relative; }
     .eyebrow { color: var(--orange); font-weight: 800; text-transform: uppercase; letter-spacing: .14em; font-size: 12px; }
     h1 { font-size: clamp(44px, 8vw, 88px); line-height: .9; letter-spacing: -.075em; margin: 16px 0 20px; max-width: 940px; }
     .lead { font-size: clamp(18px, 2.4vw, 24px); color: var(--muted); line-height: 1.45; max-width: 760px; }
@@ -59,13 +64,26 @@
     }
     .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
     .stat { padding: 18px; border-radius: 22px; background: rgba(255,255,255,.64); border: 1px solid var(--line); }
-    .stat b { display: block; font-size: 24px; letter-spacing: -.04em; }
+    .stat b { display: block; font-size: 24px; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
     .stat span { color: var(--muted); font-size: 13px; }
     .flight-card { background: #111827; color: white; overflow: hidden; position: relative; }
     .flight-card:after { content: ""; position: absolute; inset: auto -30% -45% 18%; height: 180px; background: radial-gradient(circle, rgba(37,99,235,.55), transparent 65%); }
     .flight-card h2, .flight-card p, .flight-card div { position: relative; z-index: 1; }
     .price { font-size: 44px; font-weight: 800; letter-spacing: -.07em; margin: 10px 0 6px; }
     .badge { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 8px 12px; background: rgba(255,255,255,.13); color: rgba(255,255,255,.9); font-weight: 700; font-size: 13px; }
+
+    /* ---- countdown ---- */
+    .countdown { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+    .cd-unit { min-width: 74px; text-align: center; padding: 12px 10px; border-radius: 18px; background: rgba(255,255,255,.66); border: 1px solid var(--line); }
+    .cd-unit b { display: block; font-size: 30px; letter-spacing: -.05em; font-variant-numeric: tabular-nums; line-height: 1; }
+    .cd-unit span { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+
+    /* ---- flying plane ---- */
+    .skyline { position: relative; height: 30px; margin-top: 26px; overflow: hidden; }
+    .skyline .track { position: absolute; top: 50%; left: 0; right: 0; border-top: 2px dashed rgba(37,99,235,.35); }
+    .plane { position: absolute; top: 50%; font-size: 22px; transform: translate(-40px,-50%); animation: fly 9s linear infinite; }
+    @keyframes fly { from { left: -6%; } to { left: 106%; } }
+
     section { padding: 48px 0; }
     .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 22px; }
     h2 { font-size: clamp(30px, 5vw, 48px); line-height: 1; letter-spacing: -.055em; margin: 0; }
@@ -76,28 +94,125 @@
     ul { padding-left: 20px; color: var(--muted); line-height: 1.7; }
     li strong { color: var(--ink); }
     .route { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-    .day { min-height: 170px; padding: 18px; border-radius: 22px; border: 1px solid var(--line); background: rgba(255,255,255,.7); }
+    .day { min-height: 170px; padding: 18px; border-radius: 22px; border: 1px solid var(--line); background: rgba(255,255,255,.7); transition: transform .25s, box-shadow .25s; }
+    .day:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
     .day b { color: var(--blue); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
     .day h3 { margin: 8px 0; letter-spacing: -.03em; }
     .checklists { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .checks label { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; color: var(--muted); border-bottom: 1px solid var(--line); }
+    .checks label { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; color: var(--muted); border-bottom: 1px solid var(--line); cursor: pointer; transition: color .2s; }
+    .checks label:hover { color: var(--ink); }
+    .checks label.done { color: var(--green); text-decoration: line-through; text-decoration-color: rgba(15,159,110,.5); }
+    .checks-progress { height: 8px; border-radius: 999px; background: rgba(31,41,51,.1); overflow: hidden; margin: 4px 0 14px; }
+    .checks-progress > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--green), #34d399); transition: width .4s ease; }
     input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--green); flex: 0 0 auto; margin-top: 2px; }
     .flight-table { display: grid; gap: 12px; }
     .flight-row { display: grid; grid-template-columns: .9fr 1fr 1fr .8fr .7fr; gap: 12px; align-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.7); }
     .flight-row.header { box-shadow: none; background: transparent; border: 0; padding: 0 14px 4px; color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
-.flight-row small, .muted { color: var(--muted); }
+    .flight-row small, .muted { color: var(--muted); }
     .ok { color: var(--green); font-weight: 800; }
     .error { color: var(--red); font-weight: 700; }
     footer { padding: 36px 0 60px; color: var(--muted); }
+
+    /* ---- clickable country cards ---- */
+    .country {
+      padding: 0; overflow: hidden; cursor: pointer;
+      transition: transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s;
+    }
+    .country:hover, .country:focus-visible { transform: translateY(-8px); box-shadow: 0 32px 90px rgba(31,41,51,.2); outline: none; }
+    .country .cover { position: relative; height: 190px; overflow: hidden; }
+    .country .cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; display: block; }
+    .country:hover .cover img { transform: scale(1.07); }
+    .country .cover .flag { position: absolute; top: 12px; left: 14px; font-size: 34px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.4)); }
+    .country .cover .grad { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(17,24,39,.55)); }
+    .country .cover .title { position: absolute; left: 16px; bottom: 12px; color: #fff; }
+    .country .cover .title h3 { margin: 0; font-size: 28px; letter-spacing: -.04em; }
+    .country .body { padding: 18px 20px 22px; }
+    .country .body ul { margin: 0 0 14px; }
+    .country .openhint { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: var(--blue); font-size: 14px; }
+    .country .openhint .arr { transition: transform .25s; }
+    .country:hover .openhint .arr { transform: translateX(4px); }
+
+    /* ---- modal ---- */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 50; display: none;
+      background: rgba(17,24,39,.55); backdrop-filter: blur(6px);
+      align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--bg); border-radius: 28px; width: min(960px, 100%);
+      box-shadow: 0 40px 120px rgba(0,0,0,.4); overflow: hidden;
+      animation: pop .32s cubic-bezier(.2,.9,.3,1.2); margin: auto;
+    }
+    @keyframes pop { from { opacity: 0; transform: translateY(24px) scale(.96); } to { opacity: 1; transform: none; } }
+    .modal-head { position: relative; height: 200px; overflow: hidden; }
+    .modal-head img { width: 100%; height: 100%; object-fit: cover; }
+    .modal-head .grad { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,24,39,.15), rgba(17,24,39,.7)); }
+    .modal-head .htitle { position: absolute; left: 24px; bottom: 16px; color: #fff; }
+    .modal-head .htitle h3 { margin: 0; font-size: 34px; letter-spacing: -.04em; }
+    .modal-head .htitle p { margin: 4px 0 0; opacity: .9; font-size: 14px; }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px; z-index: 2;
+      width: 40px; height: 40px; border-radius: 999px; border: 0; cursor: pointer;
+      background: rgba(255,255,255,.92); font-size: 20px; line-height: 1; color: #111827;
+      display: grid; place-items: center; transition: transform .2s;
+    }
+    .modal-close:hover { transform: rotate(90deg); }
+    .modal-body { padding: 22px 24px 28px; }
+    .places { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .place {
+      border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: rgba(255,255,255,.7);
+      display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s;
+    }
+    .place:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .place .ph { height: 150px; overflow: hidden; cursor: zoom-in; background: linear-gradient(135deg,#dbeafe,#fde68a); }
+    .place .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .place:hover .ph img { transform: scale(1.06); }
+    .place .pb { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .place .tag { align-self: flex-start; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--orange); }
+    .place h4 { margin: 0; font-size: 18px; letter-spacing: -.03em; }
+    .place p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; flex: 1; }
+    .place a.more { margin-top: 4px; font-weight: 800; font-size: 14px; color: var(--blue); text-decoration: none; display: inline-flex; gap: 6px; align-items: center; }
+    .place a.more:hover { text-decoration: underline; }
+
+    /* ---- lightbox ---- */
+    .lightbox { position: fixed; inset: 0; z-index: 70; display: none; background: rgba(0,0,0,.9); align-items: center; justify-content: center; padding: 24px; cursor: zoom-out; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 96vw; max-height: 92vh; border-radius: 16px; box-shadow: 0 30px 100px rgba(0,0,0,.6); }
+    .lightbox .cap { position: absolute; bottom: 22px; left: 0; right: 0; text-align: center; color: #fff; font-size: 14px; opacity: .85; }
+
+    /* ---- resources ---- */
+    .res-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .res-col h3 { font-size: 16px; letter-spacing: -.02em; margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
+    .res-col a {
+      display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 14px;
+      text-decoration: none; color: var(--ink); border: 1px solid var(--line); background: rgba(255,255,255,.66);
+      font-size: 14px; font-weight: 600; margin-bottom: 9px; transition: transform .18s, border-color .18s, background .18s;
+    }
+    .res-col a:hover { transform: translateX(4px); border-color: rgba(37,99,235,.5); background: #fff; }
+    .res-col a .ico { font-size: 18px; }
+    .res-col a .arr { margin-left: auto; color: var(--muted); }
+
+    /* ---- scroll reveal ---- */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: .08s; } .reveal.d2 { transition-delay: .16s; } .reveal.d3 { transition-delay: .24s; }
+
     @media (max-width: 860px) {
-      .hero-grid, .countries, .checklists { grid-template-columns: 1fr; }
+      .hero-grid, .countries, .checklists, .res-grid { grid-template-columns: 1fr; }
       .stat-grid, .route { grid-template-columns: repeat(2, 1fr); }
       .flight-row { grid-template-columns: 1fr; }
       .section-head { display: block; }
+      .places { grid-template-columns: 1fr; }
     }
     @media (max-width: 520px) {
       .stat-grid, .route { grid-template-columns: 1fr; }
-      .navlinks { display: none; }
+      .navlinks a:not(.nav-count) { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .plane { animation: none; display: none; }
+      * { scroll-behavior: auto; }
     }
   </style>
 </head>
@@ -108,24 +223,30 @@
       <div class="navlinks">
         <a href="#plan">Roteiro</a>
         <a href="#countries">Países</a>
+        <a href="#resources">Recursos</a>
         <a href="#checklist">Checklist</a>
         <a href="#flights">Passagens</a>
+        <a href="#countdown-anchor" class="nav-count" id="nav-count">—</a>
       </div>
     </div>
   </nav>
 
   <main>
-    <header class="hero wrap">
-      <div class="eyebrow">Primeira viagem internacional · Janeiro de 2027</div>
-      <h1>15 dias de inverno pela França, Bélgica e Holanda.</h1>
-      <p class="lead">Um plano prático e romântico para a primeira viagem de Davi e Sarah à Europa: começar pela cidade com passagens mais baratas e seguir de trem por museus, cafés, praças medievais, canais e pães absurdamente bons.</p>
+    <header class="hero wrap" id="countdown-anchor">
+      <div class="eyebrow reveal in">Primeira viagem internacional · Janeiro de 2027</div>
+      <h1 class="reveal in d1">15 dias de inverno pela França, Bélgica e Holanda.</h1>
+      <p class="lead reveal in d2">Um plano prático e romântico para a primeira viagem de Davi e Sarah à Europa: começar pela cidade com passagens mais baratas e seguir de trem por museus, cafés, praças medievais, canais e pães absurdamente bons.</p>
+
+      <div class="countdown reveal in d3" id="countdown" aria-label="Contagem regressiva para a viagem"></div>
+
+      <div class="skyline reveal in d3"><div class="track"></div><div class="plane">✈️</div></div>
 
       <div class="hero-grid">
-        <div class="card">
+        <div class="card reveal">
           <div class="stat-grid">
-            <div class="stat"><b>2</b><span>viajantes</span></div>
-            <div class="stat"><b>15</b><span>dias</span></div>
-            <div class="stat"><b>3</b><span>países</span></div>
+            <div class="stat"><b data-count="2">0</b><span>viajantes</span></div>
+            <div class="stat"><b data-count="15">0</b><span>dias</span></div>
+            <div class="stat"><b data-count="3">0</b><span>países</span></div>
             <div class="stat"><b>REC</b><span>aeroporto de saída</span></div>
           </div>
           <ul>
@@ -134,7 +255,7 @@
             <li><strong>Realidade do clima:</strong> janeiro é frio, úmido e escurece cedo. Levem roupas em camadas. A Europa estará dramática; vamos chamar de cinematográfica.</li>
           </ul>
         </div>
-        <aside class="card flight-card">
+        <aside class="card flight-card reveal d1">
           <span class="badge">Monitor diário de passagens</span>
           <h2>Melhor rota atual</h2>
           <div class="price" id="hero-price">Carregando…</div>
@@ -145,69 +266,68 @@
     </header>
 
     <section id="plan" class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>Roteiro sugerido</h2>
         <p>Ordem flexível. Se Paris estiver mais barata, começamos pela França. Se Amsterdã ou Bruxelas caírem de preço, invertemos o roteiro. Os trens facilitam esse triângulo.</p>
       </div>
       <div class="route">
-        <div class="day"><b>Dias 1–4</b><h3>Paris</h3><p class="muted">Recuperação do voo, Torre Eiffel, Louvre, Montmartre, passeio pelo Sena e cafés.</p></div>
-        <div class="day"><b>Dias 5–6</b><h3>Bruxelas + Bruges</h3><p class="muted">Grand Place, waffles, chocolate e bate-volta para os canais de Bruges.</p></div>
-        <div class="day"><b>Dias 7–10</b><h3>Amsterdã</h3><p class="muted">Canais, Rijksmuseum, Casa de Anne Frank, Jordaan e cafés aconchegantes de inverno.</p></div>
-        <div class="day"><b>Dias 11–13</b><h3>Bate-volta na França</h3><p class="muted">Versalhes, Lyon, Estrasburgo ou Vale do Loire — depende do clima da viagem e dos trens.</p></div>
-        <div class="day"><b>Dias 14–15</b><h3>Folga + volta para casa</h3><p class="muted">Manter um dia final de folga perto da cidade de embarque. O Davi do futuro aprova.</p></div>
+        <div class="day reveal"><b>Dias 1–4</b><h3>Paris</h3><p class="muted">Recuperação do voo, Torre Eiffel, Louvre, Montmartre, passeio pelo Sena e cafés.</p></div>
+        <div class="day reveal d1"><b>Dias 5–6</b><h3>Bruxelas + Bruges</h3><p class="muted">Grand Place, waffles, chocolate e bate-volta para os canais de Bruges.</p></div>
+        <div class="day reveal d2"><b>Dias 7–10</b><h3>Amsterdã</h3><p class="muted">Canais, Rijksmuseum, Casa de Anne Frank, Jordaan e cafés aconchegantes de inverno.</p></div>
+        <div class="day reveal d3"><b>Dias 11–13</b><h3>Bate-volta na França</h3><p class="muted">Versalhes, Lyon, Estrasburgo ou Vale do Loire — depende do clima da viagem e dos trens.</p></div>
+        <div class="day reveal d3"><b>Dias 14–15</b><h3>Folga + volta para casa</h3><p class="muted">Manter um dia final de folga perto da cidade de embarque. O Davi do futuro aprova.</p></div>
       </div>
     </section>
 
     <section id="countries" class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>Lugares legais por país</h2>
-        <p>Um mapa inicial: informação suficiente para planejar, sem abrir 94 abas de viagem.</p>
+        <p>Clique em cada país para abrir uma galeria com fotos, detalhes e links de cada lugar. Informação suficiente para planejar, sem abrir 94 abas de viagem.</p>
       </div>
-      <div class="countries">
-        <article class="card country">
-          <div class="flag">🇳🇱</div>
-          <h3>Holanda</h3>
-          <ul>
-            <li><strong>Canais de Amsterdã:</strong> melhor explorar sem pressa, especialmente Jordaan.</li>
-            <li><strong>Rijksmuseum + Museu Van Gogh:</strong> comprar ingressos com horário marcado com antecedência.</li>
-            <li><strong>Casa de Anne Frank:</strong> emocionante e essencial; ingressos esgotam rápido.</li>
-            <li><strong>Zaanse Schans:</strong> moinhos e cenário holandês clássico perto de Amsterdã.</li>
-            <li><strong>Utrecht:</strong> cidade de canais mais tranquila; ótimo bate-volta.</li>
-          </ul>
-        </article>
-        <article class="card country">
-          <div class="flag">🇫🇷</div>
-          <h3>França</h3>
-          <ul>
-            <li><strong>Clássicos de Paris:</strong> Torre Eiffel, Louvre, Musée d’Orsay e região de Notre-Dame.</li>
-            <li><strong>Montmartre:</strong> Sacré-Cœur, artistas de rua e vista do pôr do sol.</li>
-            <li><strong>Versalhes:</strong> bate-volta para o palácio; no inverno costuma ser menos cheio.</li>
-            <li><strong>Estrasburgo ou Colmar:</strong> charme de inverno da Alsácia e ruas de casas enxaimel.</li>
-            <li><strong>Missão gastronômica:</strong> croissants, steak-frites, crêpes, queijos e vinho.</li>
-          </ul>
-        </article>
-        <article class="card country">
-          <div class="flag">🇧🇪</div>
-          <h3>Bélgica</h3>
-          <ul>
-            <li><strong>Grand Place de Bruxelas:</strong> linda à noite.</li>
-            <li><strong>Bruges:</strong> ruas medievais, canais e lojas de chocolate.</li>
-            <li><strong>Ghent/Gante:</strong> mais descolada, menos cheia e com centro histórico lindo.</li>
-            <li><strong>Atomium:</strong> estranho e icônico — vale uma parada para foto.</li>
-            <li><strong>Missão gastronômica:</strong> waffles, batatas fritas, chocolate e degustação de cervejas.</li>
-          </ul>
-        </article>
+      <div class="countries" id="countries-grid"><!-- cards injected by JS --></div>
+    </section>
+
+    <section id="resources" class="wrap">
+      <div class="section-head reveal">
+        <h2>Recursos para explorar</h2>
+        <p>Os links que realmente importam: comparar voos, reservar trens, garantir ingressos concorridos e checar burocracia de entrada na Europa.</p>
+      </div>
+      <div class="card reveal">
+        <div class="res-grid">
+          <div class="res-col">
+            <h3>✈️ Voos & deslocamento</h3>
+            <a href="https://www.google.com/travel/flights" target="_blank" rel="noopener"><span class="ico">🔎</span>Google Flights <span class="arr">↗</span></a>
+            <a href="https://www.skyscanner.com.br" target="_blank" rel="noopener"><span class="ico">📊</span>Skyscanner <span class="arr">↗</span></a>
+            <a href="https://www.kayak.com.br" target="_blank" rel="noopener"><span class="ico">🧭</span>Kayak <span class="arr">↗</span></a>
+            <a href="https://www.rome2rio.com" target="_blank" rel="noopener"><span class="ico">🗺️</span>Rome2Rio (rota porta a porta) <span class="arr">↗</span></a>
+          </div>
+          <div class="res-col">
+            <h3>🚆 Trens entre cidades</h3>
+            <a href="https://www.thetrainline.com/pt" target="_blank" rel="noopener"><span class="ico">🎫</span>Trainline (compra unificada) <span class="arr">↗</span></a>
+            <a href="https://www.eurostar.com" target="_blank" rel="noopener"><span class="ico">🚄</span>Eurostar (Paris↔Bruxelas↔Amsterdã) <span class="arr">↗</span></a>
+            <a href="https://www.nsinternational.com" target="_blank" rel="noopener"><span class="ico">🇳🇱</span>NS International (Holanda) <span class="arr">↗</span></a>
+            <a href="https://www.sncf-connect.com" target="_blank" rel="noopener"><span class="ico">🇫🇷</span>SNCF Connect (França) <span class="arr">↗</span></a>
+          </div>
+          <div class="res-col">
+            <h3>🎟️ Ingressos & burocracia</h3>
+            <a href="https://www.annefrank.org/en/museum/tickets/" target="_blank" rel="noopener"><span class="ico">🏠</span>Casa de Anne Frank <span class="arr">↗</span></a>
+            <a href="https://www.ticketlouvre.fr" target="_blank" rel="noopener"><span class="ico">🖼️</span>Museu do Louvre <span class="arr">↗</span></a>
+            <a href="https://www.chateauversailles.fr/" target="_blank" rel="noopener"><span class="ico">👑</span>Palácio de Versalhes <span class="arr">↗</span></a>
+            <a href="https://travel-europe.europa.eu/etias_en" target="_blank" rel="noopener"><span class="ico">🛂</span>ETIAS / entrada Schengen <span class="arr">↗</span></a>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="checklist" class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>Checklist essencial</h2>
-        <p>Evitar caos no aeroporto. Checklist chato agora, viagem tranquila depois.</p>
+        <p>Evitar caos no aeroporto. Checklist chato agora, viagem tranquila depois. As marcações ficam salvas neste navegador.</p>
       </div>
       <div class="checklists">
-        <div class="card checks">
+        <div class="card checks reveal">
           <h3>O que vocês precisam ter</h3>
+          <div class="checks-progress"><i></i></div>
           <label><input type="checkbox">Passaportes válidos para os dois, de preferência com vencimento após julho de 2027.</label>
           <label><input type="checkbox">Autorização ETIAS, se já estiver ativa, e requisitos de entrada no Espaço Schengen.</label>
           <label><input type="checkbox">Seguro viagem cobrindo saúde, cancelamento, bagagem extraviada e atrasos de inverno.</label>
@@ -217,8 +337,9 @@
           <label><input type="checkbox">Adaptador de tomada europeu, power bank e plano de eSIM/roaming.</label>
           <label><input type="checkbox">Cópias digitais e offline dos passaportes, passagens, reservas e seguro.</label>
         </div>
-        <div class="card checks">
+        <div class="card checks reveal d1">
           <h3>O que fazer antes da viagem</h3>
+          <div class="checks-progress"><i></i></div>
           <label><input type="checkbox">Definir orçamento: voos, hotéis, trens, comida, atrações e reserva de emergência.</label>
           <label><input type="checkbox">Comprar voos quando o custo-benefício estiver bom — não só o mais barato se as conexões forem horríveis.</label>
           <label><input type="checkbox">Reservar hotéis reembolsáveis em regiões boas para transporte.</label>
@@ -232,11 +353,11 @@
     </section>
 
     <section id="flights" class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>Monitor de passagens</h2>
         <p>Consulta automática diária para 2 adultos: Recife (REC) → Amsterdã (AMS), Paris (CDG) ou Bruxelas (BRU), 10–25 de janeiro de 2027. A rota mais barata capturada vira o ponto de partida recomendado.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <div id="flight-summary" class="muted">Carregando dados das passagens…</div>
         <div class="flight-table" id="flight-table" style="margin-top: 16px;"></div>
         <p class="muted" id="flight-note" style="margin-bottom:0"></p>
@@ -248,7 +369,203 @@
     Feito para a primeira viagem internacional de Davi e Sarah. Os preços servem para planejamento, não são garantia de compra.
   </footer>
 
+  <!-- modal -->
+  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <div class="modal-head">
+        <img id="modal-img" alt="" />
+        <div class="grad"></div>
+        <button class="modal-close" id="modal-close" aria-label="Fechar">✕</button>
+        <div class="htitle"><h3 id="modal-title"></h3><p id="modal-sub"></p></div>
+      </div>
+      <div class="modal-body">
+        <div class="places" id="modal-places"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- lightbox -->
+  <div class="lightbox" id="lightbox"><img id="lightbox-img" alt="" /><div class="cap" id="lightbox-cap"></div></div>
+
   <script>
+    /* ===================== TRIP DATA ===================== */
+    const COUNTRIES = [
+      {
+        id: 'fr', flag: '🇫🇷', name: 'França', sub: 'Paris, Versalhes e o charme de inverno da Alsácia',
+        cover: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg/960px-Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg',
+        bullets: ['Torre Eiffel, Louvre e Orsay', 'Montmartre & Sacré-Cœur', 'Versalhes, Estrasburgo, Colmar'],
+        places: [
+          { tag: 'Ícone', name: 'Torre Eiffel', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg/960px-Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg', desc: 'O clássico inevitável. À noite cintila por 5 min a cada hora. Comprem ingresso com horário para subir ao topo e fujam das filas.', link: 'https://www.toureiffel.paris/pt-br' },
+          { tag: 'Museu', name: 'Museu do Louvre', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Louvre_Museum_Wikimedia_Commons.jpg/960px-Louvre_Museum_Wikimedia_Commons.jpg', desc: 'Maior museu de arte do mundo. Mona Lisa, Vênus de Milo e a pirâmide de vidro. Escolham 2-3 alas — é impossível ver tudo.', link: 'https://www.louvre.fr/en' },
+          { tag: 'Museu', name: "Musée d'Orsay", img: "https://commons.wikimedia.org/wiki/Special:FilePath/Mus%C3%A9e_d'Orsay,_North-West_view,_Paris_7e_140402.jpg?width=900", desc: 'Antiga estação de trem virou templo do impressionismo: Monet, Van Gogh, Degas, Renoir. Menos lotado que o Louvre.', link: 'https://www.musee-orsay.fr/en' },
+          { tag: 'Bairro', name: 'Montmartre & Sacré-Cœur', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Le_sacre_coeur.jpg/960px-Le_sacre_coeur.jpg', desc: 'A colina dos artistas. Basílica branca com a melhor vista de Paris, ruelas, cafés e o pôr do sol cinematográfico de inverno.', link: 'https://www.sacre-coeur-montmartre.com/english/' },
+          { tag: 'Bate-volta', name: 'Palácio de Versalhes', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue_a%C3%A9rienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_081_%28cropped%29.jpg/960px-Vue_a%C3%A9rienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_081_%28cropped%29.jpg', desc: 'Salão dos Espelhos e jardins infinitos. No inverno é bem menos cheio. ~40 min de trem (RER C) saindo de Paris.', link: 'https://www.chateauversailles.fr/' },
+          { tag: 'Bate-volta', name: 'Estrasburgo', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Strasbourg_Cathedral.jpg/960px-Strasbourg_Cathedral.jpg', desc: 'Capital da Alsácia, fronteira com a Alemanha. Catedral gótica imponente e o bairro "Petite France" de casas enxaimel sobre canais.', link: 'https://www.visitstrasbourg.fr/en/' },
+          { tag: 'Bate-volta', name: 'Colmar', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/View_of_%C3%89glise_Saint-Martin_%2843833049001%29.jpg/960px-View_of_%C3%89glise_Saint-Martin_%2843833049001%29.jpg', desc: 'A cidade de conto de fadas que inspirou "A Bela e a Fera". Casas coloridas, canais da "Pequena Veneza" e vinho da Alsácia.', link: 'https://www.visit.alsace/en/colmar/' }
+        ]
+      },
+      {
+        id: 'be', flag: '🇧🇪', name: 'Bélgica', sub: 'Praças medievais, canais e a melhor parada gastronômica',
+        cover: 'https://commons.wikimedia.org/wiki/Special:FilePath/Grand-Place%2C%20Brussels%20-%20panorama%2C%20June%202018.jpg?width=900',
+        bullets: ['Grand-Place de Bruxelas', 'Bruges & Ghent medievais', 'Waffles, fritas, chocolate, cerveja'],
+        places: [
+          { tag: 'Praça', name: 'Grand-Place (Bruxelas)', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Grand-Place%2C%20Brussels%20-%20panorama%2C%20June%202018.jpg?width=900', desc: 'Patrimônio da UNESCO e uma das praças mais bonitas da Europa. Fachadas douradas das guildas — espetacular iluminada à noite.', link: 'https://visit.brussels/en/place/Grand-Place' },
+          { tag: 'Cidade', name: 'Bruges', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Br%C3%BCgge%20Blick%20vom%20Belfried%204.jpg?width=900', desc: 'A "Veneza do Norte". Centro medieval intacto, canais congelantes no inverno, o campanário Belfort e lojas de chocolate em cada esquina.', link: 'https://www.visitbruges.be/en' },
+          { tag: 'Cidade', name: 'Ghent / Gante', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Gent%2C%20de%20Graslei%20vanaf%20de%20Korenlei%20met%20oeg24758tm61%2B25159%20IMG_0447%202021-08-13%2018.37.jpg?width=900', desc: 'Mais descolada e menos turística que Bruges. O cais Graslei, o castelo dos Condes e um centro histórico lindo iluminado à noite.', link: 'https://visit.gent.be/en' },
+          { tag: 'Ícone', name: 'Atomium', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Brussels%20-%20Atomium%202022.jpg?width=900', desc: 'Estrutura de 102m em forma de átomo de ferro, da Expo 58. Estranho, retrô-futurista e icônico — vale a parada para foto e a vista.', link: 'https://atomium.be/' }
+        ]
+      },
+      {
+        id: 'nl', flag: '🇳🇱', name: 'Holanda', sub: 'Canais, mestres holandeses e cidades de bicicleta',
+        cover: 'https://commons.wikimedia.org/wiki/Special:FilePath/Prinsengracht.jpg?width=900',
+        bullets: ['Canais de Amsterdã & Jordaan', 'Rijksmuseum + Van Gogh', 'Casa de Anne Frank, Zaanse Schans, Utrecht'],
+        places: [
+          { tag: 'Bairro', name: 'Canais de Amsterdã (Jordaan)', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Prinsengracht.jpg?width=900', desc: 'O cinturão de canais (UNESCO). Explorem o Jordaan sem pressa: pontes, casas tortas, cafés aconchegantes e brown bars de inverno.', link: 'https://www.iamsterdam.com/en/see-and-do/things-to-do/canals' },
+          { tag: 'Museu', name: 'Rijksmuseum', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/South_facade_of_the_Rijksmuseum_Amsterdam_%28DSCF0528%29.jpg/960px-South_facade_of_the_Rijksmuseum_Amsterdam_%28DSCF0528%29.jpg', desc: 'O museu nacional holandês. "A Ronda Noturna" de Rembrandt e Vermeer. Comprem ingresso com horário marcado com antecedência.', link: 'https://www.rijksmuseum.nl/en' },
+          { tag: 'Museu', name: 'Museu Van Gogh', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Van_Gogh_Museum_Amsterdam.jpg?width=900', desc: 'A maior coleção do mundo de Van Gogh. Girassóis, autorretratos e a trajetória do artista. Ingresso só online, com horário.', link: 'https://www.vangoghmuseum.nl/en' },
+          { tag: 'Histórico', name: 'Casa de Anne Frank', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Amsterdam%20%28NL%29%2C%20Anne-Frank-Huis%20--%202015%20--%207185.jpg?width=900', desc: 'O anexo secreto onde Anne escreveu seu diário. Emocionante e essencial. Ingressos só online e ESGOTAM com semanas de antecedência.', link: 'https://www.annefrank.org/en/museum/' },
+          { tag: 'Bate-volta', name: 'Zaanse Schans', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Zaanstad%20Zaanse%20Schans%2022.jpg?width=900', desc: 'Moinhos de vento funcionando, casas verdes de madeira e cenário holandês clássico. ~20 min de trem de Amsterdã.', link: 'https://www.dezaanseschans.nl/en/' },
+          { tag: 'Bate-volta', name: 'Utrecht (Dom Tower)', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/DomTorenUtrechtNederland.jpg?width=900', desc: 'Cidade de canais mais tranquila, com cais em dois níveis e cafés à beira d\'água. A Domtoren é a torre de igreja mais alta da Holanda.', link: 'https://www.visit-utrecht.com/' }
+        ]
+      }
+    ];
+
+    /* ===================== COUNTRY CARDS ===================== */
+    const grid = document.getElementById('countries-grid');
+    COUNTRIES.forEach((c, i) => {
+      const art = document.createElement('article');
+      art.className = 'card country reveal' + (i ? ' d' + i : '');
+      art.tabIndex = 0;
+      art.setAttribute('role', 'button');
+      art.setAttribute('aria-label', 'Ver lugares: ' + c.name);
+      art.innerHTML = `
+        <div class="cover">
+          <img loading="lazy" src="${c.cover}" alt="${c.name}" onerror="this.style.display='none'">
+          <div class="grad"></div>
+          <span class="flag">${c.flag}</span>
+          <div class="title"><h3>${c.name}</h3></div>
+        </div>
+        <div class="body">
+          <ul>${c.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+          <span class="openhint">Ver ${c.places.length} lugares <span class="arr">→</span></span>
+        </div>`;
+      const open = () => openModal(c);
+      art.addEventListener('click', open);
+      art.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      grid.appendChild(art);
+    });
+
+    /* ===================== MODAL ===================== */
+    const modal = document.getElementById('modal');
+    const mImg = document.getElementById('modal-img');
+    const mTitle = document.getElementById('modal-title');
+    const mSub = document.getElementById('modal-sub');
+    const mPlaces = document.getElementById('modal-places');
+    let lastFocus = null;
+
+    function openModal(c) {
+      lastFocus = document.activeElement;
+      mImg.src = c.cover; mImg.alt = c.name;
+      mTitle.textContent = c.flag + ' ' + c.name;
+      mSub.textContent = c.sub;
+      mPlaces.innerHTML = c.places.map(p => `
+        <div class="place">
+          <div class="ph" data-img="${p.img}" data-cap="${p.name}">
+            <img loading="lazy" src="${p.img}" alt="${p.name}" onerror="this.parentElement.style.background='linear-gradient(135deg,#dbeafe,#fde68a)';this.remove()">
+          </div>
+          <div class="pb">
+            <span class="tag">${p.tag}</span>
+            <h4>${p.name}</h4>
+            <p>${p.desc}</p>
+            <a class="more" href="${p.link}" target="_blank" rel="noopener">Saiba mais <span>↗</span></a>
+          </div>
+        </div>`).join('');
+      mPlaces.querySelectorAll('.ph').forEach(ph =>
+        ph.addEventListener('click', () => openLightbox(ph.dataset.img, ph.dataset.cap)));
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('modal-close').focus();
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    }
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+    /* ===================== LIGHTBOX ===================== */
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbCap = document.getElementById('lightbox-cap');
+    function openLightbox(src, cap) { lbImg.src = src; lbCap.textContent = cap || ''; lb.classList.add('open'); }
+    lb.addEventListener('click', () => lb.classList.remove('open'));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { lb.classList.remove('open'); if (modal.classList.contains('open')) closeModal(); }
+    });
+
+    /* ===================== COUNTDOWN ===================== */
+    const TRIP = new Date('2027-01-10T00:00:00-03:00');
+    const cd = document.getElementById('countdown');
+    const navCount = document.getElementById('nav-count');
+    function tick() {
+      const diff = TRIP - new Date();
+      if (diff <= 0) { cd.innerHTML = '<div class="cd-unit"><b>✈️</b><span>boa viagem!</span></div>'; navCount.textContent = 'na Europa 🎉'; return; }
+      const d = Math.floor(diff / 864e5);
+      const h = Math.floor(diff % 864e5 / 36e5);
+      const m = Math.floor(diff % 36e5 / 6e4);
+      const s = Math.floor(diff % 6e4 / 1e3);
+      const u = [[d,'dias'],[h,'horas'],[m,'min'],[s,'seg']];
+      cd.innerHTML = u.map(([v,l]) => `<div class="cd-unit"><b>${v}</b><span>${l}</span></div>`).join('');
+      navCount.textContent = d + ' dias';
+    }
+    tick(); setInterval(tick, 1000);
+
+    /* ===================== STAT COUNTERS ===================== */
+    function countUp(el) {
+      const target = +el.dataset.count; const dur = 900; const t0 = performance.now();
+      (function step(now) {
+        const p = Math.min((now - t0) / dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      })(t0);
+    }
+
+    /* ===================== SCROLL REVEAL ===================== */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          e.target.querySelectorAll('[data-count]').forEach(countUp);
+          if (e.target.matches('[data-count]')) countUp(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: .15 });
+    document.querySelectorAll('.reveal').forEach(el => { if (!el.classList.contains('in')) io.observe(el); });
+    document.querySelectorAll('.hero [data-count]').forEach(countUp);
+
+    /* ===================== CHECKLIST PERSISTENCE ===================== */
+    document.querySelectorAll('.checks').forEach((box, bi) => {
+      const boxes = box.querySelectorAll('input[type="checkbox"]');
+      const bar = box.querySelector('.checks-progress > i');
+      const update = () => {
+        let done = 0;
+        boxes.forEach((cb, ci) => {
+          cb.parentElement.classList.toggle('done', cb.checked);
+          if (cb.checked) done++;
+          localStorage.setItem(`chk-${bi}-${ci}`, cb.checked ? '1' : '');
+        });
+        if (bar) bar.style.width = (done / boxes.length * 100) + '%';
+      };
+      boxes.forEach((cb, ci) => {
+        cb.checked = localStorage.getItem(`chk-${bi}-${ci}`) === '1';
+        cb.addEventListener('change', update);
+      });
+      update();
+    });
+
+    /* ===================== FLIGHT MONITOR (unchanged) ===================== */
     const fmtBRL = n => n ? new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(n) : 'Não capturado';
     const fmtDate = iso => iso ? new Date(iso).toLocaleString('pt-BR', { dateStyle: 'medium', timeStyle: 'short' }) : '—';
     const labelNivel = value => ({ typical: 'preço típico', low: 'preço baixo', high: 'preço alto' }[value] || value || '');
