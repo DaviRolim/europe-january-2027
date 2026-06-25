@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-06-25T01:44:56+00:00",
+  "updated_at": "2026-06-25T01:50:24+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_date": "2027-01-10",
   "return_date": "2027-01-25",
   "travelers": 2,
   "currency": "BRL",
-  "source_note": "Best-effort automated Google Flights lookup via fast-flights. Always verify with the airline or booking site before buying.",
+  "source_note": "Consulta automática via Google Flights/fast-flights em modo melhor esforço. Antes de comprar, confirme sempre no site da companhia aérea ou da agência.",
   "best_destination": "CDG",
-  "best_destination_label": "Paris Charles de Gaulle",
+  "best_destination_label": "Aeroporto Paris Charles de Gaulle",
   "best_price_brl": 15520,
   "routes": [
     {
       "origin": "REC",
       "destination": "AMS",
-      "city": "Amsterdam",
-      "country": "Netherlands",
-      "label": "Amsterdam Schiphol",
+      "city": "Amsterdã",
+      "country": "Holanda",
+      "label": "Aeroporto de Amsterdã Schiphol",
       "depart_date": "2027-01-10",
       "return_date": "2027-01-25",
       "adults": 2,
@@ -24,14 +24,14 @@
       "price_level": null,
       "cheapest": null,
       "flights": [],
-      "error": "Temporarily unavailable — will retry automatically."
+      "error": "Temporariamente indisponível — nova tentativa automática em breve."
     },
     {
       "origin": "REC",
       "destination": "CDG",
       "city": "Paris",
-      "country": "France",
-      "label": "Paris Charles de Gaulle",
+      "country": "França",
+      "label": "Aeroporto Paris Charles de Gaulle",
       "depart_date": "2027-01-10",
       "return_date": "2027-01-25",
       "adults": 2,
@@ -95,8 +95,8 @@
           "duration": "16 hr 30 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17793",
-          "price_brl": 17793
+          "price": "R$17687",
+          "price_brl": 17687
         },
         {
           "is_best": false,
@@ -107,8 +107,8 @@
           "duration": "26 hr 15 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17793",
-          "price_brl": 17793
+          "price": "R$17687",
+          "price_brl": 17687
         },
         {
           "is_best": false,
@@ -119,8 +119,8 @@
           "duration": "20 hr 55 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17793",
-          "price_brl": 17793
+          "price": "R$17687",
+          "price_brl": 17687
         },
         {
           "is_best": false,
@@ -131,8 +131,8 @@
           "duration": "22 hr 25 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17794",
-          "price_brl": 17794
+          "price": "R$17689",
+          "price_brl": 17689
         },
         {
           "is_best": false,
@@ -143,8 +143,8 @@
           "duration": "18 hr 55 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17794",
-          "price_brl": 17794
+          "price": "R$17689",
+          "price_brl": 17689
         }
       ],
       "error": null
@@ -152,9 +152,9 @@
     {
       "origin": "REC",
       "destination": "BRU",
-      "city": "Brussels",
-      "country": "Belgium",
-      "label": "Brussels Airport",
+      "city": "Bruxelas",
+      "country": "Bélgica",
+      "label": "Aeroporto de Bruxelas",
       "depart_date": "2027-01-10",
       "return_date": "2027-01-25",
       "adults": 2,
@@ -162,7 +162,7 @@
       "price_level": null,
       "cheapest": null,
       "flights": [],
-      "error": "Temporarily unavailable — will retry automatically."
+      "error": "Temporariamente indisponível — nova tentativa automática em breve."
     }
   ]
 }

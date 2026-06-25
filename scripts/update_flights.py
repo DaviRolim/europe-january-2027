@@ -16,9 +16,9 @@ from pathlib import Path
 from typing import Any
 
 ROUTES = {
-    "AMS": {"city": "Amsterdam", "country": "Netherlands", "label": "Amsterdam Schiphol"},
-    "CDG": {"city": "Paris", "country": "France", "label": "Paris Charles de Gaulle"},
-    "BRU": {"city": "Brussels", "country": "Belgium", "label": "Brussels Airport"},
+    "AMS": {"city": "Amsterdã", "country": "Holanda", "label": "Aeroporto de Amsterdã Schiphol"},
+    "CDG": {"city": "Paris", "country": "França", "label": "Aeroporto Paris Charles de Gaulle"},
+    "BRU": {"city": "Bruxelas", "country": "Bélgica", "label": "Aeroporto de Bruxelas"},
 }
 ORIGIN = "REC"
 DEPART_DATE = "2027-01-10"
@@ -95,7 +95,7 @@ def query_route(dest: str) -> dict[str, Any]:
     except Exception as e:  # keep other routes updating
         raw = str(e)
         if "turnstile" in raw.lower() or "no token provided" in raw.lower() or "401" in raw:
-            error = "Temporarily unavailable — will retry automatically."
+            error = "Temporariamente indisponível — nova tentativa automática em breve."
         else:
             error = f"{type(e).__name__}: {raw[:180].replace(chr(10), ' ')}"
         return {
@@ -123,11 +123,11 @@ def main() -> int:
     if not ok_routes and isinstance(previous, dict) and previous.get("best_price_brl"):
         # Avoid replacing useful fare data with an all-failed anti-bot run.
         previous["last_attempt_at"] = now
-        previous["last_attempt_note"] = "Latest automated lookup captured no fares; preserving last successful fare snapshot."
+        previous["last_attempt_note"] = "A última consulta automática não capturou tarifas; mantendo o último preço válido."
         OUT.write_text(json.dumps(previous, indent=2, ensure_ascii=False) + "\n")
         print(
-            f"No fares captured today; preserved last best fare R${previous['best_price_brl']:,} "
-            f"to {previous.get('best_destination_label')} ({previous.get('best_destination')}).".replace(",", ".")
+            f"Nenhuma tarifa capturada hoje; mantive o último melhor preço: R${previous['best_price_brl']:,} "
+            f"para {previous.get('best_destination_label')} ({previous.get('best_destination')}).".replace(",", ".")
         )
         print(f"Updated {OUT}")
         return 0
@@ -142,7 +142,7 @@ def main() -> int:
         "return_date": RETURN_DATE,
         "travelers": ADULTS,
         "currency": "BRL",
-        "source_note": "Best-effort automated Google Flights lookup via fast-flights. Always verify with the airline or booking site before buying.",
+        "source_note": "Consulta automática via Google Flights/fast-flights em modo melhor esforço. Antes de comprar, confirme sempre no site da companhia aérea ou da agência.",
         "best_destination": best["destination"] if best else None,
         "best_destination_label": best["label"] if best else None,
         "best_price_brl": best["cheapest"]["price_brl"] if best else None,
@@ -154,12 +154,12 @@ def main() -> int:
     previous_best = previous.get("best_price_brl") if isinstance(previous, dict) else None
     current_best = payload.get("best_price_brl")
     if current_best:
-        print(f"Best current fare for 2: R${current_best:,} to {payload['best_destination_label']} ({payload['best_destination']}).".replace(",", "."))
+        print(f"Melhor tarifa atual para 2 pessoas: R${current_best:,} para {payload['best_destination_label']} ({payload['best_destination']}).".replace(",", "."))
     else:
-        print("Flight lookup ran, but no current fare was captured. Site now shows route errors for manual follow-up.")
+        print("A consulta de voos rodou, mas nenhuma tarifa foi capturada agora. O site mostra as rotas para nova tentativa automática.")
     if previous_best and current_best and current_best != previous_best:
-        direction = "down" if current_best < previous_best else "up"
-        print(f"Price moved {direction}: previous R${previous_best:,} → current R${current_best:,}.".replace(",", "."))
+        direction = "caiu" if current_best < previous_best else "subiu"
+        print(f"Preço {direction}: antes R${previous_best:,} → agora R${current_best:,}.".replace(",", "."))
     print(f"Updated {OUT}")
     return 0
 
