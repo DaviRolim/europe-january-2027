@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-25T11:00:43+00:00",
+  "updated_at": "2026-06-26T11:00:34+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_date": "2027-01-10",
@@ -9,7 +9,7 @@
   "source_note": "Consulta automática via Google Flights/fast-flights em modo melhor esforço. Antes de comprar, confirme sempre no site da companhia aérea ou da agência.",
   "best_destination": "CDG",
   "best_destination_label": "Aeroporto Paris Charles de Gaulle",
-  "best_price_brl": 15328,
+  "best_price_brl": 15277,
   "routes": [
     {
       "origin": "REC",
@@ -46,8 +46,8 @@
         "duration": "19 hr 40 min",
         "stops": 1,
         "delay": null,
-        "price": "R$15328",
-        "price_brl": 15328
+        "price": "R$15277",
+        "price_brl": 15277
       },
       "flights": [
         {
@@ -59,8 +59,8 @@
           "duration": "19 hr 40 min",
           "stops": 1,
           "delay": null,
-          "price": "R$15328",
-          "price_brl": 15328
+          "price": "R$15277",
+          "price_brl": 15277
         },
         {
           "is_best": true,
@@ -71,8 +71,8 @@
           "duration": "13 hr 35 min",
           "stops": 1,
           "delay": null,
-          "price": "R$16923",
-          "price_brl": 16923
+          "price": "R$16865",
+          "price_brl": 16865
         },
         {
           "is_best": false,
@@ -83,8 +83,8 @@
           "duration": "25 hr 35 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17690",
-          "price_brl": 17690
+          "price": "R$17633",
+          "price_brl": 17633
         },
         {
           "is_best": true,
@@ -95,8 +95,8 @@
           "duration": "16 hr 30 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17908",
-          "price_brl": 17908
+          "price": "R$17846",
+          "price_brl": 17846
         },
         {
           "is_best": false,
@@ -107,8 +107,8 @@
           "duration": "26 hr 15 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17908",
-          "price_brl": 17908
+          "price": "R$17846",
+          "price_brl": 17846
         },
         {
           "is_best": false,
@@ -119,8 +119,8 @@
           "duration": "20 hr 55 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17908",
-          "price_brl": 17908
+          "price": "R$17846",
+          "price_brl": 17846
         },
         {
           "is_best": false,
@@ -131,8 +131,8 @@
           "duration": "22 hr 25 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17910",
-          "price_brl": 17910
+          "price": "R$17848",
+          "price_brl": 17848
         },
         {
           "is_best": false,
@@ -143,8 +143,8 @@
           "duration": "18 hr 55 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17910",
-          "price_brl": 17910
+          "price": "R$17848",
+          "price_brl": 17848
         }
       ],
       "error": null
@@ -164,7 +164,5 @@
       "flights": [],
       "error": "Temporariamente indisponível — nova tentativa automática em breve."
     }
-  ],
-  "last_attempt_at": "2026-06-25T13:34:21+00:00",
-  "last_attempt_note": "A última consulta automática não capturou tarifas; mantendo o último preço válido."
+  ]
 }
