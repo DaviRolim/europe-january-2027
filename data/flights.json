@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-02T11:00:11+00:00",
+  "updated_at": "2026-07-02T13:15:38+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_date": "2027-01-10",
@@ -9,7 +9,7 @@
   "source_note": "Consulta automática via Google Flights/fast-flights em modo melhor esforço. Antes de comprar, confirme sempre no site da companhia aérea ou da agência.",
   "best_destination": "CDG",
   "best_destination_label": "Aeroporto Paris Charles de Gaulle",
-  "best_price_brl": 15290,
+  "best_price_brl": 2926,
   "routes": [
     {
       "origin": "REC",
@@ -41,15 +41,27 @@
         "is_best": true,
         "name": "Iberia",
         "departure": "6:15 PM on Sun, Jan 10",
-        "arrival": "11:50 AM on Mon, Jan 11",
+        "arrival": "5:55 PM on Mon, Jan 11",
         "arrival_time_ahead": "+1",
-        "duration": "13 hr 35 min",
+        "duration": "19 hr 40 min",
         "stops": 1,
         "delay": null,
-        "price": "R$15290",
-        "price_brl": 15290
+        "price": "$2926",
+        "price_brl": 2926
       },
       "flights": [
+        {
+          "is_best": true,
+          "name": "Iberia",
+          "departure": "6:15 PM on Sun, Jan 10",
+          "arrival": "5:55 PM on Mon, Jan 11",
+          "arrival_time_ahead": "+1",
+          "duration": "19 hr 40 min",
+          "stops": 1,
+          "delay": null,
+          "price": "$2926",
+          "price_brl": 2926
+        },
         {
           "is_best": true,
           "name": "Iberia",
@@ -59,20 +71,8 @@
           "duration": "13 hr 35 min",
           "stops": 1,
           "delay": null,
-          "price": "R$15290",
-          "price_brl": 15290
-        },
-        {
-          "is_best": false,
-          "name": "Iberia",
-          "departure": "6:15 PM on Sun, Jan 10",
-          "arrival": "5:55 PM on Mon, Jan 11",
-          "arrival_time_ahead": "+1",
-          "duration": "19 hr 40 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$15290",
-          "price_brl": 15290
+          "price": "$3231",
+          "price_brl": 3231
         },
         {
           "is_best": false,
@@ -83,20 +83,8 @@
           "duration": "20 hr 20 min",
           "stops": 2,
           "delay": null,
-          "price": "R$17126",
-          "price_brl": 17126
-        },
-        {
-          "is_best": false,
-          "name": "LATAM, Air France",
-          "departure": "4:00 AM on Sun, Jan 10",
-          "arrival": "6:05 AM on Mon, Jan 11",
-          "arrival_time_ahead": "+1",
-          "duration": "22 hr 5 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$17126",
-          "price_brl": 17126
+          "price": "$3278",
+          "price_brl": 3278
         },
         {
           "is_best": false,
@@ -107,8 +95,8 @@
           "duration": "25 hr 35 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17647",
-          "price_brl": 17647
+          "price": "$3332",
+          "price_brl": 3332
         },
         {
           "is_best": true,
@@ -119,8 +107,8 @@
           "duration": "16 hr 30 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17785",
-          "price_brl": 17785
+          "price": "$3419",
+          "price_brl": 3419
         },
         {
           "is_best": false,
@@ -131,8 +119,8 @@
           "duration": "20 hr 55 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17785",
-          "price_brl": 17785
+          "price": "$3419",
+          "price_brl": 3419
         },
         {
           "is_best": false,
@@ -143,8 +131,20 @@
           "duration": "22 hr 25 min",
           "stops": 1,
           "delay": null,
-          "price": "R$17787",
-          "price_brl": 17787
+          "price": "$3419",
+          "price_brl": 3419
+        },
+        {
+          "is_best": false,
+          "name": "Gol, Air France",
+          "departure": "12:55 PM on Sun, Jan 10",
+          "arrival": "11:50 AM on Mon, Jan 11",
+          "arrival_time_ahead": "+1",
+          "duration": "18 hr 55 min",
+          "stops": 1,
+          "delay": null,
+          "price": "$3419",
+          "price_brl": 3419
         }
       ],
       "error": null
