@@ -164,5 +164,7 @@
       "flights": [],
       "error": "Temporariamente indisponível — nova tentativa automática em breve."
     }
-  ]
+  ],
+  "last_attempt_at": "2026-07-04T12:41:50+00:00",
+  "last_attempt_note": "A última consulta automática não capturou tarifas; mantendo o último preço válido."
 }
