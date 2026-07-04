@@ -21,8 +21,8 @@ ROUTES = {
     "BRU": {"city": "Bruxelas", "country": "Bélgica", "label": "Aeroporto de Bruxelas"},
 }
 ORIGIN = "REC"
-DEPART_DATE = "2027-01-10"
-RETURN_DATE = "2027-01-25"
+DEPART_DATE = "2027-01-20"
+RETURN_DATE = "2027-02-02"
 ADULTS = 2
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "flights.json"
