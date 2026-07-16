@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-15T12:50:11+00:00",
+  "updated_at": "2026-07-16T11:00:42+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_date": "2027-01-20",
@@ -9,7 +9,7 @@
   "source_note": "Consulta automática via Google Flights/fast-flights em modo melhor esforço. Antes de comprar, confirme sempre no site da companhia aérea ou da agência.",
   "best_destination": "CDG",
   "best_destination_label": "Aeroporto Paris Charles de Gaulle",
-  "best_price_brl": 1976,
+  "best_price_brl": 10020,
   "routes": [
     {
       "origin": "REC",
@@ -46,8 +46,8 @@
         "duration": "13 hr 35 min",
         "stops": 1,
         "delay": null,
-        "price": "$1976",
-        "price_brl": 1976
+        "price": "R$10020",
+        "price_brl": 10020
       },
       "flights": [
         {
@@ -59,8 +59,8 @@
           "duration": "13 hr 35 min",
           "stops": 1,
           "delay": null,
-          "price": "$1976",
-          "price_brl": 1976
+          "price": "R$10020",
+          "price_brl": 10020
         },
         {
           "is_best": false,
@@ -71,8 +71,8 @@
           "duration": "19 hr 40 min",
           "stops": 1,
           "delay": null,
-          "price": "$1976",
-          "price_brl": 1976
+          "price": "R$10020",
+          "price_brl": 10020
         },
         {
           "is_best": false,
@@ -83,8 +83,8 @@
           "duration": "22 hr 25 min",
           "stops": 1,
           "delay": null,
-          "price": "$2606",
-          "price_brl": 2606
+          "price": "R$13271",
+          "price_brl": 13271
         },
         {
           "is_best": true,
@@ -95,20 +95,8 @@
           "duration": "16 hr 20 min",
           "stops": 1,
           "delay": null,
-          "price": "$2698",
-          "price_brl": 2698
-        },
-        {
-          "is_best": false,
-          "name": "LATAM, Air France",
-          "departure": "11:30 AM on Wed, Jan 20",
-          "arrival": "10:30 AM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "19 hr",
-          "stops": 1,
-          "delay": null,
-          "price": "$2702",
-          "price_brl": 2702
+          "price": "R$13738",
+          "price_brl": 13738
         },
         {
           "is_best": false,
@@ -119,20 +107,8 @@
           "duration": "20 hr",
           "stops": 2,
           "delay": null,
-          "price": "$2813",
-          "price_brl": 2813
-        },
-        {
-          "is_best": false,
-          "name": "Gol, KLM",
-          "departure": "3:30 PM on Wed, Jan 20",
-          "arrival": "5:50 PM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "22 hr 20 min",
-          "stops": 2,
-          "delay": null,
-          "price": "$2813",
-          "price_brl": 2813
+          "price": "R$14283",
+          "price_brl": 14283
         },
         {
           "is_best": false,
@@ -143,8 +119,32 @@
           "duration": "23 hr 40 min",
           "stops": 2,
           "delay": null,
-          "price": "$2813",
-          "price_brl": 2813
+          "price": "R$14283",
+          "price_brl": 14283
+        },
+        {
+          "is_best": false,
+          "name": "Gol, KLM",
+          "departure": "3:30 PM on Wed, Jan 20",
+          "arrival": "5:50 PM on Thu, Jan 21",
+          "arrival_time_ahead": "+1",
+          "duration": "22 hr 20 min",
+          "stops": 2,
+          "delay": null,
+          "price": "R$14319",
+          "price_brl": 14319
+        },
+        {
+          "is_best": false,
+          "name": "LATAM, Air France",
+          "departure": "10:35 AM on Wed, Jan 20",
+          "arrival": "11:50 AM on Thu, Jan 21",
+          "arrival_time_ahead": "+1",
+          "duration": "21 hr 15 min",
+          "stops": 1,
+          "delay": null,
+          "price": "R$14557",
+          "price_brl": 14557
         }
       ],
       "error": null
