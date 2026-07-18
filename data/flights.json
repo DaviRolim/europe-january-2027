@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-17T12:41:31+00:00",
+  "updated_at": "2026-07-18T11:00:21+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_date": "2027-01-20",
@@ -9,7 +9,7 @@
   "source_note": "Consulta automática via Google Flights/fast-flights em modo melhor esforço. Antes de comprar, confirme sempre no site da companhia aérea ou da agência.",
   "best_destination": "CDG",
   "best_destination_label": "Aeroporto Paris Charles de Gaulle",
-  "best_price_brl": 1961,
+  "best_price_brl": 10106,
   "routes": [
     {
       "origin": "REC",
@@ -46,8 +46,8 @@
         "duration": "13 hr 35 min",
         "stops": 1,
         "delay": null,
-        "price": "$1961",
-        "price_brl": 1961
+        "price": "R$10106",
+        "price_brl": 10106
       },
       "flights": [
         {
@@ -59,8 +59,8 @@
           "duration": "13 hr 35 min",
           "stops": 1,
           "delay": null,
-          "price": "$1961",
-          "price_brl": 1961
+          "price": "R$10106",
+          "price_brl": 10106
         },
         {
           "is_best": false,
@@ -71,20 +71,8 @@
           "duration": "19 hr 40 min",
           "stops": 1,
           "delay": null,
-          "price": "$1961",
-          "price_brl": 1961
-        },
-        {
-          "is_best": false,
-          "name": "Gol, Air France",
-          "departure": "3:40 AM on Wed, Jan 20",
-          "arrival": "6:05 AM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "22 hr 25 min",
-          "stops": 1,
-          "delay": null,
-          "price": "$2587",
-          "price_brl": 2587
+          "price": "R$10106",
+          "price_brl": 10106
         },
         {
           "is_best": true,
@@ -95,8 +83,20 @@
           "duration": "16 hr 20 min",
           "stops": 1,
           "delay": null,
-          "price": "$2678",
-          "price_brl": 2678
+          "price": "R$12976",
+          "price_brl": 12976
+        },
+        {
+          "is_best": false,
+          "name": "Gol, Air France",
+          "departure": "3:40 AM on Wed, Jan 20",
+          "arrival": "6:05 AM on Thu, Jan 21",
+          "arrival_time_ahead": "+1",
+          "duration": "22 hr 25 min",
+          "stops": 1,
+          "delay": null,
+          "price": "R$12976",
+          "price_brl": 12976
         },
         {
           "is_best": false,
@@ -107,8 +107,8 @@
           "duration": "19 hr",
           "stops": 1,
           "delay": null,
-          "price": "$2682",
-          "price_brl": 2682
+          "price": "R$13876",
+          "price_brl": 13876
         },
         {
           "is_best": false,
@@ -119,8 +119,8 @@
           "duration": "20 hr",
           "stops": 2,
           "delay": null,
-          "price": "$2792",
-          "price_brl": 2792
+          "price": "R$14033",
+          "price_brl": 14033
         },
         {
           "is_best": false,
@@ -131,8 +131,8 @@
           "duration": "22 hr 20 min",
           "stops": 2,
           "delay": null,
-          "price": "$2792",
-          "price_brl": 2792
+          "price": "R$14033",
+          "price_brl": 14033
         },
         {
           "is_best": false,
@@ -143,8 +143,8 @@
           "duration": "23 hr 40 min",
           "stops": 2,
           "delay": null,
-          "price": "$2792",
-          "price_brl": 2792
+          "price": "R$14033",
+          "price_brl": 14033
         }
       ],
       "error": null
