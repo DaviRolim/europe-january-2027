@@ -107,9 +107,13 @@
     .checks-progress > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--green), #34d399); transition: width .4s ease; }
     input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--green); flex: 0 0 auto; margin-top: 2px; }
     .flight-table { display: grid; gap: 12px; }
-    .flight-row { display: grid; grid-template-columns: .9fr 1fr 1fr .8fr .7fr; gap: 12px; align-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.7); }
+    .flight-row { display: grid; grid-template-columns: .8fr 1fr .9fr .75fr .75fr .85fr; gap: 12px; align-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.7); }
     .flight-row.header { box-shadow: none; background: transparent; border: 0; padding: 0 14px 4px; color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
     .flight-row small, .muted { color: var(--muted); }
+    .buy-link { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 12px; border-radius: 999px; background: var(--blue); color: white; text-decoration: none; font-size: 13px; font-weight: 800; box-shadow: 0 10px 24px rgba(37,99,235,.22); }
+    .buy-link:hover { transform: translateY(-1px); background: #1d4ed8; }
+    .source-link { color: var(--blue); font-weight: 800; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
     .ok { color: var(--green); font-weight: 800; }
     .error { color: var(--red); font-weight: 700; }
     footer { padding: 36px 0 60px; color: var(--muted); }
@@ -385,7 +389,7 @@
     <section id="flights" class="wrap">
       <div class="section-head reveal">
         <h2>Monitor de passagens</h2>
-        <p>Consulta automática diária para 2 adultos: Recife (REC) → Amsterdã (AMS), Paris (CDG) ou Bruxelas (BRU), 20 de janeiro → 2 de fevereiro de 2027. A rota mais barata capturada vira o ponto de partida recomendado.</p>
+        <p>Consulta automática diária para 2 adultos: Recife (REC) → Amsterdã (AMS), Paris (CDG) ou Bruxelas (BRU), 20 de janeiro → 2 de fevereiro de 2027. Os preços vêm do Google Flights; o botão de compra reabre a busca para finalizar pela companhia aérea/agência disponível.</p>
       </div>
       <div class="card reveal">
         <div id="flight-summary" class="muted">Carregando dados das passagens…</div>
@@ -640,22 +644,25 @@
         document.getElementById('hero-flight').textContent = data.best_destination_label
           ? `Rota mais barata capturada: REC → ${data.best_destination} (${data.best_destination_label}) para ${data.travelers} adultos.`
           : 'Nenhuma tarifa capturada ainda. O monitor diário tentará novamente.';
-        document.getElementById('hero-updated').textContent = `Última atualização: ${fmtDate(data.updated_at)}`;
-        document.getElementById('flight-summary').innerHTML = `<strong>Datas da viagem:</strong> ${data.depart_date} → ${data.return_date} · <strong>Viajantes:</strong> ${data.travelers} · <strong>Melhor preço atual:</strong> ${fmtBRL(data.best_price_brl)} para ${data.best_destination_label || '—'}`;
+        document.getElementById('hero-updated').textContent = `Última atualização: ${fmtDate(data.updated_at)} · Fonte: ${data.source_name || 'Google Flights'}`;
+        const sourceUrl = data.source_url || 'https://www.google.com/travel/flights';
+        document.getElementById('flight-summary').innerHTML = `<strong>Datas da viagem:</strong> ${data.depart_date} → ${data.return_date} · <strong>Viajantes:</strong> ${data.travelers} · <strong>Melhor preço atual:</strong> ${fmtBRL(data.best_price_brl)} para ${data.best_destination_label || '—'} · <strong>Fonte:</strong> <a class="source-link" href="${sourceUrl}" target="_blank" rel="noopener">${data.source_name || 'Google Flights'} ↗</a>`;
         document.getElementById('flight-note').textContent = data.source_note;
 
         const routeRows = data.routes.map(route => {
           const cheapest = route.cheapest || {};
           const status = route.status === 'ok' ? '<span class="ok">OK</span>' : '<span class="error">Tentando novamente</span>';
+          const buyUrl = (route.booking_links && route.booking_links.google_flights) || data.source_url || 'https://www.google.com/travel/flights';
           return `<div class="flight-row">
             <div><strong>${route.destination}</strong><br><small>${route.label}</small></div>
             <div>${status}<br><small>${route.error || labelNivel(route.price_level)}</small></div>
             <div><strong>${fmtBRL(cheapest.price_brl)}</strong><br><small>${cheapest.name || '—'}</small></div>
             <div>${traduzDuracao(cheapest.duration)}<br><small>${Number.isInteger(cheapest.stops) ? cheapest.stops + ' parada(s)' : ''}</small></div>
             <div><small>${traduzSaida(cheapest.departure)}</small></div>
+            <div><a class="buy-link" href="${buyUrl}" target="_blank" rel="noopener">Comprar/ver preço ↗</a></div>
           </div>`;
         }).join('');
-        const header = '<div class="flight-row header"><div>Aeroporto</div><div>Status</div><div>Melhor preço</div><div>Duração</div><div>Saída</div></div>';
+        const header = '<div class="flight-row header"><div>Aeroporto</div><div>Status</div><div>Melhor preço</div><div>Duração</div><div>Saída</div><div>Compra</div></div>';
         document.getElementById('flight-table').innerHTML = header + routeRows;
       } catch (e) {
         document.getElementById('hero-price').textContent = 'Indisponível';

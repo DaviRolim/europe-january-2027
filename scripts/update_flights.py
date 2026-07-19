@@ -14,6 +14,7 @@ from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote_plus
 
 ROUTES = {
     "AMS": {"city": "Amsterdã", "country": "Holanda", "label": "Aeroporto de Amsterdã Schiphol"},
@@ -26,6 +27,25 @@ RETURN_DATE = "2027-02-02"
 ADULTS = 2
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "flights.json"
+SOURCE_NAME = "Google Flights"
+SOURCE_URL = "https://www.google.com/travel/flights"
+
+
+def booking_links(dest: str) -> dict[str, str]:
+    """Best-effort public links for re-running the same search and buying.
+
+    fast-flights/Google Flights returns fares but not a stable checkout URL.
+    These links open the exact route/date search; Google Flights then hands off
+    to the airline or agency for the actual purchase.
+    """
+    query = quote_plus(
+        f"voos REC para {dest} ida {DEPART_DATE} volta {RETURN_DATE} 2 adultos"
+    )
+    return {
+        "google_flights": f"https://www.google.com/travel/flights?q={query}",
+        "skyscanner": f"https://www.skyscanner.com.br/transport/flights/rec/{dest.lower()}/{DEPART_DATE.replace('-', '')}/{RETURN_DATE.replace('-', '')}/?adults=2",
+        "kayak": f"https://www.kayak.com.br/flights/REC-{dest}/{DEPART_DATE}/{RETURN_DATE}/2adults",
+    }
 
 
 def parse_brl(value: str | None) -> int | None:
@@ -59,6 +79,9 @@ def query_route(dest: str) -> dict[str, Any]:
         "depart_date": DEPART_DATE,
         "return_date": RETURN_DATE,
         "adults": ADULTS,
+        "source_name": SOURCE_NAME,
+        "source_url": SOURCE_URL,
+        "booking_links": booking_links(dest),
         "status": "ok",
     }
 
@@ -142,7 +165,9 @@ def main() -> int:
         "return_date": RETURN_DATE,
         "travelers": ADULTS,
         "currency": "BRL",
-        "source_note": "Consulta automática via Google Flights/fast-flights em modo melhor esforço. Antes de comprar, confirme sempre no site da companhia aérea ou da agência.",
+        "source_name": SOURCE_NAME,
+        "source_url": SOURCE_URL,
+        "source_note": "Preços capturados via Google Flights usando fast-flights, em modo melhor esforço. Clique em 'Comprar/ver preço' para reabrir a busca no Google Flights e finalizar pela companhia aérea ou agência exibida lá.",
         "best_destination": best["destination"] if best else None,
         "best_destination_label": best["label"] if best else None,
         "best_price_brl": best["cheapest"]["price_brl"] if best else None,
