@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-19T12:37:30+00:00",
+  "updated_at": "2026-07-20T11:01:04+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_date": "2027-01-20",
@@ -128,18 +128,6 @@
         },
         {
           "is_best": false,
-          "name": "LATAM, Air France",
-          "departure": "11:30 AM on Wed, Jan 20",
-          "arrival": "10:30 AM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "19 hr",
-          "stops": 1,
-          "delay": null,
-          "price": "R$13876",
-          "price_brl": 13876
-        },
-        {
-          "is_best": false,
           "name": "Gol, KLM, Air France",
           "departure": "3:30 PM on Wed, Jan 20",
           "arrival": "3:30 PM on Thu, Jan 21",
@@ -157,6 +145,18 @@
           "arrival": "5:50 PM on Thu, Jan 21",
           "arrival_time_ahead": "+1",
           "duration": "22 hr 20 min",
+          "stops": 2,
+          "delay": null,
+          "price": "R$14033",
+          "price_brl": 14033
+        },
+        {
+          "is_best": false,
+          "name": "Gol, KLM",
+          "departure": "3:30 PM on Wed, Jan 20",
+          "arrival": "7:10 PM on Thu, Jan 21",
+          "arrival_time_ahead": "+1",
+          "duration": "23 hr 40 min",
           "stops": 2,
           "delay": null,
           "price": "R$14033",
