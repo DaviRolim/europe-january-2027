@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-22T11:00:30+00:00",
+  "updated_at": "2026-07-22T11:41:09+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_date": "2027-01-20",
@@ -295,5 +295,98 @@
       "flights": [],
       "error": "Temporariamente indisponível — nova tentativa automática em breve."
     }
-  ]
+  ],
+  "price_history": [
+    {
+      "date": "2026-07-22",
+      "captured_at": "2026-07-22T11:41:09+00:00",
+      "origin": "REC",
+      "destination": "AMS",
+      "destination_label": "Aeroporto de Amsterdã Schiphol",
+      "travelers": 2,
+      "price_brl": 9269,
+      "airline": "Iberia",
+      "duration": "13 hr 10 min",
+      "stops": 1,
+      "departure": "6:15 PM on Wed, Jan 20",
+      "price_level": "low",
+      "source_name": "Google Flights",
+      "search_url": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+      "booking_links": {
+        "google_flights": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/ams/20270120/20270202/?adults=2",
+        "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-20/2027-02-02/2adults"
+      }
+    }
+  ],
+  "price_history_summary": {
+    "days_tracked": 1,
+    "latest": {
+      "date": "2026-07-22",
+      "captured_at": "2026-07-22T11:41:09+00:00",
+      "origin": "REC",
+      "destination": "AMS",
+      "destination_label": "Aeroporto de Amsterdã Schiphol",
+      "travelers": 2,
+      "price_brl": 9269,
+      "airline": "Iberia",
+      "duration": "13 hr 10 min",
+      "stops": 1,
+      "departure": "6:15 PM on Wed, Jan 20",
+      "price_level": "low",
+      "source_name": "Google Flights",
+      "search_url": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+      "booking_links": {
+        "google_flights": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/ams/20270120/20270202/?adults=2",
+        "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-20/2027-02-02/2adults"
+      }
+    },
+    "previous": null,
+    "lowest": {
+      "date": "2026-07-22",
+      "captured_at": "2026-07-22T11:41:09+00:00",
+      "origin": "REC",
+      "destination": "AMS",
+      "destination_label": "Aeroporto de Amsterdã Schiphol",
+      "travelers": 2,
+      "price_brl": 9269,
+      "airline": "Iberia",
+      "duration": "13 hr 10 min",
+      "stops": 1,
+      "departure": "6:15 PM on Wed, Jan 20",
+      "price_level": "low",
+      "source_name": "Google Flights",
+      "search_url": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+      "booking_links": {
+        "google_flights": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/ams/20270120/20270202/?adults=2",
+        "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-20/2027-02-02/2adults"
+      }
+    },
+    "highest": {
+      "date": "2026-07-22",
+      "captured_at": "2026-07-22T11:41:09+00:00",
+      "origin": "REC",
+      "destination": "AMS",
+      "destination_label": "Aeroporto de Amsterdã Schiphol",
+      "travelers": 2,
+      "price_brl": 9269,
+      "airline": "Iberia",
+      "duration": "13 hr 10 min",
+      "stops": 1,
+      "departure": "6:15 PM on Wed, Jan 20",
+      "price_level": "low",
+      "source_name": "Google Flights",
+      "search_url": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+      "booking_links": {
+        "google_flights": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/ams/20270120/20270202/?adults=2",
+        "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-20/2027-02-02/2adults"
+      }
+    },
+    "average_price_brl": 9269,
+    "delta_vs_previous_brl": null,
+    "delta_vs_lowest_brl": 0
+  }
 }

@@ -114,6 +114,17 @@
     .buy-link:hover { transform: translateY(-1px); background: #1d4ed8; }
     .source-link { color: var(--blue); font-weight: 800; text-decoration: none; }
     .source-link:hover { text-decoration: underline; }
+    .history-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 18px; }
+    .history-stat { border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.7); padding: 14px; }
+    .history-stat span { display: block; color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 7px; }
+    .history-stat b { display: block; font-size: 22px; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+    .history-stat small { color: var(--muted); }
+    .history-list { display: grid; gap: 10px; margin-top: 14px; }
+    .history-row { display: grid; grid-template-columns: .75fr .8fr 1fr .9fr .8fr; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,.62); border: 1px solid var(--line); }
+    .history-row.best { border-color: rgba(15,159,110,.35); background: rgba(15,159,110,.08); }
+    .trend-good { color: var(--green); font-weight: 800; }
+    .trend-bad { color: var(--red); font-weight: 800; }
+    .trend-flat { color: var(--muted); font-weight: 800; }
     .ok { color: var(--green); font-weight: 800; }
     .error { color: var(--red); font-weight: 700; }
     footer { padding: 36px 0 60px; color: var(--muted); }
@@ -215,6 +226,8 @@
       .stat-grid, .route { grid-template-columns: repeat(2, 1fr); }
       .flight-row { grid-template-columns: 1fr; gap: 6px; padding: 16px; }
       .flight-row.header { display: none; }              /* labels lose meaning when stacked */
+      .history-grid { grid-template-columns: repeat(2, 1fr); }
+      .history-row { grid-template-columns: 1fr; gap: 6px; }
       .section-head { display: block; }
       .section-head h2 { margin-bottom: 10px; }
       .places { grid-template-columns: 1fr; }
@@ -230,6 +243,7 @@
       h1 { font-size: clamp(32px, 10.5vw, 46px); }
       .lead { font-size: 17px; }
       .stat-grid, .route { grid-template-columns: 1fr; }
+      .history-grid { grid-template-columns: 1fr; }
       .navlinks { gap: 10px; }
       .navlinks a:not(.nav-count) { display: none; }
       .countdown { gap: 8px; }
@@ -393,7 +407,8 @@
       </div>
       <div class="card reveal">
         <div id="flight-summary" class="muted">Carregando dados das passagens…</div>
-        <div class="flight-table" id="flight-table" style="margin-top: 16px;"></div>
+        <div id="price-history"></div>
+        <div class="flight-table" id="flight-table" style="margin-top: 18px;"></div>
         <p class="muted" id="flight-note" style="margin-bottom:0"></p>
       </div>
     </section>
@@ -600,8 +615,12 @@
     });
 
     /* ===================== FLIGHT MONITOR (unchanged) ===================== */
-    const fmtBRL = n => n ? new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(n) : 'Não capturado';
+    const fmtBRL = n => (n === 0 || n) ? new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(n) : 'Não capturado';
     const fmtDate = iso => iso ? new Date(iso).toLocaleString('pt-BR', { dateStyle: 'medium', timeStyle: 'short' }) : '—';
+    const fmtDay = value => value ? new Date(value + 'T12:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: 'short' }) : '—';
+    const fmtDelta = n => n === null || n === undefined ? '—' : `${n > 0 ? '+' : ''}${fmtBRL(n)}`;
+    const trendClass = n => n < 0 ? 'trend-good' : n > 0 ? 'trend-bad' : 'trend-flat';
+    const trendLabel = n => n === null || n === undefined ? 'primeiro dia de histórico' : n < 0 ? 'caiu desde ontem' : n > 0 ? 'subiu desde ontem' : 'estável desde ontem';
     const labelNivel = value => ({ typical: 'preço típico', low: 'preço baixo', high: 'preço alto' }[value] || value || '');
     const traduzDuracao = value => (value || '—')
       .replace(/hr/g, 'h')
@@ -636,6 +655,41 @@
         .replace('Dec ', 'dez ');
     };
 
+    function renderPriceHistory(data) {
+      const target = document.getElementById('price-history');
+      const history = Array.isArray(data.price_history) ? data.price_history.filter(h => h && h.price_brl) : [];
+      const summary = data.price_history_summary || {};
+      if (!history.length) {
+        target.innerHTML = `<div class="history-grid"><div class="history-stat"><span>Histórico</span><b>Começando hoje</b><small>O menor preço diário será salvo a partir das próximas consultas.</small></div></div>`;
+        return;
+      }
+      const latest = summary.latest || history[history.length - 1];
+      const lowest = summary.lowest || history.reduce((a, b) => a.price_brl < b.price_brl ? a : b);
+      const avg = summary.average_price_brl;
+      const deltaPrev = summary.delta_vs_previous_brl;
+      const deltaLow = summary.delta_vs_lowest_brl;
+      const rows = history.slice(-10).reverse().map(h => {
+        const isBest = h.date === lowest.date && h.price_brl === lowest.price_brl;
+        const url = h.search_url || (h.booking_links && h.booking_links.google_flights) || data.source_url || 'https://www.google.com/travel/flights';
+        return `<div class="history-row ${isBest ? 'best' : ''}">
+          <div><strong>${fmtDay(h.date)}</strong>${isBest ? '<br><small>recorde até agora</small>' : ''}</div>
+          <div><strong>${fmtBRL(h.price_brl)}</strong><br><small>${h.destination || '—'}</small></div>
+          <div>${h.airline || 'Companhia não capturada'}<br><small>${h.destination_label || ''}</small></div>
+          <div><small>${traduzDuracao(h.duration)}${Number.isInteger(h.stops) ? ' · ' + h.stops + ' parada(s)' : ''}</small></div>
+          <div><a class="buy-link" href="${url}" target="_blank" rel="noopener">Abrir busca ↗</a></div>
+        </div>`;
+      }).join('');
+      target.innerHTML = `
+        <div class="history-grid">
+          <div class="history-stat"><span>Hoje</span><b>${fmtBRL(latest.price_brl)}</b><small>${latest.airline || '—'} · ${latest.destination || '—'}</small></div>
+          <div class="history-stat"><span>Menor registrado</span><b>${fmtBRL(lowest.price_brl)}</b><small>${fmtDay(lowest.date)} · ${lowest.airline || '—'} · ${lowest.destination || '—'}</small></div>
+          <div class="history-stat"><span>Variação vs. ontem</span><b class="${trendClass(deltaPrev)}">${fmtDelta(deltaPrev)}</b><small>${trendLabel(deltaPrev)}</small></div>
+          <div class="history-stat"><span>Acima do recorde</span><b class="${trendClass(deltaLow)}">${fmtDelta(deltaLow)}</b><small>Média: ${avg ? fmtBRL(avg) : '—'} · ${summary.days_tracked || history.length} dia(s)</small></div>
+        </div>
+        <h3 style="margin:22px 0 0">Histórico de menores preços do dia</h3>
+        <div class="history-list">${rows}</div>`;
+    }
+
     async function loadFlights() {
       try {
         const res = await fetch('./data/flights.json', { cache: 'no-store' });
@@ -648,6 +702,7 @@
         const sourceUrl = data.source_url || 'https://www.google.com/travel/flights';
         document.getElementById('flight-summary').innerHTML = `<strong>Datas da viagem:</strong> ${data.depart_date} → ${data.return_date} · <strong>Viajantes:</strong> ${data.travelers} · <strong>Melhor preço atual:</strong> ${fmtBRL(data.best_price_brl)} para ${data.best_destination_label || '—'} · <strong>Fonte:</strong> <a class="source-link" href="${sourceUrl}" target="_blank" rel="noopener">${data.source_name || 'Google Flights'} ↗</a>`;
         document.getElementById('flight-note').textContent = data.source_note;
+        renderPriceHistory(data);
 
         const routeRows = data.routes.map(route => {
           const cheapest = route.cheapest || {};

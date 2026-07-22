@@ -55,6 +55,93 @@ def parse_brl(value: str | None) -> int | None:
     return int(digits) if digits else None
 
 
+def day_key(iso: str) -> str:
+    return iso[:10]
+
+
+def make_history_entry(payload: dict[str, Any], route: dict[str, Any], captured_at: str) -> dict[str, Any]:
+    cheapest = route.get("cheapest") or {}
+    booking_links = route.get("booking_links") or {}
+    return {
+        "date": day_key(captured_at),
+        "captured_at": captured_at,
+        "origin": payload.get("origin", ORIGIN),
+        "destination": route.get("destination"),
+        "destination_label": route.get("label"),
+        "travelers": payload.get("travelers", ADULTS),
+        "price_brl": cheapest.get("price_brl"),
+        "airline": cheapest.get("name"),
+        "duration": cheapest.get("duration"),
+        "stops": cheapest.get("stops"),
+        "departure": cheapest.get("departure"),
+        "price_level": route.get("price_level"),
+        "source_name": route.get("source_name", SOURCE_NAME),
+        "search_url": booking_links.get("google_flights") or payload.get("source_url") or SOURCE_URL,
+        "booking_links": booking_links,
+    }
+
+
+def bootstrap_history(previous: dict[str, Any]) -> list[dict[str, Any]]:
+    history = previous.get("price_history") if isinstance(previous, dict) else None
+    if isinstance(history, list):
+        return [h for h in history if isinstance(h, dict) and h.get("date") and h.get("price_brl")]
+
+    # First deployment after adding history: seed one point from the last known valid fare.
+    if not isinstance(previous, dict) or not previous.get("best_price_brl"):
+        return []
+    dest = previous.get("best_destination")
+    route = next((r for r in previous.get("routes", []) if r.get("destination") == dest), None)
+    if not route:
+        return []
+    return [make_history_entry(previous, route, previous.get("updated_at") or datetime.now(timezone.utc).isoformat(timespec="seconds"))]
+
+
+def merge_history(previous: dict[str, Any], payload: dict[str, Any], best_route: dict[str, Any] | None, captured_at: str) -> list[dict[str, Any]]:
+    history = bootstrap_history(previous)
+    if not best_route:
+        return history
+
+    current = make_history_entry(payload, best_route, captured_at)
+    if not current.get("price_brl"):
+        return history
+
+    today = current["date"]
+    by_date = {h["date"]: h for h in history}
+    existing = by_date.get(today)
+    if (not existing) or current["price_brl"] < existing.get("price_brl", 10**12):
+        by_date[today] = current
+    elif current["price_brl"] == existing.get("price_brl"):
+        # Keep the daily low, but refresh metadata/link if the same fare is still visible.
+        existing.update({k: v for k, v in current.items() if v is not None})
+        by_date[today] = existing
+
+    return [by_date[d] for d in sorted(by_date)]
+
+
+def history_summary(history: list[dict[str, Any]]) -> dict[str, Any]:
+    valid = [h for h in history if h.get("price_brl")]
+    if not valid:
+        return {}
+    latest = valid[-1]
+    previous = valid[-2] if len(valid) > 1 else None
+    lowest = min(valid, key=lambda h: h["price_brl"])
+    highest = max(valid, key=lambda h: h["price_brl"])
+    prices = [h["price_brl"] for h in valid]
+    avg = round(sum(prices) / len(prices))
+    delta_prev = latest["price_brl"] - previous["price_brl"] if previous else None
+    delta_low = latest["price_brl"] - lowest["price_brl"]
+    return {
+        "days_tracked": len(valid),
+        "latest": latest,
+        "previous": previous,
+        "lowest": lowest,
+        "highest": highest,
+        "average_price_brl": avg,
+        "delta_vs_previous_brl": delta_prev,
+        "delta_vs_lowest_brl": delta_low,
+    }
+
+
 def flight_to_dict(f: Any) -> dict[str, Any]:
     # fast-flights exposes dataclass-like objects.
     try:
@@ -173,6 +260,8 @@ def main() -> int:
         "best_price_brl": best["cheapest"]["price_brl"] if best else None,
         "routes": routes,
     }
+    payload["price_history"] = merge_history(previous, payload, best, now)
+    payload["price_history_summary"] = history_summary(payload["price_history"])
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
 
