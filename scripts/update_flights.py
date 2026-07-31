@@ -110,10 +110,18 @@ def make_history_entry(payload: dict[str, Any], route: dict[str, Any], captured_
 def bootstrap_history(previous: dict[str, Any]) -> list[dict[str, Any]]:
     history = previous.get("price_history") if isinstance(previous, dict) else None
     if isinstance(history, list):
-        return [
-            h for h in history
+        valid_history = [
+            h.copy() for h in history
             if isinstance(h, dict) and h.get("date") and is_reasonable_total_fare(h.get("price_brl"))
         ]
+        for h in valid_history:
+            dest = h.get("destination")
+            if dest in ROUTES:
+                links = booking_links(dest)
+                h["booking_links"] = links
+                h["search_url"] = links["google_flights"]
+                h["destination_label"] = h.get("destination_label") or ROUTES[dest]["label"]
+        return valid_history
 
     # First deployment after adding history: seed one point from the last known valid fare.
     if not isinstance(previous, dict) or not is_reasonable_total_fare(previous.get("best_price_brl")):

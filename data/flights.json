@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-31T04:38:02+00:00",
+  "updated_at": "2026-07-31T04:44:44+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_date": "2027-01-20",
@@ -313,16 +313,16 @@
       "departure": "6:15 PM on Wed, Jan 20",
       "price_level": "low",
       "source_name": "Google Flights",
-      "search_url": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTAyagUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
       "booking_links": {
-        "google_flights": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTAyagUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
         "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/ams/20270120/20270202/?adults=2",
         "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-20/2027-02-02/2adults"
       }
     },
     {
       "date": "2026-07-31",
-      "captured_at": "2026-07-31T04:38:02+00:00",
+      "captured_at": "2026-07-31T04:44:44+00:00",
       "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
@@ -346,7 +346,7 @@
     "days_tracked": 2,
     "latest": {
       "date": "2026-07-31",
-      "captured_at": "2026-07-31T04:38:02+00:00",
+      "captured_at": "2026-07-31T04:44:44+00:00",
       "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
@@ -379,9 +379,9 @@
       "departure": "6:15 PM on Wed, Jan 20",
       "price_level": "low",
       "source_name": "Google Flights",
-      "search_url": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTAyagUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
       "booking_links": {
-        "google_flights": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTAyagUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
         "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/ams/20270120/20270202/?adults=2",
         "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-20/2027-02-02/2adults"
       }
@@ -400,16 +400,16 @@
       "departure": "6:15 PM on Wed, Jan 20",
       "price_level": "low",
       "source_name": "Google Flights",
-      "search_url": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTAyagUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
       "booking_links": {
-        "google_flights": "https://www.google.com/travel/flights?q=voos+REC+para+AMS+ida+2027-01-20+volta+2027-02-02+2+adultos",
+        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTAyagUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
         "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/ams/20270120/20270202/?adults=2",
         "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-20/2027-02-02/2adults"
       }
     },
     "highest": {
       "date": "2026-07-31",
-      "captured_at": "2026-07-31T04:38:02+00:00",
+      "captured_at": "2026-07-31T04:44:44+00:00",
       "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
