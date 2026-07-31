@@ -706,7 +706,11 @@
 
         const routeRows = data.routes.map(route => {
           const cheapest = route.cheapest || {};
-          const status = route.status === 'ok' ? '<span class="ok">OK</span>' : '<span class="error">Tentando novamente</span>';
+          const status = route.status === 'ok'
+            ? '<span class="ok">OK</span>'
+            : route.status === 'ignored'
+              ? '<span class="error">Preço suspeito ignorado</span>'
+              : '<span class="error">Tentando novamente</span>';
           const buyUrl = (route.booking_links && route.booking_links.google_flights) || data.source_url || 'https://www.google.com/travel/flights';
           return `<div class="flight-row">
             <div><strong>${route.destination}</strong><br><small>${route.label}</small></div>

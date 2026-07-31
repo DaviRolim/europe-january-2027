@@ -29,23 +29,49 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "flights.json"
 SOURCE_NAME = "Google Flights"
 SOURCE_URL = "https://www.google.com/travel/flights"
+MIN_REASONABLE_TOTAL_BRL = 5_000
+MAX_REASONABLE_TOTAL_BRL = 80_000
+
+
+def google_flights_url(dest: str) -> str:
+    """Create a Google Flights URL with route/date/traveler state encoded.
+
+    Plain `?q=voos REC...` links are often ignored by Google Flights and open a
+    blank search. The `tfs` parameter is what Google Flights/fast-flights uses
+    internally, so it is much more reliable for reopening the exact search.
+    """
+    try:
+        from fast_flights import FlightData, Passengers, create_filter
+
+        tfs = create_filter(
+            flight_data=[
+                FlightData(date=DEPART_DATE, from_airport=ORIGIN, to_airport=dest),
+                FlightData(date=RETURN_DATE, from_airport=dest, to_airport=ORIGIN),
+            ],
+            trip="round-trip",
+            passengers=Passengers(adults=ADULTS, children=0, infants_in_seat=0, infants_on_lap=0),
+            seat="economy",
+        ).as_b64().decode("utf-8")
+        return f"{SOURCE_URL}?tfs={tfs}&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA"
+    except Exception:
+        query = quote_plus(
+            f"voos REC para {dest} ida {DEPART_DATE} volta {RETURN_DATE} 2 adultos"
+        )
+        return f"https://www.google.com/search?q={query}"
 
 
 def booking_links(dest: str) -> dict[str, str]:
-    """Best-effort public links for re-running the same search and buying.
-
-    fast-flights/Google Flights returns fares but not a stable checkout URL.
-    These links open the exact route/date search; Google Flights then hands off
-    to the airline or agency for the actual purchase.
-    """
-    query = quote_plus(
-        f"voos REC para {dest} ida {DEPART_DATE} volta {RETURN_DATE} 2 adultos"
-    )
+    """Best-effort public links for re-running the same search and buying."""
     return {
-        "google_flights": f"https://www.google.com/travel/flights?q={query}",
+        "google_flights": google_flights_url(dest),
         "skyscanner": f"https://www.skyscanner.com.br/transport/flights/rec/{dest.lower()}/{DEPART_DATE.replace('-', '')}/{RETURN_DATE.replace('-', '')}/?adults=2",
         "kayak": f"https://www.kayak.com.br/flights/REC-{dest}/{DEPART_DATE}/{RETURN_DATE}/2adults",
     }
+
+
+def is_reasonable_total_fare(price_brl: int | None) -> bool:
+    """Guard against scraper misreads like R$1.805 for two REC-Europe tickets."""
+    return bool(price_brl and MIN_REASONABLE_TOTAL_BRL <= price_brl <= MAX_REASONABLE_TOTAL_BRL)
 
 
 def parse_brl(value: str | None) -> int | None:
@@ -84,10 +110,13 @@ def make_history_entry(payload: dict[str, Any], route: dict[str, Any], captured_
 def bootstrap_history(previous: dict[str, Any]) -> list[dict[str, Any]]:
     history = previous.get("price_history") if isinstance(previous, dict) else None
     if isinstance(history, list):
-        return [h for h in history if isinstance(h, dict) and h.get("date") and h.get("price_brl")]
+        return [
+            h for h in history
+            if isinstance(h, dict) and h.get("date") and is_reasonable_total_fare(h.get("price_brl"))
+        ]
 
     # First deployment after adding history: seed one point from the last known valid fare.
-    if not isinstance(previous, dict) or not previous.get("best_price_brl"):
+    if not isinstance(previous, dict) or not is_reasonable_total_fare(previous.get("best_price_brl")):
         return []
     dest = previous.get("best_destination")
     route = next((r for r in previous.get("routes", []) if r.get("destination") == dest), None)
@@ -156,7 +185,7 @@ def flight_to_dict(f: Any) -> dict[str, Any]:
 
 
 def query_route(dest: str) -> dict[str, Any]:
-    from fast_flights import FlightData, Passengers, get_flights
+    from fast_flights import FlightData, Passengers, create_filter, get_flights_from_filter
 
     meta = ROUTES[dest]
     base = {
@@ -173,7 +202,7 @@ def query_route(dest: str) -> dict[str, Any]:
     }
 
     try:
-        result = get_flights(
+        filter_data = create_filter(
             flight_data=[
                 FlightData(date=DEPART_DATE, from_airport=ORIGIN, to_airport=dest),
                 FlightData(date=RETURN_DATE, from_airport=dest, to_airport=ORIGIN),
@@ -181,13 +210,20 @@ def query_route(dest: str) -> dict[str, Any]:
             trip="round-trip",
             passengers=Passengers(adults=ADULTS, children=0, infants_in_seat=0, infants_on_lap=0),
             seat="economy",
-            fetch_mode="fallback",
         )
+        result = get_flights_from_filter(filter_data, currency="BRL", mode="fallback")
         flights = [flight_to_dict(f) for f in getattr(result, "flights", [])]
+        valid_flights = []
+        suspicious_flights = []
+        for f in flights:
+            if is_reasonable_total_fare(f.get("price_brl")):
+                valid_flights.append(f)
+            else:
+                suspicious_flights.append(f)
         # De-dupe by airline/departure/arrival/price.
         seen = set()
         unique = []
-        for f in flights:
+        for f in valid_flights:
             key = (f.get("name"), f.get("departure"), f.get("arrival"), f.get("price"))
             if key in seen:
                 continue
@@ -197,10 +233,15 @@ def query_route(dest: str) -> dict[str, Any]:
         cheapest = unique[0] if unique else None
         return {
             **base,
+            "status": "ok" if cheapest else "ignored",
             "price_level": getattr(result, "current_price", None),
             "cheapest": cheapest,
             "flights": unique[:8],
-            "error": None,
+            "suspicious_prices_ignored": len(suspicious_flights),
+            "error": None if cheapest else (
+                f"Consulta retornou apenas preços suspeitos abaixo de R${MIN_REASONABLE_TOTAL_BRL:,} para 2 pessoas; ignorado para evitar falso alarme.".replace(",", ".")
+                if suspicious_flights else None
+            ),
         }
     except Exception as e:  # keep other routes updating
         raw = str(e)
@@ -254,7 +295,7 @@ def main() -> int:
         "currency": "BRL",
         "source_name": SOURCE_NAME,
         "source_url": SOURCE_URL,
-        "source_note": "Preços capturados via Google Flights usando fast-flights, em modo melhor esforço. Clique em 'Comprar/ver preço' para reabrir a busca no Google Flights e finalizar pela companhia aérea ou agência exibida lá.",
+        "source_note": "Preços capturados via Google Flights usando fast-flights, em modo melhor esforço. O monitor ignora leituras abaixo de R$5.000 para 2 pessoas porque já vimos o scraper confundir preços irreais (ex.: R$1.8k). Clique em 'Comprar/ver preço' para reabrir a busca com rota, datas e 2 adultos e confirmar no Google Flights antes de qualquer compra.",
         "best_destination": best["destination"] if best else None,
         "best_destination_label": best["label"] if best else None,
         "best_price_brl": best["cheapest"]["price_brl"] if best else None,
