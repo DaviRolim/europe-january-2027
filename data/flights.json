@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-31T04:44:44+00:00",
+  "updated_at": "2026-07-31T11:00:49+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_date": "2027-01-20",
@@ -200,18 +200,6 @@
           "price_brl": 10428
         },
         {
-          "is_best": true,
-          "name": "Gol, Air France",
-          "departure": "3:30 PM on Wed, Jan 20",
-          "arrival": "11:50 AM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "16 hr 20 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$13785",
-          "price_brl": 13785
-        },
-        {
           "is_best": false,
           "name": "Gol, Air France",
           "departure": "3:35 AM on Wed, Jan 20",
@@ -224,19 +212,7 @@
           "price_brl": 13785
         },
         {
-          "is_best": false,
-          "name": "Gol, Air France",
-          "departure": "12:55 PM on Wed, Jan 20",
-          "arrival": "11:50 AM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "18 hr 55 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$13785",
-          "price_brl": 13785
-        },
-        {
-          "is_best": false,
+          "is_best": true,
           "name": "Gol, KLM",
           "departure": "3:30 PM on Wed, Jan 20",
           "arrival": "5:50 PM on Thu, Jan 21",
@@ -246,6 +222,18 @@
           "delay": null,
           "price": "R$13790",
           "price_brl": 13790
+        },
+        {
+          "is_best": true,
+          "name": "Gol, Air France",
+          "departure": "12:55 PM on Wed, Jan 20",
+          "arrival": "11:50 AM on Thu, Jan 21",
+          "arrival_time_ahead": "+1",
+          "duration": "18 hr 55 min",
+          "stops": 1,
+          "delay": null,
+          "price": "R$13800",
+          "price_brl": 13800
         },
         {
           "is_best": false,
@@ -266,6 +254,18 @@
           "arrival": "11:50 AM on Thu, Jan 21",
           "arrival_time_ahead": "+1",
           "duration": "17 hr 15 min",
+          "stops": 1,
+          "delay": null,
+          "price": "R$14570",
+          "price_brl": 14570
+        },
+        {
+          "is_best": false,
+          "name": "LATAM, Air France",
+          "departure": "12:55 PM on Wed, Jan 20",
+          "arrival": "11:50 AM on Thu, Jan 21",
+          "arrival_time_ahead": "+1",
+          "duration": "18 hr 55 min",
           "stops": 1,
           "delay": null,
           "price": "R$14570",
@@ -322,7 +322,7 @@
     },
     {
       "date": "2026-07-31",
-      "captured_at": "2026-07-31T04:44:44+00:00",
+      "captured_at": "2026-07-31T11:00:49+00:00",
       "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
@@ -346,7 +346,7 @@
     "days_tracked": 2,
     "latest": {
       "date": "2026-07-31",
-      "captured_at": "2026-07-31T04:44:44+00:00",
+      "captured_at": "2026-07-31T11:00:49+00:00",
       "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
@@ -409,7 +409,7 @@
     },
     "highest": {
       "date": "2026-07-31",
-      "captured_at": "2026-07-31T04:44:44+00:00",
+      "captured_at": "2026-07-31T11:00:49+00:00",
       "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
