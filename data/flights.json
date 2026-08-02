@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-02T11:00:10+00:00",
+  "updated_at": "2026-08-02T12:34:25+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_date": "2027-01-20",
@@ -137,8 +137,8 @@
           "duration": "24 hr",
           "stops": 1,
           "delay": null,
-          "price": "R$11092",
-          "price_brl": 11092
+          "price": "R$10859",
+          "price_brl": 10859
         }
       ],
       "suspicious_prices_ignored": 0,
@@ -171,8 +171,8 @@
         "duration": "13 hr 35 min",
         "stops": 1,
         "delay": null,
-        "price": "R$10574",
-        "price_brl": 10574
+        "price": "R$10432",
+        "price_brl": 10432
       },
       "flights": [
         {
@@ -184,8 +184,8 @@
           "duration": "13 hr 35 min",
           "stops": 1,
           "delay": null,
-          "price": "R$10574",
-          "price_brl": 10574
+          "price": "R$10432",
+          "price_brl": 10432
         },
         {
           "is_best": false,
@@ -196,8 +196,8 @@
           "duration": "19 hr 40 min",
           "stops": 1,
           "delay": null,
-          "price": "R$10574",
-          "price_brl": 10574
+          "price": "R$10432",
+          "price_brl": 10432
         },
         {
           "is_best": true,
@@ -208,8 +208,8 @@
           "duration": "18 hr 55 min",
           "stops": 1,
           "delay": null,
-          "price": "R$13790",
-          "price_brl": 13790
+          "price": "R$13756",
+          "price_brl": 13756
         },
         {
           "is_best": false,
@@ -220,8 +220,8 @@
           "duration": "22 hr 30 min",
           "stops": 1,
           "delay": null,
-          "price": "R$13790",
-          "price_brl": 13790
+          "price": "R$13756",
+          "price_brl": 13756
         },
         {
           "is_best": false,
@@ -232,8 +232,8 @@
           "duration": "21 hr 15 min",
           "stops": 1,
           "delay": null,
-          "price": "R$13790",
-          "price_brl": 13790
+          "price": "R$13756",
+          "price_brl": 13756
         },
         {
           "is_best": false,
@@ -244,8 +244,8 @@
           "duration": "22 hr 20 min",
           "stops": 2,
           "delay": null,
-          "price": "R$13795",
-          "price_brl": 13795
+          "price": "R$13761",
+          "price_brl": 13761
         },
         {
           "is_best": false,
@@ -256,16 +256,16 @@
           "duration": "29 hr 10 min",
           "stops": 2,
           "delay": null,
-          "price": "R$14340",
-          "price_brl": 14340
+          "price": "R$14437",
+          "price_brl": 14437
         },
         {
-          "is_best": true,
+          "is_best": false,
           "name": "LATAM, Air France",
-          "departure": "2:35 PM on Wed, Jan 20",
-          "arrival": "11:50 AM on Thu, Jan 21",
+          "departure": "2:30 AM on Wed, Jan 20",
+          "arrival": "6:05 AM on Thu, Jan 21",
           "arrival_time_ahead": "+1",
-          "duration": "17 hr 15 min",
+          "duration": "23 hr 35 min",
           "stops": 1,
           "delay": null,
           "price": "R$14576",
@@ -364,7 +364,7 @@
     },
     {
       "date": "2026-08-02",
-      "captured_at": "2026-08-02T11:00:10+00:00",
+      "captured_at": "2026-08-02T12:34:25+00:00",
       "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
@@ -388,7 +388,7 @@
     "days_tracked": 4,
     "latest": {
       "date": "2026-08-02",
-      "captured_at": "2026-08-02T11:00:10+00:00",
+      "captured_at": "2026-08-02T12:34:25+00:00",
       "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
@@ -451,7 +451,7 @@
     },
     "highest": {
       "date": "2026-08-02",
-      "captured_at": "2026-08-02T11:00:10+00:00",
+      "captured_at": "2026-08-02T12:34:25+00:00",
       "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
