@@ -3,8 +3,8 @@ name: Update flight prices
 on:
   workflow_dispatch:
   schedule:
-    # 08:30 Recife time (UTC-3), daily
-    - cron: '30 11 * * *'
+    # Every 6 hours, at minute 30.
+    - cron: '30 */6 * * *'
 
 permissions:
   contents: write
@@ -22,8 +22,13 @@ jobs:
         run: pip install -r requirements.txt
       - name: Update flight data
         run: python scripts/update_flights.py
+      - name: Notify fare alert
+        run: python scripts/notify.py
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       - name: Commit updated fares
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: update flight prices'
-          file_pattern: data/flights.json
+          file_pattern: data/flights.json data/alert_state.json
