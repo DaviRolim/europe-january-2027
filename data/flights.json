@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-08T02:29:35+00:00",
+  "updated_at": "2026-08-08T07:31:17+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_dates": [
@@ -453,7 +453,7 @@
         "kayak": "https://www.kayak.com.br/flights/REC-CDG/2027-01-19/2027-02-02/2adults"
       },
       "status": "ok",
-      "price_level": "low",
+      "price_level": "typical",
       "cheapest": {
         "is_best": true,
         "name": "",
@@ -463,8 +463,8 @@
         "duration": "",
         "stops": "Unknown",
         "delay": null,
-        "price": "R$9415",
-        "price_brl": 9415
+        "price": "R$12338",
+        "price_brl": 12338
       },
       "flights": [
         {
@@ -476,32 +476,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$9415",
-          "price_brl": 9415
-        },
-        {
-          "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
-          "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
-          "delay": null,
-          "price": "R$11014",
-          "price_brl": 11014
-        },
-        {
-          "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
-          "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
-          "delay": null,
-          "price": "R$12749",
-          "price_brl": 12749
+          "price": "R$12338",
+          "price_brl": 12338
         },
         {
           "is_best": true,
@@ -512,20 +488,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$13134",
-          "price_brl": 13134
-        },
-        {
-          "is_best": true,
-          "name": "",
-          "departure": "",
-          "arrival": "",
-          "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
-          "delay": null,
-          "price": "R$13627",
-          "price_brl": 13627
+          "price": "R$13108",
+          "price_brl": 13108
         },
         {
           "is_best": false,
@@ -536,20 +500,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$13683",
-          "price_brl": 13683
-        },
-        {
-          "is_best": true,
-          "name": "",
-          "departure": "",
-          "arrival": "",
-          "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
-          "delay": null,
-          "price": "R$14220",
-          "price_brl": 14220
+          "price": "R$13599",
+          "price_brl": 13599
         },
         {
           "is_best": false,
@@ -560,8 +512,56 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$14230",
-          "price_brl": 14230
+          "price": "R$13657",
+          "price_brl": 13657
+        },
+        {
+          "is_best": false,
+          "name": "",
+          "departure": "",
+          "arrival": "",
+          "arrival_time_ahead": "+1",
+          "duration": "",
+          "stops": "Unknown",
+          "delay": null,
+          "price": "R$14084",
+          "price_brl": 14084
+        },
+        {
+          "is_best": false,
+          "name": "",
+          "departure": "",
+          "arrival": "",
+          "arrival_time_ahead": "+1",
+          "duration": "",
+          "stops": "Unknown",
+          "delay": null,
+          "price": "R$14191",
+          "price_brl": 14191
+        },
+        {
+          "is_best": false,
+          "name": "",
+          "departure": "",
+          "arrival": "",
+          "arrival_time_ahead": "+1",
+          "duration": "",
+          "stops": "Unknown",
+          "delay": null,
+          "price": "R$14201",
+          "price_brl": 14201
+        },
+        {
+          "is_best": false,
+          "name": "",
+          "departure": "",
+          "arrival": "",
+          "arrival_time_ahead": "+1",
+          "duration": "",
+          "stops": "Unknown",
+          "delay": null,
+          "price": "R$14831",
+          "price_brl": 14831
         }
       ],
       "suspicious_prices_ignored": 0,
@@ -2215,6 +2215,29 @@
       "date": "2026-08-08",
       "captured_at": "2026-08-08T02:29:35+00:00",
       "origin": "REC",
+      "destination": "CDG",
+      "destination_label": "Aeroporto Paris Charles de Gaulle",
+      "depart_date": "2027-01-19",
+      "return_date": "2027-02-02",
+      "travelers": 2,
+      "price_brl": 9415,
+      "airline": "",
+      "duration": "",
+      "stops": "Unknown",
+      "departure": "",
+      "price_level": "low",
+      "source_name": "Google Flights",
+      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTAyagUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
+      "booking_links": {
+        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTAyagUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
+        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/cdg/20270119/20270202/?adults=2",
+        "kayak": "https://www.kayak.com.br/flights/REC-CDG/2027-01-19/2027-02-02/2adults"
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "captured_at": "2026-08-08T07:31:17+00:00",
+      "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
       "depart_date": "2027-01-19",
@@ -2236,7 +2259,7 @@
     },
     {
       "date": "2026-08-08",
-      "captured_at": "2026-08-08T02:29:35+00:00",
+      "captured_at": "2026-08-08T07:31:17+00:00",
       "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
@@ -2259,7 +2282,7 @@
     },
     {
       "date": "2026-08-08",
-      "captured_at": "2026-08-08T02:29:35+00:00",
+      "captured_at": "2026-08-08T07:31:17+00:00",
       "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
@@ -2282,30 +2305,7 @@
     },
     {
       "date": "2026-08-08",
-      "captured_at": "2026-08-08T02:29:35+00:00",
-      "origin": "REC",
-      "destination": "CDG",
-      "destination_label": "Aeroporto Paris Charles de Gaulle",
-      "depart_date": "2027-01-19",
-      "return_date": "2027-02-02",
-      "travelers": 2,
-      "price_brl": 9415,
-      "airline": "",
-      "duration": "",
-      "stops": "Unknown",
-      "departure": "",
-      "price_level": "low",
-      "source_name": "Google Flights",
-      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTAyagUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
-      "booking_links": {
-        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTAyagUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
-        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/cdg/20270119/20270202/?adults=2",
-        "kayak": "https://www.kayak.com.br/flights/REC-CDG/2027-01-19/2027-02-02/2adults"
-      }
-    },
-    {
-      "date": "2026-08-08",
-      "captured_at": "2026-08-08T02:29:35+00:00",
+      "captured_at": "2026-08-08T07:31:17+00:00",
       "origin": "REC",
       "destination": "CDG",
       "destination_label": "Aeroporto Paris Charles de Gaulle",
@@ -2328,7 +2328,7 @@
     },
     {
       "date": "2026-08-08",
-      "captured_at": "2026-08-08T02:29:35+00:00",
+      "captured_at": "2026-08-08T07:31:17+00:00",
       "origin": "REC",
       "destination": "CDG",
       "destination_label": "Aeroporto Paris Charles de Gaulle",
@@ -2351,7 +2351,7 @@
     },
     {
       "date": "2026-08-08",
-      "captured_at": "2026-08-08T02:29:35+00:00",
+      "captured_at": "2026-08-08T07:31:17+00:00",
       "origin": "REC",
       "destination": "LIS",
       "destination_label": "Aeroporto de Lisboa Humberto Delgado",
@@ -2374,7 +2374,7 @@
     },
     {
       "date": "2026-08-08",
-      "captured_at": "2026-08-08T02:29:35+00:00",
+      "captured_at": "2026-08-08T07:31:17+00:00",
       "origin": "REC",
       "destination": "LIS",
       "destination_label": "Aeroporto de Lisboa Humberto Delgado",
@@ -2397,7 +2397,7 @@
     },
     {
       "date": "2026-08-08",
-      "captured_at": "2026-08-08T02:29:35+00:00",
+      "captured_at": "2026-08-08T07:31:17+00:00",
       "origin": "REC",
       "destination": "LIS",
       "destination_label": "Aeroporto de Lisboa Humberto Delgado",
@@ -2423,7 +2423,7 @@
     "days_tracked": 10,
     "latest": {
       "date": "2026-08-08",
-      "captured_at": "2026-08-08T02:29:35+00:00",
+      "captured_at": "2026-08-08T07:31:17+00:00",
       "origin": "REC",
       "destination": "LIS",
       "destination_label": "Aeroporto de Lisboa Humberto Delgado",
@@ -2521,7 +2521,7 @@
         "days_tracked": 10,
         "latest": {
           "date": "2026-08-08",
-          "captured_at": "2026-08-08T02:29:35+00:00",
+          "captured_at": "2026-08-08T07:31:17+00:00",
           "origin": "REC",
           "destination": "AMS",
           "destination_label": "Aeroporto de Amsterdã Schiphol",
@@ -2590,7 +2590,7 @@
         },
         "highest": {
           "date": "2026-08-08",
-          "captured_at": "2026-08-08T02:29:35+00:00",
+          "captured_at": "2026-08-08T07:31:17+00:00",
           "origin": "REC",
           "destination": "AMS",
           "destination_label": "Aeroporto de Amsterdã Schiphol",
@@ -2717,7 +2717,7 @@
         "days_tracked": 5,
         "latest": {
           "date": "2026-08-08",
-          "captured_at": "2026-08-08T02:29:35+00:00",
+          "captured_at": "2026-08-08T07:31:17+00:00",
           "origin": "REC",
           "destination": "LIS",
           "destination_label": "Aeroporto de Lisboa Humberto Delgado",
