@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T10:09:51+00:00",
+  "updated_at": "2026-08-27T22:30:40+00:00",
   "origin": "REC",
   "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
   "depart_dates": [
@@ -38,7 +38,7 @@
   "best_destination_label": "Aeroporto de Amsterdã Schiphol",
   "best_depart_date": "2027-01-20",
   "best_return_date": "2027-02-03",
-  "best_price_brl": 9595,
+  "best_price_brl": 9611,
   "routes": [
     {
       "origin": "REC",
@@ -60,12 +60,12 @@
       "price_level": "low",
       "cheapest": {
         "is_best": true,
-        "name": "",
-        "departure": "",
-        "arrival": "",
+        "name": "Iberia",
+        "departure": "6:15 PM on Tue, Jan 19",
+        "arrival": "11:25 AM on Wed, Jan 20",
         "arrival_time_ahead": "+1",
-        "duration": "",
-        "stops": "Unknown",
+        "duration": "13 hr 10 min",
+        "stops": 1,
         "delay": null,
         "price": "R$10563",
         "price_brl": 10563
@@ -73,99 +73,99 @@
       "flights": [
         {
           "is_best": true,
-          "name": "",
-          "departure": "",
-          "arrival": "",
+          "name": "Iberia",
+          "departure": "6:15 PM on Tue, Jan 19",
+          "arrival": "11:25 AM on Wed, Jan 20",
           "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
+          "duration": "13 hr 10 min",
+          "stops": 1,
           "delay": null,
           "price": "R$10563",
           "price_brl": 10563
         },
         {
           "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
+          "name": "Iberia",
+          "departure": "6:15 PM on Tue, Jan 19",
+          "arrival": "3:05 PM on Wed, Jan 20",
+          "arrival_time_ahead": "+1",
+          "duration": "16 hr 50 min",
+          "stops": 1,
+          "delay": null,
+          "price": "R$10563",
+          "price_brl": 10563
+        },
+        {
+          "is_best": false,
+          "name": "Iberia",
+          "departure": "6:15 PM on Tue, Jan 19",
+          "arrival": "6:55 PM on Wed, Jan 20",
+          "arrival_time_ahead": "+1",
+          "duration": "20 hr 40 min",
+          "stops": 1,
+          "delay": null,
+          "price": "R$10563",
+          "price_brl": 10563
+        },
+        {
+          "is_best": false,
+          "name": "Tap Air Portugal",
+          "departure": "11:25 PM on Tue, Jan 19",
+          "arrival": "12:50 PM on Thu, Jan 21",
           "arrival_time_ahead": "+2",
-          "duration": "",
-          "stops": "Unknown",
+          "duration": "33 hr 25 min",
+          "stops": 1,
           "delay": null,
           "price": "R$10632",
           "price_brl": 10632
         },
         {
           "is_best": true,
-          "name": "",
-          "departure": "",
-          "arrival": "",
+          "name": "Tap Air Portugal",
+          "departure": "11:25 PM on Tue, Jan 19",
+          "arrival": "5:00 PM on Wed, Jan 20",
           "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
+          "duration": "13 hr 35 min",
+          "stops": 1,
           "delay": null,
           "price": "R$11330",
           "price_brl": 11330
         },
         {
           "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
+          "name": "Tap Air Portugal",
+          "departure": "11:25 PM on Tue, Jan 19",
+          "arrival": "10:20 PM on Wed, Jan 20",
           "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
+          "duration": "18 hr 55 min",
+          "stops": 1,
+          "delay": null,
+          "price": "R$11330",
+          "price_brl": 11330
+        },
+        {
+          "is_best": false,
+          "name": "Iberia",
+          "departure": "6:15 PM on Tue, Jan 19",
+          "arrival": "10:15 PM on Wed, Jan 20",
+          "arrival_time_ahead": "+1",
+          "duration": "24 hr",
+          "stops": 1,
           "delay": null,
           "price": "R$12596",
           "price_brl": 12596
         },
         {
           "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
+          "name": "LATAM",
+          "departure": "10:55 AM on Tue, Jan 19",
+          "arrival": "2:55 PM on Wed, Jan 20",
           "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
+          "duration": "24 hr",
+          "stops": 1,
           "delay": null,
           "price": "R$12804",
           "price_brl": 12804
-        },
-        {
-          "is_best": true,
-          "name": "",
-          "departure": "",
-          "arrival": "",
-          "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
-          "delay": null,
-          "price": "R$13236",
-          "price_brl": 13236
-        },
-        {
-          "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
-          "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
-          "delay": null,
-          "price": "R$13535",
-          "price_brl": 13535
-        },
-        {
-          "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
-          "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
-          "delay": null,
-          "price": "R$13558",
-          "price_brl": 13558
         }
       ],
       "suspicious_prices_ignored": 0,
@@ -192,112 +192,112 @@
       "price_level": "low",
       "cheapest": {
         "is_best": true,
-        "name": "",
-        "departure": "",
-        "arrival": "",
+        "name": "Iberia",
+        "departure": "6:15 PM on Wed, Jan 20",
+        "arrival": "11:25 AM on Thu, Jan 21",
         "arrival_time_ahead": "+1",
-        "duration": "",
-        "stops": "Unknown",
+        "duration": "13 hr 10 min",
+        "stops": 1,
         "delay": null,
-        "price": "R$9595",
-        "price_brl": 9595
+        "price": "R$9611",
+        "price_brl": 9611
       },
       "flights": [
         {
           "is_best": true,
-          "name": "",
-          "departure": "",
-          "arrival": "",
+          "name": "Iberia",
+          "departure": "6:15 PM on Wed, Jan 20",
+          "arrival": "11:25 AM on Thu, Jan 21",
           "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
+          "duration": "13 hr 10 min",
+          "stops": 1,
           "delay": null,
-          "price": "R$9595",
-          "price_brl": 9595
+          "price": "R$9611",
+          "price_brl": 9611
         },
         {
           "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
+          "name": "Iberia",
+          "departure": "6:15 PM on Wed, Jan 20",
+          "arrival": "3:05 PM on Thu, Jan 21",
           "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
+          "duration": "16 hr 50 min",
+          "stops": 1,
           "delay": null,
-          "price": "R$9750",
-          "price_brl": 9750
+          "price": "R$9765",
+          "price_brl": 9765
+        },
+        {
+          "is_best": false,
+          "name": "Iberia",
+          "departure": "6:15 PM on Wed, Jan 20",
+          "arrival": "6:55 PM on Thu, Jan 21",
+          "arrival_time_ahead": "+1",
+          "duration": "20 hr 40 min",
+          "stops": 1,
+          "delay": null,
+          "price": "R$9765",
+          "price_brl": 9765
         },
         {
           "is_best": true,
-          "name": "",
-          "departure": "",
-          "arrival": "",
+          "name": "Tap Air Portugal",
+          "departure": "5:50 AM on Wed, Jan 20",
+          "arrival": "10:20 PM on Wed, Jan 20",
           "arrival_time_ahead": "",
-          "duration": "",
-          "stops": "Unknown",
+          "duration": "12 hr 30 min",
+          "stops": 1,
           "delay": null,
-          "price": "R$10188",
-          "price_brl": 10188
+          "price": "R$9781",
+          "price_brl": 9781
         },
         {
           "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
+          "name": "Tap Air Portugal",
+          "departure": "5:50 AM on Wed, Jan 20",
+          "arrival": "12:50 PM on Thu, Jan 21",
           "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
+          "duration": "27 hr",
+          "stops": 1,
           "delay": null,
-          "price": "R$11999",
-          "price_brl": 11999
+          "price": "R$9781",
+          "price_brl": 9781
+        },
+        {
+          "is_best": true,
+          "name": "Tap Air Portugal",
+          "departure": "11:25 PM on Wed, Jan 20",
+          "arrival": "5:00 PM on Thu, Jan 21",
+          "arrival_time_ahead": "+1",
+          "duration": "13 hr 35 min",
+          "stops": 1,
+          "delay": null,
+          "price": "R$10184",
+          "price_brl": 10184
         },
         {
           "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
+          "name": "Tap Air Portugal",
+          "departure": "11:25 PM on Wed, Jan 20",
+          "arrival": "10:20 PM on Thu, Jan 21",
           "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
+          "duration": "18 hr 55 min",
+          "stops": 1,
           "delay": null,
-          "price": "R$12483",
-          "price_brl": 12483
+          "price": "R$10184",
+          "price_brl": 10184
         },
         {
           "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
+          "name": "Iberia",
+          "departure": "6:15 PM on Wed, Jan 20",
+          "arrival": "10:15 PM on Thu, Jan 21",
           "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
+          "duration": "24 hr",
+          "stops": 1,
           "delay": null,
-          "price": "R$13101",
-          "price_brl": 13101
-        },
-        {
-          "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
-          "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
-          "delay": null,
-          "price": "R$13532",
-          "price_brl": 13532
-        },
-        {
-          "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
-          "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
-          "delay": null,
-          "price": "R$13535",
-          "price_brl": 13535
+          "price": "R$12020",
+          "price_brl": 12020
         }
       ],
       "suspicious_prices_ignored": 0,
@@ -321,56 +321,20 @@
         "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-21/2027-02-04/2adults"
       },
       "status": "ok",
-      "price_level": "typical",
+      "price_level": "low",
       "cheapest": {
         "is_best": true,
-        "name": "Iberia",
-        "departure": "6:15 PM on Thu, Jan 21",
-        "arrival": "11:25 AM on Fri, Jan 22",
+        "name": "Tap Air Portugal",
+        "departure": "11:25 PM on Thu, Jan 21",
+        "arrival": "5:00 PM on Fri, Jan 22",
         "arrival_time_ahead": "+1",
-        "duration": "13 hr 10 min",
+        "duration": "13 hr 35 min",
         "stops": 1,
         "delay": null,
-        "price": "R$11457",
-        "price_brl": 11457
+        "price": "R$10204",
+        "price_brl": 10204
       },
       "flights": [
-        {
-          "is_best": true,
-          "name": "Iberia",
-          "departure": "6:15 PM on Thu, Jan 21",
-          "arrival": "11:25 AM on Fri, Jan 22",
-          "arrival_time_ahead": "+1",
-          "duration": "13 hr 10 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$11457",
-          "price_brl": 11457
-        },
-        {
-          "is_best": false,
-          "name": "Iberia",
-          "departure": "6:15 PM on Thu, Jan 21",
-          "arrival": "3:05 PM on Fri, Jan 22",
-          "arrival_time_ahead": "+1",
-          "duration": "16 hr 50 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$11457",
-          "price_brl": 11457
-        },
-        {
-          "is_best": false,
-          "name": "Iberia",
-          "departure": "6:15 PM on Thu, Jan 21",
-          "arrival": "6:55 PM on Fri, Jan 22",
-          "arrival_time_ahead": "+1",
-          "duration": "20 hr 40 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$11457",
-          "price_brl": 11457
-        },
         {
           "is_best": true,
           "name": "Tap Air Portugal",
@@ -380,8 +344,8 @@
           "duration": "13 hr 35 min",
           "stops": 1,
           "delay": null,
-          "price": "R$12484",
-          "price_brl": 12484
+          "price": "R$10204",
+          "price_brl": 10204
         },
         {
           "is_best": false,
@@ -392,8 +356,8 @@
           "duration": "18 hr 55 min",
           "stops": 1,
           "delay": null,
-          "price": "R$12484",
-          "price_brl": 12484
+          "price": "R$10204",
+          "price_brl": 10204
         },
         {
           "is_best": false,
@@ -404,8 +368,8 @@
           "duration": "33 hr 25 min",
           "stops": 1,
           "delay": null,
-          "price": "R$12527",
-          "price_brl": 12527
+          "price": "R$10649",
+          "price_brl": 10649
         },
         {
           "is_best": false,
@@ -416,8 +380,44 @@
           "duration": "37 hr 35 min",
           "stops": 1,
           "delay": null,
-          "price": "R$12527",
-          "price_brl": 12527
+          "price": "R$10649",
+          "price_brl": 10649
+        },
+        {
+          "is_best": true,
+          "name": "Iberia",
+          "departure": "6:15 PM on Thu, Jan 21",
+          "arrival": "11:25 AM on Fri, Jan 22",
+          "arrival_time_ahead": "+1",
+          "duration": "13 hr 10 min",
+          "stops": 1,
+          "delay": null,
+          "price": "R$11437",
+          "price_brl": 11437
+        },
+        {
+          "is_best": false,
+          "name": "Iberia",
+          "departure": "6:15 PM on Thu, Jan 21",
+          "arrival": "3:05 PM on Fri, Jan 22",
+          "arrival_time_ahead": "+1",
+          "duration": "16 hr 50 min",
+          "stops": 1,
+          "delay": null,
+          "price": "R$11437",
+          "price_brl": 11437
+        },
+        {
+          "is_best": false,
+          "name": "Iberia",
+          "departure": "6:15 PM on Thu, Jan 21",
+          "arrival": "6:55 PM on Fri, Jan 22",
+          "arrival_time_ahead": "+1",
+          "duration": "20 hr 40 min",
+          "stops": 1,
+          "delay": null,
+          "price": "R$11437",
+          "price_brl": 11437
         },
         {
           "is_best": false,
@@ -428,8 +428,8 @@
           "duration": "24 hr 5 min",
           "stops": 1,
           "delay": null,
-          "price": "R$13343",
-          "price_brl": 13343
+          "price": "R$13322",
+          "price_brl": 13322
         }
       ],
       "suspicious_prices_ignored": 0,
@@ -456,12 +456,12 @@
       "price_level": "typical",
       "cheapest": {
         "is_best": true,
-        "name": "Iberia",
-        "departure": "6:15 PM on Tue, Jan 19",
-        "arrival": "5:55 PM on Wed, Jan 20",
+        "name": "",
+        "departure": "",
+        "arrival": "",
         "arrival_time_ahead": "+1",
-        "duration": "19 hr 40 min",
-        "stops": 1,
+        "duration": "",
+        "stops": "Unknown",
         "delay": null,
         "price": "R$12358",
         "price_brl": 12358
@@ -469,99 +469,99 @@
       "flights": [
         {
           "is_best": true,
-          "name": "Iberia",
-          "departure": "6:15 PM on Tue, Jan 19",
-          "arrival": "5:55 PM on Wed, Jan 20",
+          "name": "",
+          "departure": "",
+          "arrival": "",
           "arrival_time_ahead": "+1",
-          "duration": "19 hr 40 min",
-          "stops": 1,
+          "duration": "",
+          "stops": "Unknown",
           "delay": null,
           "price": "R$12358",
           "price_brl": 12358
         },
         {
           "is_best": true,
-          "name": "Iberia",
-          "departure": "6:15 PM on Tue, Jan 19",
-          "arrival": "11:50 AM on Wed, Jan 20",
+          "name": "",
+          "departure": "",
+          "arrival": "",
           "arrival_time_ahead": "+1",
-          "duration": "13 hr 35 min",
-          "stops": 1,
+          "duration": "",
+          "stops": "Unknown",
           "delay": null,
           "price": "R$12873",
           "price_brl": 12873
         },
         {
           "is_best": false,
-          "name": "Gol, Air France",
-          "departure": "12:55 PM on Tue, Jan 19",
-          "arrival": "11:50 AM on Wed, Jan 20",
+          "name": "",
+          "departure": "",
+          "arrival": "",
           "arrival_time_ahead": "+1",
-          "duration": "18 hr 55 min",
-          "stops": 1,
+          "duration": "",
+          "stops": "Unknown",
           "delay": null,
           "price": "R$14222",
           "price_brl": 14222
         },
         {
           "is_best": false,
-          "name": "Iberia",
-          "departure": "6:15 PM on Tue, Jan 19",
-          "arrival": "11:50 PM on Wed, Jan 20",
+          "name": "",
+          "departure": "",
+          "arrival": "",
           "arrival_time_ahead": "+1",
-          "duration": "25 hr 35 min",
-          "stops": 1,
+          "duration": "",
+          "stops": "Unknown",
           "delay": null,
           "price": "R$14535",
           "price_brl": 14535
         },
         {
           "is_best": true,
-          "name": "Gol, Air France",
-          "departure": "4:45 PM on Tue, Jan 19",
-          "arrival": "11:45 AM on Wed, Jan 20",
+          "name": "",
+          "departure": "",
+          "arrival": "",
           "arrival_time_ahead": "+1",
-          "duration": "15 hr",
-          "stops": 1,
+          "duration": "",
+          "stops": "Unknown",
           "delay": null,
           "price": "R$14819",
           "price_brl": 14819
         },
         {
           "is_best": false,
-          "name": "Gol, Air France",
-          "departure": "10:50 AM on Tue, Jan 19",
-          "arrival": "11:45 AM on Wed, Jan 20",
+          "name": "",
+          "departure": "",
+          "arrival": "",
           "arrival_time_ahead": "+1",
-          "duration": "20 hr 55 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$14819",
-          "price_brl": 14819
-        },
-        {
-          "is_best": false,
-          "name": "Gol, Air France",
-          "departure": "2:35 PM on Tue, Jan 19",
-          "arrival": "11:45 AM on Wed, Jan 20",
-          "arrival_time_ahead": "+1",
-          "duration": "17 hr 10 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$14819",
-          "price_brl": 14819
-        },
-        {
-          "is_best": false,
-          "name": "Gol, Air France",
-          "departure": "3:35 AM on Tue, Jan 19",
-          "arrival": "6:05 AM on Wed, Jan 20",
-          "arrival_time_ahead": "+1",
-          "duration": "22 hr 30 min",
-          "stops": 1,
+          "duration": "",
+          "stops": "Unknown",
           "delay": null,
           "price": "R$14829",
           "price_brl": 14829
+        },
+        {
+          "is_best": false,
+          "name": "",
+          "departure": "",
+          "arrival": "",
+          "arrival_time_ahead": "+1",
+          "duration": "",
+          "stops": "Unknown",
+          "delay": null,
+          "price": "R$14858",
+          "price_brl": 14858
+        },
+        {
+          "is_best": false,
+          "name": "",
+          "departure": "",
+          "arrival": "",
+          "arrival_time_ahead": "+1",
+          "duration": "",
+          "stops": "Unknown",
+          "delay": null,
+          "price": "R$14984",
+          "price_brl": 14984
         }
       ],
       "suspicious_prices_ignored": 0,
@@ -931,8 +931,8 @@
         "duration": "",
         "stops": "Unknown",
         "delay": null,
-        "price": "R$11709",
-        "price_brl": 11709
+        "price": "R$11732",
+        "price_brl": 11732
       },
       "flights": [
         {
@@ -944,8 +944,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$11709",
-          "price_brl": 11709
+          "price": "R$11732",
+          "price_brl": 11732
         },
         {
           "is_best": true,
@@ -956,8 +956,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$11806",
-          "price_brl": 11806
+          "price": "R$11830",
+          "price_brl": 11830
         },
         {
           "is_best": false,
@@ -968,8 +968,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$12276",
-          "price_brl": 12276
+          "price": "R$12301",
+          "price_brl": 12301
         },
         {
           "is_best": false,
@@ -980,8 +980,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$12780",
-          "price_brl": 12780
+          "price": "R$12806",
+          "price_brl": 12806
         },
         {
           "is_best": false,
@@ -992,8 +992,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$13062",
-          "price_brl": 13062
+          "price": "R$12888",
+          "price_brl": 12888
         },
         {
           "is_best": false,
@@ -1004,8 +1004,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$13100",
-          "price_brl": 13100
+          "price": "R$13089",
+          "price_brl": 13089
         },
         {
           "is_best": false,
@@ -1016,8 +1016,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$13459",
-          "price_brl": 13459
+          "price": "R$13126",
+          "price_brl": 13126
         },
         {
           "is_best": false,
@@ -1028,8 +1028,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$13553",
-          "price_brl": 13553
+          "price": "R$13486",
+          "price_brl": 13486
         }
       ],
       "suspicious_prices_ignored": 0,
@@ -1052,121 +1052,13 @@
         "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/lis/20270120/20270203/?adults=2",
         "kayak": "https://www.kayak.com.br/flights/REC-LIS/2027-01-20/2027-02-03/2adults"
       },
-      "status": "ok",
-      "price_level": "typical",
-      "cheapest": {
-        "is_best": true,
-        "name": "Tap Air Portugal",
-        "departure": "5:50 AM on Wed, Jan 20",
-        "arrival": "4:20 PM on Wed, Jan 20",
-        "arrival_time_ahead": "",
-        "duration": "7 hr 30 min",
-        "stops": 0,
-        "delay": null,
-        "price": "R$10643",
-        "price_brl": 10643
-      },
-      "flights": [
-        {
-          "is_best": true,
-          "name": "Tap Air Portugal",
-          "departure": "5:50 AM on Wed, Jan 20",
-          "arrival": "4:20 PM on Wed, Jan 20",
-          "arrival_time_ahead": "",
-          "duration": "7 hr 30 min",
-          "stops": 0,
-          "delay": null,
-          "price": "R$10643",
-          "price_brl": 10643
-        },
-        {
-          "is_best": true,
-          "name": "Iberia",
-          "departure": "6:15 PM on Wed, Jan 20",
-          "arrival": "7:40 AM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "10 hr 25 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$10864",
-          "price_brl": 10864
-        },
-        {
-          "is_best": false,
-          "name": "Iberia",
-          "departure": "6:15 PM on Wed, Jan 20",
-          "arrival": "11:50 AM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "14 hr 35 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$10864",
-          "price_brl": 10864
-        },
-        {
-          "is_best": false,
-          "name": "Iberia",
-          "departure": "6:15 PM on Wed, Jan 20",
-          "arrival": "4:05 PM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "18 hr 50 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$10864",
-          "price_brl": 10864
-        },
-        {
-          "is_best": false,
-          "name": "Iberia",
-          "departure": "6:15 PM on Wed, Jan 20",
-          "arrival": "6:05 PM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "20 hr 50 min",
-          "stops": 1,
-          "delay": null,
-          "price": "R$10864",
-          "price_brl": 10864
-        },
-        {
-          "is_best": false,
-          "name": "LATAM",
-          "departure": "5:50 PM on Wed, Jan 20",
-          "arrival": "4:00 PM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "19 hr 10 min",
-          "stops": 2,
-          "delay": null,
-          "price": "R$11267",
-          "price_brl": 11267
-        },
-        {
-          "is_best": false,
-          "name": "LATAM",
-          "departure": "6:00 PM on Wed, Jan 20",
-          "arrival": "4:00 PM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "19 hr",
-          "stops": 2,
-          "delay": null,
-          "price": "R$11267",
-          "price_brl": 11267
-        },
-        {
-          "is_best": true,
-          "name": "Tap Air Portugal",
-          "departure": "11:25 PM on Wed, Jan 20",
-          "arrival": "9:55 AM on Thu, Jan 21",
-          "arrival_time_ahead": "+1",
-          "duration": "7 hr 30 min",
-          "stops": 0,
-          "delay": null,
-          "price": "R$11806",
-          "price_brl": 11806
-        }
-      ],
+      "status": "error",
+      "price_level": null,
+      "cheapest": null,
+      "flights": [],
       "suspicious_prices_ignored": 0,
       "suspicious_fares": [],
-      "error": null
+      "error": "Temporariamente indisponível — nova tentativa automática em breve."
     },
     {
       "origin": "REC",
@@ -1187,7 +1079,7 @@
       "status": "ok",
       "price_level": "typical",
       "cheapest": {
-        "is_best": false,
+        "is_best": true,
         "name": "",
         "departure": "",
         "arrival": "",
@@ -1195,11 +1087,23 @@
         "duration": "",
         "stops": "Unknown",
         "delay": null,
-        "price": "R$11472",
-        "price_brl": 11472
+        "price": "R$11830",
+        "price_brl": 11830
       },
       "flights": [
         {
+          "is_best": true,
+          "name": "",
+          "departure": "",
+          "arrival": "",
+          "arrival_time_ahead": "+1",
+          "duration": "",
+          "stops": "Unknown",
+          "delay": null,
+          "price": "R$11830",
+          "price_brl": 11830
+        },
+        {
           "is_best": false,
           "name": "",
           "departure": "",
@@ -1208,8 +1112,20 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$11472",
-          "price_brl": 11472
+          "price": "R$12423",
+          "price_brl": 12423
+        },
+        {
+          "is_best": false,
+          "name": "",
+          "departure": "",
+          "arrival": "",
+          "arrival_time_ahead": "+1",
+          "duration": "",
+          "stops": "Unknown",
+          "delay": null,
+          "price": "R$12439",
+          "price_brl": 12439
         },
         {
           "is_best": true,
@@ -1220,32 +1136,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$11806",
-          "price_brl": 11806
-        },
-        {
-          "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
-          "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
-          "delay": null,
-          "price": "R$11987",
-          "price_brl": 11987
-        },
-        {
-          "is_best": false,
-          "name": "",
-          "departure": "",
-          "arrival": "",
-          "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
-          "delay": null,
-          "price": "R$12003",
-          "price_brl": 12003
+          "price": "R$12651",
+          "price_brl": 12651
         },
         {
           "is_best": true,
@@ -1256,20 +1148,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$12625",
-          "price_brl": 12625
-        },
-        {
-          "is_best": true,
-          "name": "",
-          "departure": "",
-          "arrival": "",
-          "arrival_time_ahead": "+1",
-          "duration": "",
-          "stops": "Unknown",
-          "delay": null,
-          "price": "R$12778",
-          "price_brl": 12778
+          "price": "R$12804",
+          "price_brl": 12804
         },
         {
           "is_best": false,
@@ -1280,8 +1160,8 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$13231",
-          "price_brl": 13231
+          "price": "R$13259",
+          "price_brl": 13259
         },
         {
           "is_best": false,
@@ -1292,8 +1172,20 @@
           "duration": "",
           "stops": "Unknown",
           "delay": null,
-          "price": "R$13324",
-          "price_brl": 13324
+          "price": "R$13351",
+          "price_brl": 13351
+        },
+        {
+          "is_best": false,
+          "name": "",
+          "departure": "",
+          "arrival": "",
+          "arrival_time_ahead": "+1",
+          "duration": "",
+          "stops": "Unknown",
+          "delay": null,
+          "price": "R$13724",
+          "price_brl": 13724
         }
       ],
       "suspicious_prices_ignored": 0,
@@ -6150,29 +6042,6 @@
       "origin": "REC",
       "destination": "AMS",
       "destination_label": "Aeroporto de Amsterdã Schiphol",
-      "depart_date": "2027-01-19",
-      "return_date": "2027-02-02",
-      "travelers": 2,
-      "price_brl": 10563,
-      "airline": "",
-      "duration": "",
-      "stops": "Unknown",
-      "departure": "",
-      "price_level": "low",
-      "source_name": "Google Flights",
-      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTAyagUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
-      "booking_links": {
-        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTAyagUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
-        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/ams/20270119/20270202/?adults=2",
-        "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-19/2027-02-02/2adults"
-      }
-    },
-    {
-      "date": "2026-08-27",
-      "captured_at": "2026-08-27T10:09:51+00:00",
-      "origin": "REC",
-      "destination": "AMS",
-      "destination_label": "Aeroporto de Amsterdã Schiphol",
       "depart_date": "2027-01-20",
       "return_date": "2027-02-03",
       "travelers": 2,
@@ -6188,98 +6057,6 @@
         "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTAzagUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
         "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/ams/20270120/20270203/?adults=2",
         "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-20/2027-02-03/2adults"
-      }
-    },
-    {
-      "date": "2026-08-27",
-      "captured_at": "2026-08-27T10:09:51+00:00",
-      "origin": "REC",
-      "destination": "AMS",
-      "destination_label": "Aeroporto de Amsterdã Schiphol",
-      "depart_date": "2027-01-21",
-      "return_date": "2027-02-04",
-      "travelers": 2,
-      "price_brl": 11457,
-      "airline": "Iberia",
-      "duration": "13 hr 10 min",
-      "stops": 1,
-      "departure": "6:15 PM on Thu, Jan 21",
-      "price_level": "typical",
-      "source_name": "Google Flights",
-      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjFqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTA0agUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
-      "booking_links": {
-        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjFqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTA0agUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
-        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/ams/20270121/20270204/?adults=2",
-        "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-21/2027-02-04/2adults"
-      }
-    },
-    {
-      "date": "2026-08-27",
-      "captured_at": "2026-08-27T10:09:51+00:00",
-      "origin": "REC",
-      "destination": "CDG",
-      "destination_label": "Aeroporto Paris Charles de Gaulle",
-      "depart_date": "2027-01-19",
-      "return_date": "2027-02-02",
-      "travelers": 2,
-      "price_brl": 12358,
-      "airline": "Iberia",
-      "duration": "19 hr 40 min",
-      "stops": 1,
-      "departure": "6:15 PM on Tue, Jan 19",
-      "price_level": "typical",
-      "source_name": "Google Flights",
-      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTAyagUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
-      "booking_links": {
-        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTAyagUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
-        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/cdg/20270119/20270202/?adults=2",
-        "kayak": "https://www.kayak.com.br/flights/REC-CDG/2027-01-19/2027-02-02/2adults"
-      }
-    },
-    {
-      "date": "2026-08-27",
-      "captured_at": "2026-08-27T10:09:51+00:00",
-      "origin": "REC",
-      "destination": "CDG",
-      "destination_label": "Aeroporto Paris Charles de Gaulle",
-      "depart_date": "2027-01-20",
-      "return_date": "2027-02-03",
-      "travelers": 2,
-      "price_brl": 11967,
-      "airline": "Iberia",
-      "duration": "13 hr 35 min",
-      "stops": 1,
-      "departure": "6:15 PM on Wed, Jan 20",
-      "price_level": "typical",
-      "source_name": "Google Flights",
-      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTAzagUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
-      "booking_links": {
-        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTAzagUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
-        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/cdg/20270120/20270203/?adults=2",
-        "kayak": "https://www.kayak.com.br/flights/REC-CDG/2027-01-20/2027-02-03/2adults"
-      }
-    },
-    {
-      "date": "2026-08-27",
-      "captured_at": "2026-08-27T10:09:51+00:00",
-      "origin": "REC",
-      "destination": "CDG",
-      "destination_label": "Aeroporto Paris Charles de Gaulle",
-      "depart_date": "2027-01-21",
-      "return_date": "2027-02-04",
-      "travelers": 2,
-      "price_brl": 13143,
-      "airline": "",
-      "duration": "",
-      "stops": "Unknown",
-      "departure": "",
-      "price_level": "typical",
-      "source_name": "Google Flights",
-      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjFqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTA0agUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
-      "booking_links": {
-        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjFqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTA0agUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
-        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/cdg/20270121/20270204/?adults=2",
-        "kayak": "https://www.kayak.com.br/flights/REC-CDG/2027-01-21/2027-02-04/2adults"
       }
     },
     {
@@ -6349,6 +6126,121 @@
         "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjFqBRIDUkVDcgUSA0xJUxoaEgoyMDI3LTAyLTA0agUSA0xJU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
         "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/lis/20270121/20270204/?adults=2",
         "kayak": "https://www.kayak.com.br/flights/REC-LIS/2027-01-21/2027-02-04/2adults"
+      }
+    },
+    {
+      "date": "2026-08-27",
+      "captured_at": "2026-08-27T22:30:40+00:00",
+      "origin": "REC",
+      "destination": "AMS",
+      "destination_label": "Aeroporto de Amsterdã Schiphol",
+      "depart_date": "2027-01-19",
+      "return_date": "2027-02-02",
+      "travelers": 2,
+      "price_brl": 10563,
+      "airline": "Iberia",
+      "duration": "13 hr 10 min",
+      "stops": 1,
+      "departure": "6:15 PM on Tue, Jan 19",
+      "price_level": "low",
+      "source_name": "Google Flights",
+      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTAyagUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
+      "booking_links": {
+        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTAyagUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
+        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/ams/20270119/20270202/?adults=2",
+        "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-19/2027-02-02/2adults"
+      }
+    },
+    {
+      "date": "2026-08-27",
+      "captured_at": "2026-08-27T22:30:40+00:00",
+      "origin": "REC",
+      "destination": "AMS",
+      "destination_label": "Aeroporto de Amsterdã Schiphol",
+      "depart_date": "2027-01-21",
+      "return_date": "2027-02-04",
+      "travelers": 2,
+      "price_brl": 10204,
+      "airline": "Tap Air Portugal",
+      "duration": "13 hr 35 min",
+      "stops": 1,
+      "departure": "11:25 PM on Thu, Jan 21",
+      "price_level": "low",
+      "source_name": "Google Flights",
+      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjFqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTA0agUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
+      "booking_links": {
+        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjFqBRIDUkVDcgUSA0FNUxoaEgoyMDI3LTAyLTA0agUSA0FNU3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
+        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/ams/20270121/20270204/?adults=2",
+        "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-21/2027-02-04/2adults"
+      }
+    },
+    {
+      "date": "2026-08-27",
+      "captured_at": "2026-08-27T22:30:40+00:00",
+      "origin": "REC",
+      "destination": "CDG",
+      "destination_label": "Aeroporto Paris Charles de Gaulle",
+      "depart_date": "2027-01-19",
+      "return_date": "2027-02-02",
+      "travelers": 2,
+      "price_brl": 12358,
+      "airline": "",
+      "duration": "",
+      "stops": "Unknown",
+      "departure": "",
+      "price_level": "typical",
+      "source_name": "Google Flights",
+      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTAyagUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
+      "booking_links": {
+        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMTlqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTAyagUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
+        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/cdg/20270119/20270202/?adults=2",
+        "kayak": "https://www.kayak.com.br/flights/REC-CDG/2027-01-19/2027-02-02/2adults"
+      }
+    },
+    {
+      "date": "2026-08-27",
+      "captured_at": "2026-08-27T22:30:40+00:00",
+      "origin": "REC",
+      "destination": "CDG",
+      "destination_label": "Aeroporto Paris Charles de Gaulle",
+      "depart_date": "2027-01-20",
+      "return_date": "2027-02-03",
+      "travelers": 2,
+      "price_brl": 11967,
+      "airline": "Iberia",
+      "duration": "13 hr 35 min",
+      "stops": 1,
+      "departure": "6:15 PM on Wed, Jan 20",
+      "price_level": "typical",
+      "source_name": "Google Flights",
+      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTAzagUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
+      "booking_links": {
+        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjBqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTAzagUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
+        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/cdg/20270120/20270203/?adults=2",
+        "kayak": "https://www.kayak.com.br/flights/REC-CDG/2027-01-20/2027-02-03/2adults"
+      }
+    },
+    {
+      "date": "2026-08-27",
+      "captured_at": "2026-08-27T22:30:40+00:00",
+      "origin": "REC",
+      "destination": "CDG",
+      "destination_label": "Aeroporto Paris Charles de Gaulle",
+      "depart_date": "2027-01-21",
+      "return_date": "2027-02-04",
+      "travelers": 2,
+      "price_brl": 13143,
+      "airline": "",
+      "duration": "",
+      "stops": "Unknown",
+      "departure": "",
+      "price_level": "typical",
+      "source_name": "Google Flights",
+      "search_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjFqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTA0agUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
+      "booking_links": {
+        "google_flights": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjctMDEtMjFqBRIDUkVDcgUSA0NERxoaEgoyMDI3LTAyLTA0agUSA0NER3IFEgNSRUNCAgEBSAGYAQE=&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA",
+        "skyscanner": "https://www.skyscanner.com.br/transport/flights/rec/cdg/20270121/20270204/?adults=2",
+        "kayak": "https://www.kayak.com.br/flights/REC-CDG/2027-01-21/2027-02-04/2adults"
       }
     }
   ],
@@ -6446,7 +6338,7 @@
         "kayak": "https://www.kayak.com.br/flights/REC-CDG/2027-01-21/2027-02-04/2adults"
       }
     },
-    "average_price_brl": 10982,
+    "average_price_brl": 10976,
     "delta_vs_previous_brl": -34,
     "delta_vs_lowest_brl": 350,
     "by_route": {
@@ -6544,7 +6436,7 @@
             "kayak": "https://www.kayak.com.br/flights/REC-AMS/2027-01-21/2027-02-04/2adults"
           }
         },
-        "average_price_brl": 9946,
+        "average_price_brl": 9929,
         "delta_vs_previous_brl": -34,
         "delta_vs_lowest_brl": 350
       },
@@ -6552,7 +6444,7 @@
         "days_tracked": 24,
         "latest": {
           "date": "2026-08-27",
-          "captured_at": "2026-08-27T10:09:51+00:00",
+          "captured_at": "2026-08-27T22:30:40+00:00",
           "origin": "REC",
           "destination": "CDG",
           "destination_label": "Aeroporto Paris Charles de Gaulle",
