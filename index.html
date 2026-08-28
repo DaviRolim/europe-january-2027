@@ -696,7 +696,7 @@
         const data = await res.json();
         document.getElementById('hero-price').textContent = fmtBRL(data.best_price_brl);
         document.getElementById('hero-flight').textContent = data.best_destination_label
-          ? `Rota mais barata capturada: REC → ${data.best_destination} (${data.best_destination_label}) para ${data.travelers} adultos.`
+          ? `Rota mais barata capturada: ${data.best_origin || data.origin || 'REC'} → ${data.best_destination} (${data.best_destination_label}) para ${data.travelers} adultos.`
           : 'Nenhuma tarifa capturada ainda. O monitor diário tentará novamente.';
         document.getElementById('hero-updated').textContent = `Última atualização: ${fmtDate(data.updated_at)} · Fonte: ${data.source_name || 'Google Flights'}`;
         const sourceUrl = data.source_url || 'https://www.google.com/travel/flights';
@@ -713,7 +713,7 @@
               : '<span class="error">Tentando novamente</span>';
           const buyUrl = (route.booking_links && route.booking_links.google_flights) || data.source_url || 'https://www.google.com/travel/flights';
           return `<div class="flight-row">
-            <div><strong>${route.destination}</strong><br><small>${route.label}</small></div>
+            <div><strong>${route.origin || data.origin || ''} → ${route.destination}</strong><br><small>${route.label}</small></div>
             <div>${status}<br><small>${route.error || labelNivel(route.price_level)}</small></div>
             <div><strong>${fmtBRL(cheapest.price_brl)}</strong><br><small>${cheapest.name || '—'}</small></div>
             <div>${traduzDuracao(cheapest.duration)}<br><small>${Number.isInteger(cheapest.stops) ? cheapest.stops + ' parada(s)' : ''}</small></div>
@@ -721,7 +721,7 @@
             <div><a class="buy-link" href="${buyUrl}" target="_blank" rel="noopener">Comprar/ver preço ↗</a></div>
           </div>`;
         }).join('');
-        const header = '<div class="flight-row header"><div>Aeroporto</div><div>Status</div><div>Melhor preço</div><div>Duração</div><div>Saída</div><div>Compra</div></div>';
+        const header = '<div class="flight-row header"><div>Rota</div><div>Status</div><div>Melhor preço</div><div>Duração</div><div>Saída</div><div>Compra</div></div>';
         document.getElementById('flight-table').innerHTML = header + routeRows;
       } catch (e) {
         document.getElementById('hero-price').textContent = 'Indisponível';
