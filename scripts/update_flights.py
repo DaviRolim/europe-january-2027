@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Update REC -> Europe Jan 2027 flight prices for the trip site.
+"""Update REC/JPA -> Europe Jan 2027 flight prices for the trip site.
 
 Best-effort Google Flights lookup via fast-flights. Some route/date pairs may
 fail when Google anti-bot checks trigger; failures are recorded in
@@ -20,11 +20,15 @@ from urllib.parse import quote_plus
 ROUTES = {
     "AMS": {"city": "Amsterdã", "country": "Holanda", "label": "Aeroporto de Amsterdã Schiphol"},
     "CDG": {"city": "Paris", "country": "França", "label": "Aeroporto Paris Charles de Gaulle"},
-    "BRU": {"city": "Bruxelas", "country": "Bélgica", "label": "Aeroporto de Bruxelas"},
     # TAP is the only nonstop Recife<->Europe carrier and flies into LIS, so LIS is the likeliest cheap gateway.
     "LIS": {"city": "Lisboa", "country": "Portugal", "label": "Aeroporto de Lisboa Humberto Delgado"},
 }
-ORIGIN = "REC"
+ORIGINS = ["REC", "JPA"]
+ORIGIN_LABELS = {
+    "REC": "Recife / Guararapes–Gilberto Freyre International Airport",
+    "JPA": "João Pessoa / Presidente Castro Pinto International Airport",
+}
+DEFAULT_ORIGIN = ORIGINS[0]
 MIN_DEPART_DATE = "2027-01-19"
 DEPART_DATES: list[str] = ["2027-01-19", "2027-01-20", "2027-01-21"]
 RETURN_NIGHTS = 14
@@ -36,7 +40,7 @@ SOURCE_NAME = "Google Flights"
 SOURCE_URL = "https://www.google.com/travel/flights"
 MIN_REASONABLE_TOTAL_BRL = 5_000
 MAX_REASONABLE_TOTAL_BRL = 80_000
-MAX_QUERIES_PER_RUN = 12
+MAX_QUERIES_PER_RUN = 18
 QUERY_DELAY_SECONDS = (2.5, 6.0)
 ALERT_BELOW_BRL = 9_000
 URGENT_BELOW_BRL = 8_000
@@ -56,10 +60,10 @@ def return_date_for_depart(depart_date: str) -> str:
     return (date.fromisoformat(depart_date) + timedelta(days=RETURN_NIGHTS)).isoformat()
 
 
-def google_flights_url(dest: str, depart_date: str, return_date: str) -> str:
+def google_flights_url(origin: str, dest: str, depart_date: str, return_date: str) -> str:
     """Create a Google Flights URL with route/date/traveler state encoded.
 
-    Plain `?q=voos REC...` links are often ignored by Google Flights and open a
+    Plain `?q=voos <origem>...` links are often ignored by Google Flights and open a
     blank search. The `tfs` parameter is what Google Flights/fast-flights uses
     internally, so it is much more reliable for reopening the exact search.
     """
@@ -68,8 +72,8 @@ def google_flights_url(dest: str, depart_date: str, return_date: str) -> str:
 
         tfs = create_filter(
             flight_data=[
-                FlightData(date=depart_date, from_airport=ORIGIN, to_airport=dest),
-                FlightData(date=return_date, from_airport=dest, to_airport=ORIGIN),
+                FlightData(date=depart_date, from_airport=origin, to_airport=dest),
+                FlightData(date=return_date, from_airport=dest, to_airport=origin),
             ],
             trip="round-trip",
             passengers=Passengers(adults=ADULTS, children=0, infants_in_seat=0, infants_on_lap=0),
@@ -78,17 +82,17 @@ def google_flights_url(dest: str, depart_date: str, return_date: str) -> str:
         return f"{SOURCE_URL}?tfs={tfs}&hl=pt-BR&curr=BRL&tfu=EgQIABABIgA"
     except Exception:
         query = quote_plus(
-            f"voos REC para {dest} ida {depart_date} volta {return_date} 2 adultos"
+            f"voos {origin} para {dest} ida {depart_date} volta {return_date} 2 adultos"
         )
         return f"https://www.google.com/search?q={query}"
 
 
-def booking_links(dest: str, depart_date: str, return_date: str) -> dict[str, str]:
+def booking_links(origin: str, dest: str, depart_date: str, return_date: str) -> dict[str, str]:
     """Best-effort public links for re-running the same search and buying."""
     return {
-        "google_flights": google_flights_url(dest, depart_date, return_date),
-        "skyscanner": f"https://www.skyscanner.com.br/transport/flights/rec/{dest.lower()}/{depart_date.replace('-', '')}/{return_date.replace('-', '')}/?adults=2",
-        "kayak": f"https://www.kayak.com.br/flights/REC-{dest}/{depart_date}/{return_date}/2adults",
+        "google_flights": google_flights_url(origin, dest, depart_date, return_date),
+        "skyscanner": f"https://www.skyscanner.com.br/transport/flights/{origin.lower()}/{dest.lower()}/{depart_date.replace('-', '')}/{return_date.replace('-', '')}/?adults=2",
+        "kayak": f"https://www.kayak.com.br/flights/{origin}-{dest}/{depart_date}/{return_date}/2adults",
     }
 
 
@@ -97,7 +101,7 @@ def is_suspicious_low_fare(price_brl: int | None) -> bool:
 
 
 def is_reasonable_total_fare(price_brl: int | None) -> bool:
-    """Guard against scraper misreads like R$1.805 for two REC-Europe tickets."""
+    """Guard against scraper misreads like R$1.805 for two Brazil-Europe tickets."""
     return bool(price_brl and MIN_REASONABLE_TOTAL_BRL <= price_brl <= MAX_REASONABLE_TOTAL_BRL)
 
 
@@ -121,7 +125,7 @@ def day_key(iso: str) -> str:
 def make_suspicious_entry(route: dict[str, Any], flight: dict[str, Any]) -> dict[str, Any]:
     links = route.get("booking_links") or {}
     return {
-        "origin": route.get("origin", ORIGIN),
+        "origin": route.get("origin") or DEFAULT_ORIGIN,
         "destination": route.get("destination"),
         "destination_label": route.get("label"),
         "depart_date": route.get("depart_date"),
@@ -139,7 +143,10 @@ def make_history_entry(payload: dict[str, Any], route: dict[str, Any], captured_
     return {
         "date": day_key(captured_at),
         "captured_at": captured_at,
-        "origin": payload.get("origin", ORIGIN),
+        # Must come from the ROUTE, not the payload: payload["origin"] is the winning
+        # route's origin, so using it here would stamp every history row with whichever
+        # origin happened to be cheapest that run.
+        "origin": route.get("origin") or payload.get("origin") or DEFAULT_ORIGIN,
         "destination": route.get("destination"),
         "destination_label": route.get("label"),
         "depart_date": route.get("depart_date"),
@@ -290,12 +297,12 @@ def flight_to_dict(f: Any) -> dict[str, Any]:
     return d
 
 
-def query_route(dest: str, depart_date: str, return_date: str) -> dict[str, Any]:
+def query_route(origin: str, dest: str, depart_date: str, return_date: str) -> dict[str, Any]:
     from fast_flights import FlightData, Passengers, create_filter, get_flights_from_filter
 
     meta = ROUTES[dest]
     base = {
-        "origin": ORIGIN,
+        "origin": origin,
         "destination": dest,
         **meta,
         "depart_date": depart_date,
@@ -303,15 +310,15 @@ def query_route(dest: str, depart_date: str, return_date: str) -> dict[str, Any]
         "adults": ADULTS,
         "source_name": SOURCE_NAME,
         "source_url": SOURCE_URL,
-        "booking_links": booking_links(dest, depart_date, return_date),
+        "booking_links": booking_links(origin, dest, depart_date, return_date),
         "status": "ok",
     }
 
     try:
         filter_data = create_filter(
             flight_data=[
-                FlightData(date=depart_date, from_airport=ORIGIN, to_airport=dest),
-                FlightData(date=return_date, from_airport=dest, to_airport=ORIGIN),
+                FlightData(date=depart_date, from_airport=origin, to_airport=dest),
+                FlightData(date=return_date, from_airport=dest, to_airport=origin),
             ],
             trip="round-trip",
             passengers=Passengers(adults=ADULTS, children=0, infants_in_seat=0, infants_on_lap=0),
@@ -393,7 +400,7 @@ def alert_from_route(best: dict[str, Any] | None, suspicious_fares: list[dict[st
                 if level == "urgent" else f"Tarifa abaixo de {format_brl(ALERT_BELOW_BRL)} encontrada"
             )
             message = (
-                f"{level_message}: {format_brl(price)} para REC → {best.get('destination')} "
+                f"{level_message}: {format_brl(price)} para {best.get('origin') or DEFAULT_ORIGIN} → {best.get('destination')} "
                 f"({best.get('depart_date')} → {best.get('return_date')})."
             )
             return {
@@ -420,7 +427,7 @@ def alert_from_route(best: dict[str, Any] | None, suspicious_fares: list[dict[st
             "stops": fare.get("stops"),
             "url": fare.get("url") or SOURCE_URL,
             "message": (
-                f"Preço suspeito encontrado: {format_brl(fare.get('price_brl'))} para REC → {fare.get('destination')}. "
+                f"Preço suspeito encontrado: {format_brl(fare.get('price_brl'))} para {fare.get('origin') or DEFAULT_ORIGIN} → {fare.get('destination')}. "
                 "Esse valor pode ser erro do scraper e precisa de confirmação manual antes da compra."
             ),
         }
@@ -438,22 +445,26 @@ def alert_from_route(best: dict[str, Any] | None, suspicious_fares: list[dict[st
     }
 
 
-def route_date_queries() -> Iterable[tuple[str, str, str]]:
-    for dest in ROUTES:
-        for depart_date, return_date in travel_date_pairs():
-            yield dest, depart_date, return_date
+def route_date_queries() -> Iterable[tuple[str, str, str, str]]:
+    # Origin-major, ORIGINS[0] first: if the run is truncated by the query budget or by
+    # anti-bot failures, the established baseline origin is still complete rather than
+    # half of each origin.
+    for origin in ORIGINS:
+        for dest in ROUTES:
+            for depart_date, return_date in travel_date_pairs():
+                yield origin, dest, depart_date, return_date
 
 
 def run_queries() -> tuple[list[dict[str, Any]], bool]:
     routes = []
     stopped_for_budget = False
-    for index, (dest, depart_date, return_date) in enumerate(route_date_queries()):
+    for index, (origin, dest, depart_date, return_date) in enumerate(route_date_queries()):
         if index >= MAX_QUERIES_PER_RUN:
             stopped_for_budget = True
             break
         if index > 0:
             time.sleep(random.uniform(*QUERY_DELAY_SECONDS))
-        routes.append(query_route(dest, depart_date, return_date))
+        routes.append(query_route(origin, dest, depart_date, return_date))
     return routes, stopped_for_budget
 
 
@@ -489,11 +500,15 @@ def main() -> int:
 
     best = min(ok_routes, key=lambda r: (r["cheapest"] or {})["price_brl"]) if ok_routes else None
     date_pairs = [{"depart_date": depart, "return_date": ret} for depart, ret in travel_date_pairs()]
+    best_origin = (best or {}).get("origin") or DEFAULT_ORIGIN
 
     payload = {
         "updated_at": now,
-        "origin": ORIGIN,
-        "origin_label": "Recife / Guararapes–Gilberto Freyre International Airport",
+        "origin": best_origin,
+        "origin_label": ORIGIN_LABELS.get(best_origin, best_origin),
+        "origins": ORIGINS,
+        "best_origin": best_origin,
+        "best_origin_label": ORIGIN_LABELS.get(best_origin, best_origin),
         "depart_dates": DEPART_DATES,
         "return_nights": RETURN_NIGHTS,
         "date_pairs": date_pairs,
@@ -503,7 +518,7 @@ def main() -> int:
         "currency": "BRL",
         "source_name": SOURCE_NAME,
         "source_url": SOURCE_URL,
-        "source_note": "Preços capturados via Google Flights usando fast-flights, em modo melhor esforço. O monitor busca REC → Europa para 2 adultos em 3 datas de ida a partir de 19/01/2027, sempre com 14 noites. Leituras abaixo de R$5.000 ficam fora do histórico porque podem ser erro do scraper, mas aparecem como tarifas suspeitas para conferência manual. Clique em 'Comprar/ver preço' para reabrir a busca com rota, datas e 2 adultos e confirmar no Google Flights antes de qualquer compra.",
+        "source_note": "Preços capturados via Google Flights usando fast-flights, em modo melhor esforço. O monitor busca REC e JPA → Europa para 2 adultos em 3 datas de ida a partir de 19/01/2027, sempre com 14 noites. Leituras abaixo de R$5.000 ficam fora do histórico porque podem ser erro do scraper, mas aparecem como tarifas suspeitas para conferência manual. Clique em 'Comprar/ver preço' para reabrir a busca com rota, datas e 2 adultos e confirmar no Google Flights antes de qualquer compra.",
         "query_budget": {
             "max_queries_per_run": MAX_QUERIES_PER_RUN,
             "queries_attempted": len(routes),
