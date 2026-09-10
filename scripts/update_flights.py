@@ -193,7 +193,7 @@ def bootstrap_history(previous: dict[str, Any]) -> list[dict[str, Any]]:
             entry["depart_date"] = entry.get("depart_date") or OLD_DEPART_DATE
             entry["return_date"] = entry.get("return_date") or return_date_for_depart(entry["depart_date"])
             if dest in ROUTES:
-                links = booking_links(dest, entry["depart_date"], entry["return_date"])
+                links = booking_links(entry.get("origin") or DEFAULT_ORIGIN, dest, entry["depart_date"], entry["return_date"])
                 entry["booking_links"] = links
                 entry["search_url"] = links["google_flights"]
                 entry["destination_label"] = entry.get("destination_label") or ROUTES[dest]["label"]
