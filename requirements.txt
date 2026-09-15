@@ -1,2 +1,0 @@
-fast-flights==2.2
-typing_extensions>=4.12
