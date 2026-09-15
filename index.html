@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Davi & Sarah — Europa Jan/Fev 2027</title>
-  <meta name="description" content="Plano da primeira viagem internacional de janeiro/fevereiro de 2027 pela França, Bélgica e Holanda." />
+  <meta name="description" content="Plano da primeira viagem internacional de Davi e Sarah: passagens compradas Recife ⇄ Madri, 22 de janeiro a 5 de fevereiro de 2027. Madri, Lisboa e, se der tempo, França, Bélgica e Holanda." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://upload.wikimedia.org" crossorigin>
@@ -106,27 +106,22 @@
     .checks-progress { height: 8px; border-radius: 999px; background: rgba(31,41,51,.1); overflow: hidden; margin: 4px 0 14px; }
     .checks-progress > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--green), #34d399); transition: width .4s ease; }
     input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--green); flex: 0 0 auto; margin-top: 2px; }
-    .flight-table { display: grid; gap: 12px; }
-    .flight-row { display: grid; grid-template-columns: .8fr 1fr .9fr .75fr .75fr .85fr; gap: 12px; align-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.7); }
-    .flight-row.header { box-shadow: none; background: transparent; border: 0; padding: 0 14px 4px; color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
-    .flight-row small, .muted { color: var(--muted); }
-    .buy-link { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 12px; border-radius: 999px; background: var(--blue); color: white; text-decoration: none; font-size: 13px; font-weight: 800; box-shadow: 0 10px 24px rgba(37,99,235,.22); }
-    .buy-link:hover { transform: translateY(-1px); background: #1d4ed8; }
-    .source-link { color: var(--blue); font-weight: 800; text-decoration: none; }
-    .source-link:hover { text-decoration: underline; }
-    .history-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 18px; }
-    .history-stat { border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.7); padding: 14px; }
-    .history-stat span { display: block; color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 7px; }
-    .history-stat b { display: block; font-size: 22px; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
-    .history-stat small { color: var(--muted); }
-    .history-list { display: grid; gap: 10px; margin-top: 14px; }
-    .history-row { display: grid; grid-template-columns: .75fr .8fr 1fr .9fr .8fr; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,.62); border: 1px solid var(--line); }
-    .history-row.best { border-color: rgba(15,159,110,.35); background: rgba(15,159,110,.08); }
-    .trend-good { color: var(--green); font-weight: 800; }
-    .trend-bad { color: var(--red); font-weight: 800; }
-    .trend-flat { color: var(--muted); font-weight: 800; }
-    .ok { color: var(--green); font-weight: 800; }
-    .error { color: var(--red); font-weight: 700; }
+    .muted { color: var(--muted); }
+
+    /* ---- tickets ---- */
+    .tickets { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .leg .when { color: var(--orange); font-weight: 800; text-transform: uppercase; letter-spacing: .1em; font-size: 12px; }
+    .leg h3 { margin: 6px 0 14px; font-size: 26px; letter-spacing: -.04em; }
+    .seg { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; padding: 14px 0; border-top: 1px solid var(--line); }
+    .seg .ap b { display: block; font-size: 30px; letter-spacing: -.05em; line-height: 1; }
+    .seg .ap span { color: var(--muted); font-size: 13px; }
+    .seg .ap .t { color: var(--ink); font-weight: 800; font-variant-numeric: tabular-nums; }
+    .seg .ap.to { text-align: right; }
+    .seg .mid { text-align: center; color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .04em; white-space: nowrap; }
+    .seg .mid i { display: block; font-style: normal; font-size: 18px; }
+    .layover { font-size: 13px; color: var(--blue); font-weight: 700; padding: 9px 12px; background: rgba(37,99,235,.08); border-radius: 12px; }
+    .ticket-notes { margin-top: 18px; }
+    .ticket-notes ul { margin: 0; }
     footer { padding: 36px 0 60px; color: var(--muted); }
 
     /* ---- clickable country cards ---- */
@@ -141,6 +136,9 @@
     .country .cover .flag { position: absolute; top: 12px; left: 14px; font-size: 34px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.4)); }
     .country .cover .grad { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(17,24,39,.55)); }
     .country .cover .title { position: absolute; left: 16px; bottom: 12px; color: #fff; }
+    .country .cover .status { position: absolute; top: 14px; right: 14px; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; background: rgba(255,255,255,.92); color: var(--ink); }
+    .country .cover .status.base { background: var(--green); color: #fff; }
+    .country .cover .status.maybe { background: rgba(17,24,39,.6); color: #fff; }
     .country .cover .title h3 { margin: 0; font-size: 28px; letter-spacing: -.04em; }
     .country .body { padding: 18px 20px 22px; }
     .country .body ul { margin: 0 0 14px; }
@@ -222,12 +220,8 @@
       body { background-attachment: scroll; }            /* avoid iOS fixed-bg jank */
       .hero { padding: 48px 0 36px; }
       section { padding: 36px 0; }
-      .hero-grid, .checklists { grid-template-columns: 1fr; }
+      .hero-grid, .checklists, .tickets { grid-template-columns: 1fr; }
       .stat-grid, .route { grid-template-columns: repeat(2, 1fr); }
-      .flight-row { grid-template-columns: 1fr; gap: 6px; padding: 16px; }
-      .flight-row.header { display: none; }              /* labels lose meaning when stacked */
-      .history-grid { grid-template-columns: repeat(2, 1fr); }
-      .history-row { grid-template-columns: 1fr; gap: 6px; }
       .section-head { display: block; }
       .section-head h2 { margin-bottom: 10px; }
       .places { grid-template-columns: 1fr; }
@@ -243,7 +237,6 @@
       h1 { font-size: clamp(32px, 10.5vw, 46px); }
       .lead { font-size: 17px; }
       .stat-grid, .route { grid-template-columns: 1fr; }
-      .history-grid { grid-template-columns: 1fr; }
       .navlinks { gap: 10px; }
       .navlinks a:not(.nav-count) { display: none; }
       .countdown { gap: 8px; }
@@ -251,6 +244,7 @@
       .cd-unit b { font-size: 23px; }
       .cd-unit span { font-size: 10px; letter-spacing: .06em; }
       .country .cover { height: 168px; }
+      .seg .ap b { font-size: 24px; }
       .place .ph { height: 190px; }
       .res-col a { font-size: 13px; padding: 12px 12px; }
       .modal-overlay { padding: 10px 8px; }
@@ -269,11 +263,11 @@
     <div class="wrap bar">
       <div class="brand">Europa 2027 ✈️</div>
       <div class="navlinks">
+        <a href="#tickets">Passagens</a>
         <a href="#plan">Roteiro</a>
         <a href="#countries">Países</a>
         <a href="#resources">Recursos</a>
         <a href="#checklist">Checklist</a>
-        <a href="#flights">Passagens</a>
         <a href="#countdown-anchor" class="nav-count" id="nav-count">—</a>
       </div>
     </div>
@@ -281,9 +275,9 @@
 
   <main>
     <header class="hero wrap" id="countdown-anchor">
-      <div class="eyebrow reveal in">Primeira viagem internacional · Jan/Fev de 2027</div>
-      <h1 class="reveal in d1">14 dias de inverno pela França, Bélgica e Holanda.</h1>
-      <p class="lead reveal in d2">Um plano prático e romântico para a primeira viagem de Davi e Sarah à Europa: começar pela cidade com passagens mais baratas e seguir de trem por museus, cafés, praças medievais, canais e pães absurdamente bons.</p>
+      <div class="eyebrow reveal in">Primeira viagem internacional · Jan/Fev de 2027 · passagens compradas ✅</div>
+      <h1 class="reveal in d1">13 noites de inverno, começando por Madri.</h1>
+      <p class="lead reveal in d2">Passagens garantidas: chegamos em Madri no sábado, 23 de janeiro, e voltamos de lá na sexta, 5 de fevereiro. Madri é a base, Lisboa é a próxima candidata, e França, Bélgica e Holanda entram se o tempo deixar.</p>
 
       <div class="countdown reveal in d3" id="countdown" aria-label="Contagem regressiva para a viagem"></div>
 
@@ -293,44 +287,91 @@
         <div class="card reveal">
           <div class="stat-grid">
             <div class="stat"><b data-count="2">0</b><span>viajantes</span></div>
-            <div class="stat"><b data-count="14">0</b><span>dias</span></div>
-            <div class="stat"><b data-count="3">0</b><span>países</span></div>
-            <div class="stat"><b>REC</b><span>aeroporto de saída</span></div>
+            <div class="stat"><b data-count="13">0</b><span>noites na Europa</span></div>
+            <div class="stat"><b data-count="2">0</b><span>países certos (+3 talvez)</span></div>
+            <div class="stat"><b>MAD</b><span>chegada e volta</span></div>
           </div>
           <ul>
-            <li><strong>Datas base:</strong> 20 de jan → 2 de fev de 2027 — aproximadamente 13 noites / 14 dias, dependendo dos horários dos voos.</li>
-            <li><strong>Estratégia de voo:</strong> comparar Amsterdã, Paris e Bruxelas; desembarcar onde estiver mais barato e adaptar o roteiro.</li>
+            <li><strong>Datas fechadas:</strong> chegada em Madri sáb, 23 de jan, às 14:05 · volta de Madri sex, 5 de fev, às 12:10 (pousa em Recife às 21:55).</li>
+            <li><strong>Regra do roteiro:</strong> Madri é ponto fixo nas duas pontas. Todo o resto se encaixa no meio — e precisamos dormir em Madri na noite de 4 de fevereiro.</li>
             <li><strong>Realidade do clima:</strong> janeiro é frio, úmido e escurece cedo. Levem roupas em camadas. A Europa estará dramática; vamos chamar de cinematográfica.</li>
           </ul>
         </div>
         <aside class="card flight-card reveal d1">
-          <span class="badge">Monitor diário de passagens</span>
-          <h2>Melhor rota atual</h2>
-          <div class="price" id="hero-price">Carregando…</div>
-          <p id="hero-flight">Consultando REC → AMS/CDG/BRU para 2 adultos.</p>
-          <p class="muted" id="hero-updated"></p>
+          <span class="badge">Passagens compradas ✅</span>
+          <h2>TAP · ida e volta</h2>
+          <div class="price">R$ 8.888</div>
+          <p>REC → MAD · 22 jan → 5 fev de 2027 · 2 adultos</p>
+          <p class="muted">Compradas em 15/09/2026 · só bagagem de mão · <a href="#tickets">ver voos ↓</a></p>
         </aside>
       </div>
     </header>
 
+    <section id="tickets" class="wrap">
+      <div class="section-head reveal">
+        <h2>Passagens</h2>
+        <p>Compradas pela TAP em 15 de setembro de 2026. Horários locais de cada aeroporto. O código da reserva fica no e-mail, não neste site.</p>
+      </div>
+      <div class="tickets">
+        <div class="card leg reveal">
+          <div class="when">Ida · sex, 22 de janeiro de 2027</div>
+          <h3>Recife → Madri</h3>
+          <div class="seg">
+            <div class="ap"><b>REC</b><span>Recife · <span class="t">23:25</span></span></div>
+            <div class="mid"><i>✈️</i>TP 12</div>
+            <div class="ap to"><b>LIS</b><span>Lisboa</span></div>
+          </div>
+          <div class="layover">⏱️ Conexão de 1h50 em Lisboa</div>
+          <div class="seg">
+            <div class="ap"><b>LIS</b><span>Lisboa</span></div>
+            <div class="mid"><i>✈️</i>TP 1014</div>
+            <div class="ap to"><b>MAD</b><span>Madri · sáb 23/jan · <span class="t">14:05</span></span></div>
+          </div>
+        </div>
+        <div class="card leg reveal d1">
+          <div class="when">Volta · sex, 5 de fevereiro de 2027</div>
+          <h3>Madri → Recife</h3>
+          <div class="seg">
+            <div class="ap"><b>MAD</b><span>Madri · <span class="t">12:10</span></span></div>
+            <div class="mid"><i>✈️</i>TP 1013</div>
+            <div class="ap to"><b>LIS</b><span>Lisboa</span></div>
+          </div>
+          <div class="layover">⏱️ Conexão de 4h25 em Lisboa</div>
+          <div class="seg">
+            <div class="ap"><b>LIS</b><span>Lisboa</span></div>
+            <div class="mid"><i>✈️</i>TP 11</div>
+            <div class="ap to"><b>REC</b><span>Recife · <span class="t">21:55</span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card ticket-notes reveal">
+        <ul>
+          <li><strong>Total:</strong> R$ 8.888,13 para 2 adultos, ida e volta.</li>
+          <li><strong>Bagagem:</strong> só de mão, sem mala despachada. Se fizer falta, dá para adicionar uma mala para a volta em “gerenciar reserva” no site da TAP antes de 5/fev.</li>
+          <li><strong>Imigração na ida:</strong> a entrada no Espaço Schengen é feita em Lisboa, dentro da conexão de 1h50. A fila do passaporte sai desse tempo, então nada de enrolar no desembarque.</li>
+          <li><strong>Conexão da volta:</strong> 4h25 em Lisboa é tempo demais para ficar parado e pouco para passear com segurança. Plano: comer com calma e passar pelo controle de saída cedo.</li>
+        </ul>
+      </div>
+    </section>
+
     <section id="plan" class="wrap">
       <div class="section-head reveal">
-        <h2>Roteiro sugerido</h2>
-        <p>Ordem flexível. Se Paris estiver mais barata, começamos pela França. Se Amsterdã ou Bruxelas caírem de preço, invertemos o roteiro. Os trens facilitam esse triângulo.</p>
+        <h2>Roteiro (rascunho)</h2>
+        <p>Só as pontas estão fechadas: chegar em Madri no dia 23 e dormir em Madri no dia 4. O meio é para decidir juntos, conforme o tempo que sobrar.</p>
       </div>
       <div class="route">
-        <div class="day reveal"><b>Dias 1–4</b><h3>Paris</h3><p class="muted">Recuperação do voo, Torre Eiffel, Louvre, Montmartre, passeio pelo Sena e cafés.</p></div>
-        <div class="day reveal d1"><b>Dias 5–6</b><h3>Bruxelas + Bruges</h3><p class="muted">Grand Place, waffles, chocolate e bate-volta para os canais de Bruges.</p></div>
-        <div class="day reveal d2"><b>Dias 7–10</b><h3>Amsterdã</h3><p class="muted">Canais, Rijksmuseum, Casa de Anne Frank, Jordaan e cafés aconchegantes de inverno.</p></div>
-        <div class="day reveal d3"><b>Dias 11–13</b><h3>Bate-volta na França</h3><p class="muted">Versalhes, Lyon, Estrasburgo ou Vale do Loire — depende do clima da viagem e dos trens.</p></div>
-        <div class="day reveal d3"><b>Dias 14–15</b><h3>Folga + volta para casa</h3><p class="muted">Manter um dia final de folga perto da cidade de embarque. O Davi do futuro aprova.</p></div>
+        <div class="day reveal"><b>23–26 jan</b><h3>Madri</h3><p class="muted">Chegada às 14:05 e descanso. Prado, Retiro, Palácio Real, Plaza Mayor. Um bate-volta: Toledo ou Segóvia.</p></div>
+        <div class="day reveal d1"><b>27–29 jan</b><h3>Lisboa (provável)</h3><p class="muted">Voo curto saindo de Madri. Alfama, Belém e pastéis, miradouros e um dia em Sintra.</p></div>
+        <div class="day reveal d2"><b>30 jan–3 fev</b><h3>Bloco flexível</h3><p class="muted">Paris? Bruxelas e Bruges? Amsterdã? Com uns 5 dias, o realista é escolher um destino, no máximo dois.</p></div>
+        <div class="day reveal d3"><b>4 fev</b><h3>Volta para Madri</h3><p class="muted">Última noite perto do aeroporto. O voo sai 12:10 do dia 5, sem correria.</p></div>
+        <div class="day reveal d3"><b>5 fev</b><h3>Casa</h3><p class="muted">MAD 12:10 → Lisboa → Recife 21:55. O Davi do futuro aprova.</p></div>
       </div>
     </section>
 
     <section id="countries" class="wrap">
       <div class="section-head reveal">
         <h2>Lugares legais por país</h2>
-        <p>Clique em cada país para abrir uma galeria com fotos, detalhes e links de cada lugar. Informação suficiente para planejar, sem abrir 94 abas de viagem.</p>
+        <p>Espanha é certa, Portugal é provável, e França, Bélgica e Holanda ficam na lista do “se der tempo”. Clique em cada país para abrir a galeria com fotos, detalhes e links.</p>
       </div>
       <div class="countries" id="countries-grid"><!-- cards injected by JS --></div>
     </section>
@@ -338,29 +379,29 @@
     <section id="resources" class="wrap">
       <div class="section-head reveal">
         <h2>Recursos para explorar</h2>
-        <p>Os links que realmente importam: comparar voos, reservar trens, garantir ingressos concorridos e checar burocracia de entrada na Europa.</p>
+        <p>Os links que realmente importam: gerenciar a reserva, achar voos curtos e trens, garantir ingressos concorridos e checar a burocracia de entrada na Europa.</p>
       </div>
       <div class="card reveal">
         <div class="res-grid">
           <div class="res-col">
             <h3>✈️ Voos & deslocamento</h3>
+            <a href="https://www.flytap.com/" target="_blank" rel="noopener"><span class="ico">🧾</span>TAP (gerenciar reserva) <span class="arr">↗</span></a>
+            <a href="https://www.skyscanner.com.br" target="_blank" rel="noopener"><span class="ico">📊</span>Skyscanner (voos curtos na Europa) <span class="arr">↗</span></a>
             <a href="https://www.google.com/travel/flights" target="_blank" rel="noopener"><span class="ico">🔎</span>Google Flights <span class="arr">↗</span></a>
-            <a href="https://www.skyscanner.com.br" target="_blank" rel="noopener"><span class="ico">📊</span>Skyscanner <span class="arr">↗</span></a>
-            <a href="https://www.kayak.com.br" target="_blank" rel="noopener"><span class="ico">🧭</span>Kayak <span class="arr">↗</span></a>
             <a href="https://www.rome2rio.com" target="_blank" rel="noopener"><span class="ico">🗺️</span>Rome2Rio (rota porta a porta) <span class="arr">↗</span></a>
           </div>
           <div class="res-col">
             <h3>🚆 Trens entre cidades</h3>
+            <a href="https://www.renfe.com" target="_blank" rel="noopener"><span class="ico">🇪🇸</span>Renfe (Espanha) <span class="arr">↗</span></a>
+            <a href="https://www.cp.pt" target="_blank" rel="noopener"><span class="ico">🇵🇹</span>CP (Portugal) <span class="arr">↗</span></a>
             <a href="https://www.thetrainline.com/pt" target="_blank" rel="noopener"><span class="ico">🎫</span>Trainline (compra unificada) <span class="arr">↗</span></a>
             <a href="https://www.eurostar.com" target="_blank" rel="noopener"><span class="ico">🚄</span>Eurostar (Paris↔Bruxelas↔Amsterdã) <span class="arr">↗</span></a>
-            <a href="https://www.nsinternational.com" target="_blank" rel="noopener"><span class="ico">🇳🇱</span>NS International (Holanda) <span class="arr">↗</span></a>
-            <a href="https://www.sncf-connect.com" target="_blank" rel="noopener"><span class="ico">🇫🇷</span>SNCF Connect (França) <span class="arr">↗</span></a>
           </div>
           <div class="res-col">
             <h3>🎟️ Ingressos & burocracia</h3>
+            <a href="https://www.museodelprado.es" target="_blank" rel="noopener"><span class="ico">🖼️</span>Museo del Prado <span class="arr">↗</span></a>
+            <a href="https://www.parquesdesintra.pt" target="_blank" rel="noopener"><span class="ico">🏰</span>Parques de Sintra (Pena) <span class="arr">↗</span></a>
             <a href="https://www.annefrank.org/en/museum/tickets/" target="_blank" rel="noopener"><span class="ico">🏠</span>Casa de Anne Frank <span class="arr">↗</span></a>
-            <a href="https://www.ticketlouvre.fr" target="_blank" rel="noopener"><span class="ico">🖼️</span>Museu do Louvre <span class="arr">↗</span></a>
-            <a href="https://www.chateauversailles.fr/" target="_blank" rel="noopener"><span class="ico">👑</span>Palácio de Versalhes <span class="arr">↗</span></a>
             <a href="https://travel-europe.europa.eu/etias_en" target="_blank" rel="noopener"><span class="ico">🛂</span>ETIAS / entrada Schengen <span class="arr">↗</span></a>
           </div>
         </div>
@@ -376,7 +417,7 @@
         <div class="card checks reveal">
           <h3>O que vocês precisam ter</h3>
           <div class="checks-progress"><i></i></div>
-          <label><input type="checkbox">Passaportes válidos para os dois, de preferência com vencimento após julho de 2027.</label>
+          <label><input type="checkbox">Passaportes dos dois válidos até pelo menos maio de 2027 (3 meses depois da volta) e emitidos há menos de 10 anos.</label>
           <label><input type="checkbox">Autorização ETIAS, se já estiver ativa, e requisitos de entrada no Espaço Schengen.</label>
           <label><input type="checkbox">Seguro viagem cobrindo saúde, cancelamento, bagagem extraviada e atrasos de inverno.</label>
           <label><input type="checkbox">Cartões internacionais habilitados, mais um cartão reserva.</label>
@@ -388,34 +429,21 @@
         <div class="card checks reveal d1">
           <h3>O que fazer antes da viagem</h3>
           <div class="checks-progress"><i></i></div>
-          <label><input type="checkbox">Definir orçamento: voos, hotéis, trens, comida, atrações e reserva de emergência.</label>
-          <label><input type="checkbox">Comprar voos quando o custo-benefício estiver bom — não só o mais barato se as conexões forem horríveis.</label>
+          <label><input type="checkbox">Definir orçamento: hotéis, trens e voos internos, comida, atrações e reserva de emergência.</label>
+          <label><input type="checkbox" data-default-checked>Passagens compradas: TAP Recife ⇄ Madri, R$ 8.888,13 para os dois.</label>
           <label><input type="checkbox">Reservar hotéis reembolsáveis em regiões boas para transporte.</label>
-          <label><input type="checkbox">Reservar ingressos concorridos: Casa de Anne Frank, Louvre, Torre Eiffel e Versalhes.</label>
-          <label><input type="checkbox">Mapear trens entre cidades: Paris ↔ Bruxelas ↔ Amsterdã.</label>
-          <label><input type="checkbox">Checar regras de bagagem de cada companhia aérea.</label>
+          <label><input type="checkbox">Reservar ingressos concorridos: Prado e Palácio da Pena, e Casa de Anne Frank ou Louvre se entrarem no roteiro.</label>
+          <label><input type="checkbox">Decidir o bloco flexível e mapear os deslocamentos: Madri ↔ Lisboa e o que entrar depois.</label>
+          <label><input type="checkbox">Mala de mão: conferir limite de peso e tamanho da TAP e testar as malas antes.</label>
           <label><input type="checkbox">Avisar bancos sobre a viagem e confirmar limites dos cartões.</label>
           <label><input type="checkbox">Criar lista compartilhada no Google Maps e pasta compartilhada para documentos.</label>
         </div>
       </div>
     </section>
-
-    <section id="flights" class="wrap">
-      <div class="section-head reveal">
-        <h2>Monitor de passagens</h2>
-        <p>Consulta automática diária para 2 adultos: Recife (REC) → Amsterdã (AMS), Paris (CDG) ou Bruxelas (BRU), 20 de janeiro → 2 de fevereiro de 2027. Os preços vêm do Google Flights; o botão de compra reabre a busca para finalizar pela companhia aérea/agência disponível.</p>
-      </div>
-      <div class="card reveal">
-        <div id="flight-summary" class="muted">Carregando dados das passagens…</div>
-        <div id="price-history"></div>
-        <div class="flight-table" id="flight-table" style="margin-top: 18px;"></div>
-        <p class="muted" id="flight-note" style="margin-bottom:0"></p>
-      </div>
-    </section>
   </main>
 
   <footer class="wrap">
-    Feito para a primeira viagem internacional de Davi e Sarah. Os preços servem para planejamento, não são garantia de compra.
+    Feito para a primeira viagem internacional de Davi e Sarah. ✈️
   </footer>
 
   <!-- modal -->
@@ -440,7 +468,32 @@
     /* ===================== TRIP DATA ===================== */
     const COUNTRIES = [
       {
-        id: 'fr', flag: '🇫🇷', name: 'França', sub: 'Paris, Versalhes e o charme de inverno da Alsácia',
+        id: 'es', flag: '🇪🇸', name: 'Espanha', status: 'Base da viagem', statusClass: 'base', sub: 'Madri na chegada e na volta, com bate-voltas medievais',
+        cover: 'https://commons.wikimedia.org/wiki/Special:FilePath/Madrid_-_Sky_Bar_360%C2%BA_%28Hotel_Riu_Plaza_Espa%C3%B1a%29%2C_vistas_19.jpg?width=900',
+        bullets: ['Prado, Palácio Real e Retiro', 'Plaza Mayor, churros e tapas', 'Bate-volta: Toledo ou Segóvia'],
+        places: [
+          { tag: 'Museu', name: 'Museo del Prado', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Museo_del_Prado_2016_%2825185969599%29.jpg?width=900', desc: 'Velázquez (As Meninas), Goya e El Greco. Comprem ingresso com horário online e escolham poucas salas — é gigante.', link: 'https://www.museodelprado.es/en' },
+          { tag: 'Ícone', name: 'Palácio Real de Madri', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Palacio_Real_de_Madrid_Julio_2016_%28cropped%29.jpg?width=900', desc: 'Um dos maiores palácios reais da Europa, ainda usado em cerimônias oficiais. Ao lado: a Catedral de Almudena e os jardins com pôr do sol.', link: 'https://www.patrimonionacional.es/en' },
+          { tag: 'Parque', name: 'Parque del Retiro', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/MADRID_051116_MXALX_041.jpg?width=900', desc: 'O “Central Park” de Madri: lago com barquinhos, Palácio de Cristal e caminhada tranquila mesmo no frio.', link: 'https://www.esmadrid.com/en' },
+          { tag: 'Centro', name: 'Plaza Mayor & Puerta del Sol', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Madrid_Plaza_Mayor_%2848733706273%29.jpg?width=900', desc: 'O coração da Madri antiga. Bocadillo de calamares, chocolate com churros e o Mercado de San Miguel ali do lado.', link: 'https://www.esmadrid.com/en' },
+          { tag: 'Bate-volta', name: 'Toledo', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Toledo_%2837737041515%29.jpg?width=900', desc: 'A “cidade das três culturas”: cristãos, muçulmanos e judeus. Ruelas medievais no alto de um morro, a pouco mais de meia hora de trem rápido.', link: 'https://pt.wikipedia.org/wiki/Toledo' },
+          { tag: 'Bate-volta', name: 'Segóvia', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Aqueduct_of_Segovia_08.jpg?width=900', desc: 'Aqueduto romano de 2 mil anos no meio da cidade, o Alcázar com cara de castelo de filme e o famoso leitão assado.', link: 'https://pt.wikipedia.org/wiki/Segóvia' }
+        ]
+      },
+      {
+        id: 'pt', flag: '🇵🇹', name: 'Portugal', status: 'Provável', statusClass: '', sub: 'Lisboa de ladeiras, azulejos e pastéis — e a serra de Sintra',
+        cover: 'https://commons.wikimedia.org/wiki/Special:FilePath/Lisboa_-_Portugal_%2852597836992%29.jpg?width=900',
+        bullets: ['Alfama & Castelo de São Jorge', 'Belém: torre, mosteiro e pastéis', 'Bate-volta: Sintra'],
+        places: [
+          { tag: 'Bairro', name: 'Alfama', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Alfama%2C_Lisboa_-_2010-09-09.jpg?width=900', desc: 'O bairro mais antigo de Lisboa: ladeiras, azulejos, roupa no varal e casas de fado à noite. Subam de elétrico e desçam a pé.', link: 'https://www.visitlisboa.com/en' },
+          { tag: 'Vista', name: 'Castelo de São Jorge', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Castelo_de_S%C3%A3o_Jorge_%2810251035013%29.jpg?width=900', desc: 'Muralhas no topo da colina, com a vista mais bonita da cidade e do rio Tejo.', link: 'https://castelodesaojorge.pt/en/' },
+          { tag: 'Ícone', name: 'Torre de Belém', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Torre_Bel%C3%A9m_April_2009-4a.jpg?width=900', desc: 'A torre à beira do Tejo de onde saíam as navegações. Combina com o Mosteiro dos Jerónimos numa manhã só.', link: 'https://pt.wikipedia.org/wiki/Torre_de_Belém' },
+          { tag: 'Monumento', name: 'Mosteiro dos Jerónimos', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mosteiro_dos_Jeronimos_-_Left_Wing.jpg?width=900', desc: 'Joia do estilo manuelino, com o túmulo de Vasco da Gama. Do lado fica a casa dos Pastéis de Belém — obrigatório.', link: 'https://pt.wikipedia.org/wiki/Mosteiro_dos_Jerónimos' },
+          { tag: 'Bate-volta', name: 'Sintra (Palácio da Pena)', img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sintra_-_Palacio_da_Pena_%2820332995770%29.jpg?width=900', desc: 'Palácio colorido no alto da serra, com cara de conto de fadas. Cerca de 40 min de trem saindo do Rossio. Com neblina fica ainda mais mágico.', link: 'https://www.parquesdesintra.pt/en/' }
+        ]
+      },
+      {
+        id: 'fr', flag: '🇫🇷', name: 'França', status: 'Se der tempo', statusClass: 'maybe', sub: 'Paris, Versalhes e o charme de inverno da Alsácia',
         cover: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg/960px-Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg',
         bullets: ['Torre Eiffel, Louvre e Orsay', 'Montmartre & Sacré-Cœur', 'Versalhes, Estrasburgo, Colmar'],
         places: [
@@ -454,7 +507,7 @@
         ]
       },
       {
-        id: 'be', flag: '🇧🇪', name: 'Bélgica', sub: 'Praças medievais, canais e a melhor parada gastronômica',
+        id: 'be', flag: '🇧🇪', name: 'Bélgica', status: 'Se der tempo', statusClass: 'maybe', sub: 'Praças medievais, canais e a melhor parada gastronômica',
         cover: 'https://commons.wikimedia.org/wiki/Special:FilePath/Grand-Place%2C%20Brussels%20-%20panorama%2C%20June%202018.jpg?width=900',
         bullets: ['Grand-Place de Bruxelas', 'Bruges & Ghent medievais', 'Waffles, fritas, chocolate, cerveja'],
         places: [
@@ -465,7 +518,7 @@
         ]
       },
       {
-        id: 'nl', flag: '🇳🇱', name: 'Holanda', sub: 'Canais, mestres holandeses e cidades de bicicleta',
+        id: 'nl', flag: '🇳🇱', name: 'Holanda', status: 'Se der tempo', statusClass: 'maybe', sub: 'Canais, mestres holandeses e cidades de bicicleta',
         cover: 'https://commons.wikimedia.org/wiki/Special:FilePath/Prinsengracht.jpg?width=900',
         bullets: ['Canais de Amsterdã & Jordaan', 'Rijksmuseum + Van Gogh', 'Casa de Anne Frank, Zaanse Schans, Utrecht'],
         places: [
@@ -483,7 +536,7 @@
     const grid = document.getElementById('countries-grid');
     COUNTRIES.forEach((c, i) => {
       const art = document.createElement('article');
-      art.className = 'card country reveal' + (i ? ' d' + i : '');
+      art.className = 'card country reveal' + (i % 3 ? ' d' + (i % 3) : '');
       art.tabIndex = 0;
       art.setAttribute('role', 'button');
       art.setAttribute('aria-label', 'Ver lugares: ' + c.name);
@@ -492,6 +545,7 @@
           <img loading="lazy" src="${c.cover}" alt="${c.name}" onerror="this.style.display='none'">
           <div class="grad"></div>
           <span class="flag">${c.flag}</span>
+          ${c.status ? `<span class="status ${c.statusClass || ''}">${c.status}</span>` : ''}
           <div class="title"><h3>${c.name}</h3></div>
         </div>
         <div class="body">
@@ -554,7 +608,7 @@
     });
 
     /* ===================== COUNTDOWN ===================== */
-    const TRIP = new Date('2027-01-20T00:00:00-03:00');
+    const TRIP = new Date('2027-01-22T23:25:00-03:00');
     const cd = document.getElementById('countdown');
     const navCount = document.getElementById('nav-count');
     function tick() {
@@ -608,127 +662,13 @@
         if (bar) bar.style.width = (done / boxes.length * 100) + '%';
       };
       boxes.forEach((cb, ci) => {
-        cb.checked = localStorage.getItem(`chk-${bi}-${ci}`) === '1';
+        const saved = localStorage.getItem(`chk-${bi}-${ci}`);
+        cb.checked = saved === null ? cb.hasAttribute('data-default-checked') : saved === '1';
         cb.addEventListener('change', update);
       });
       update();
     });
 
-    /* ===================== FLIGHT MONITOR (unchanged) ===================== */
-    const fmtBRL = n => (n === 0 || n) ? new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(n) : 'Não capturado';
-    const fmtDate = iso => iso ? new Date(iso).toLocaleString('pt-BR', { dateStyle: 'medium', timeStyle: 'short' }) : '—';
-    const fmtDay = value => value ? new Date(value + 'T12:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: 'short' }) : '—';
-    const fmtDelta = n => n === null || n === undefined ? '—' : `${n > 0 ? '+' : ''}${fmtBRL(n)}`;
-    const trendClass = n => n < 0 ? 'trend-good' : n > 0 ? 'trend-bad' : 'trend-flat';
-    const trendLabel = n => n === null || n === undefined ? 'primeiro dia de histórico' : n < 0 ? 'caiu desde ontem' : n > 0 ? 'subiu desde ontem' : 'estável desde ontem';
-    const labelNivel = value => ({ typical: 'preço típico', low: 'preço baixo', high: 'preço alto' }[value] || value || '');
-    const traduzDuracao = value => (value || '—')
-      .replace(/hr/g, 'h')
-      .replace(/min/g, 'min');
-    const traduzSaida = value => {
-      let text = value || '';
-      text = text.replace(/(\d{1,2}):(\d{2})\s*(AM|PM)/, (_, h, m, period) => {
-        let hour = Number(h);
-        if (period === 'PM' && hour !== 12) hour += 12;
-        if (period === 'AM' && hour === 12) hour = 0;
-        return `${String(hour).padStart(2, '0')}:${m}`;
-      });
-      return text
-        .replace(' on Sun, ', ', dom, ')
-        .replace(' on Mon, ', ', seg, ')
-        .replace(' on Tue, ', ', ter, ')
-        .replace(' on Wed, ', ', qua, ')
-        .replace(' on Thu, ', ', qui, ')
-        .replace(' on Fri, ', ', sex, ')
-        .replace(' on Sat, ', ', sáb, ')
-        .replace('Jan ', 'jan ')
-        .replace('Feb ', 'fev ')
-        .replace('Mar ', 'mar ')
-        .replace('Apr ', 'abr ')
-        .replace('May ', 'mai ')
-        .replace('Jun ', 'jun ')
-        .replace('Jul ', 'jul ')
-        .replace('Aug ', 'ago ')
-        .replace('Sep ', 'set ')
-        .replace('Oct ', 'out ')
-        .replace('Nov ', 'nov ')
-        .replace('Dec ', 'dez ');
-    };
-
-    function renderPriceHistory(data) {
-      const target = document.getElementById('price-history');
-      const history = Array.isArray(data.price_history) ? data.price_history.filter(h => h && h.price_brl) : [];
-      const summary = data.price_history_summary || {};
-      if (!history.length) {
-        target.innerHTML = `<div class="history-grid"><div class="history-stat"><span>Histórico</span><b>Começando hoje</b><small>O menor preço diário será salvo a partir das próximas consultas.</small></div></div>`;
-        return;
-      }
-      const latest = summary.latest || history[history.length - 1];
-      const lowest = summary.lowest || history.reduce((a, b) => a.price_brl < b.price_brl ? a : b);
-      const avg = summary.average_price_brl;
-      const deltaPrev = summary.delta_vs_previous_brl;
-      const deltaLow = summary.delta_vs_lowest_brl;
-      const rows = history.slice(-10).reverse().map(h => {
-        const isBest = h.date === lowest.date && h.price_brl === lowest.price_brl;
-        const url = h.search_url || (h.booking_links && h.booking_links.google_flights) || data.source_url || 'https://www.google.com/travel/flights';
-        return `<div class="history-row ${isBest ? 'best' : ''}">
-          <div><strong>${fmtDay(h.date)}</strong>${isBest ? '<br><small>recorde até agora</small>' : ''}</div>
-          <div><strong>${fmtBRL(h.price_brl)}</strong><br><small>${h.destination || '—'}</small></div>
-          <div>${h.airline || 'Companhia não capturada'}<br><small>${h.destination_label || ''}</small></div>
-          <div><small>${traduzDuracao(h.duration)}${Number.isInteger(h.stops) ? ' · ' + h.stops + ' parada(s)' : ''}</small></div>
-          <div><a class="buy-link" href="${url}" target="_blank" rel="noopener">Abrir busca ↗</a></div>
-        </div>`;
-      }).join('');
-      target.innerHTML = `
-        <div class="history-grid">
-          <div class="history-stat"><span>Hoje</span><b>${fmtBRL(latest.price_brl)}</b><small>${latest.airline || '—'} · ${latest.destination || '—'}</small></div>
-          <div class="history-stat"><span>Menor registrado</span><b>${fmtBRL(lowest.price_brl)}</b><small>${fmtDay(lowest.date)} · ${lowest.airline || '—'} · ${lowest.destination || '—'}</small></div>
-          <div class="history-stat"><span>Variação vs. ontem</span><b class="${trendClass(deltaPrev)}">${fmtDelta(deltaPrev)}</b><small>${trendLabel(deltaPrev)}</small></div>
-          <div class="history-stat"><span>Acima do recorde</span><b class="${trendClass(deltaLow)}">${fmtDelta(deltaLow)}</b><small>Média: ${avg ? fmtBRL(avg) : '—'} · ${summary.days_tracked || history.length} dia(s)</small></div>
-        </div>
-        <h3 style="margin:22px 0 0">Histórico de menores preços do dia</h3>
-        <div class="history-list">${rows}</div>`;
-    }
-
-    async function loadFlights() {
-      try {
-        const res = await fetch('./data/flights.json', { cache: 'no-store' });
-        const data = await res.json();
-        document.getElementById('hero-price').textContent = fmtBRL(data.best_price_brl);
-        document.getElementById('hero-flight').textContent = data.best_destination_label
-          ? `Rota mais barata capturada: ${data.best_origin || data.origin || 'REC'} → ${data.best_destination} (${data.best_destination_label}) para ${data.travelers} adultos.`
-          : 'Nenhuma tarifa capturada ainda. O monitor diário tentará novamente.';
-        document.getElementById('hero-updated').textContent = `Última atualização: ${fmtDate(data.updated_at)} · Fonte: ${data.source_name || 'Google Flights'}`;
-        const sourceUrl = data.source_url || 'https://www.google.com/travel/flights';
-        document.getElementById('flight-summary').innerHTML = `<strong>Datas da viagem:</strong> ${data.depart_date} → ${data.return_date} · <strong>Viajantes:</strong> ${data.travelers} · <strong>Melhor preço atual:</strong> ${fmtBRL(data.best_price_brl)} para ${data.best_destination_label || '—'} · <strong>Fonte:</strong> <a class="source-link" href="${sourceUrl}" target="_blank" rel="noopener">${data.source_name || 'Google Flights'} ↗</a>`;
-        document.getElementById('flight-note').textContent = data.source_note;
-        renderPriceHistory(data);
-
-        const routeRows = data.routes.map(route => {
-          const cheapest = route.cheapest || {};
-          const status = route.status === 'ok'
-            ? '<span class="ok">OK</span>'
-            : route.status === 'ignored'
-              ? '<span class="error">Preço suspeito ignorado</span>'
-              : '<span class="error">Tentando novamente</span>';
-          const buyUrl = (route.booking_links && route.booking_links.google_flights) || data.source_url || 'https://www.google.com/travel/flights';
-          return `<div class="flight-row">
-            <div><strong>${route.origin || data.origin || ''} → ${route.destination}</strong><br><small>${route.label}</small></div>
-            <div>${status}<br><small>${route.error || labelNivel(route.price_level)}</small></div>
-            <div><strong>${fmtBRL(cheapest.price_brl)}</strong><br><small>${cheapest.name || '—'}</small></div>
-            <div>${traduzDuracao(cheapest.duration)}<br><small>${Number.isInteger(cheapest.stops) ? cheapest.stops + ' parada(s)' : ''}</small></div>
-            <div><small>${traduzSaida(cheapest.departure)}</small></div>
-            <div><a class="buy-link" href="${buyUrl}" target="_blank" rel="noopener">Comprar/ver preço ↗</a></div>
-          </div>`;
-        }).join('');
-        const header = '<div class="flight-row header"><div>Rota</div><div>Status</div><div>Melhor preço</div><div>Duração</div><div>Saída</div><div>Compra</div></div>';
-        document.getElementById('flight-table').innerHTML = header + routeRows;
-      } catch (e) {
-        document.getElementById('hero-price').textContent = 'Indisponível';
-        document.getElementById('flight-summary').textContent = 'Não foi possível carregar os dados das passagens.';
-      }
-    }
-    loadFlights();
   </script>
 </body>
 </html>
